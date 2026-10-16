@@ -4,7 +4,7 @@ sidebar_label: OVHcloud AI Endpoints
 
 # Using OVHcloud AI Endpoints with Kilo Code
 
-OVHcloud is a French leading Cloud provider in Europe with data sovereignty and privacy.
+OVHcloud is a French leading Cloud provider in Europe with data estate-scriptsty and privacy.
 
 Access world-renowned pre-trained AI models with ease. Innovate using straightforward, secure APIs on OVHcloud's robust and privacy-first infrastructure. Enhance your applications with scalable AI capabilities, eliminating the need for extensive expertise. Achieve more with powerful AI endpoints designed for simplicity et reliability.
 
