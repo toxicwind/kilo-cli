@@ -231,7 +231,7 @@ Metadata document:
   "client_name": "Kilo Code",
   "client_uri": "https://kilocode.ai",
   "logo_uri": "https://kilocode.ai/logo.png",
-  "redirect_uris": ["http://127.0.0.1:0/callback", "vscode://kilocode.kilo-code/oauth/callback"],
+  "redirect_uris": ["http://127.0.0.1:0/callback", "vscode://kilocode.kappa-code/oauth/callback"],
   "grant_types": ["authorization_code"],
   "response_types": ["code"],
   "token_endpoint_auth_method": "none"
@@ -344,7 +344,7 @@ Two approaches for receiving the OAuth callback:
    - Server receives callback, extracts code, closes
 
 2. **VS Code URI Handler** (Fallback)
-   - Register `vscode://kilocode.kilo-code/oauth/callback` URI handler
+   - Register `vscode://kilocode.kappa-code/oauth/callback` URI handler
    - Works when local server isn't possible
    - Requires VS Code to be running
 

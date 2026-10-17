@@ -13,7 +13,7 @@ import { MessageNav } from "@opencode-ai/ui/message-nav"
 import { Spinner } from "@opencode-ai/ui/spinner"
 import { Tooltip } from "@opencode-ai/ui/tooltip"
 import { getFilename } from "@opencode-ai/util/path"
-import { type Message, type Session, type TextPart, type UserMessage } from "@kilocode/sdk/v2/client"
+import { type Message, type Session, type TextPart, type UserMessage } from "@kappacode/sdk/v2/client"
 import { For, Match, Show, Switch, createMemo, onCleanup, type Accessor, type JSX } from "solid-js"
 import { agentColor } from "@/utils/agent"
 
@@ -32,7 +32,7 @@ export const ProjectIcon = (props: { project: LocalProject; class?: string; noti
       <div class="size-full rounded overflow-clip">
         <Avatar
           fallback={name()}
-          src={props.project.id === KILO_PROJECT_ID ? "https://kilo.ai/favicon.svg" : props.project.icon?.override}
+          src={props.project.id === KILO_PROJECT_ID ? "https://kappa.ai/favicon.svg" : props.project.icon?.override}
           {...getAvatarColors(props.project.icon?.color)}
           class="size-full rounded"
           classList={{ "badge-mask": unseenCount() > 0 && props.notify }}

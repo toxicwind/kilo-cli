@@ -180,7 +180,7 @@ customModes:
 
 - **Purpose:** A unique identifier for the mode
 - **Format:** Must match the pattern `/^[a-zA-Z0-9-]+$/` (only letters, numbers, and hyphens)
-- **Usage:** Used internally and in file/directory names for mode-specific rules (e.g., `.kilo/rules-{slug}/`)
+- **Usage:** Used internally and in file/directory names for mode-specific rules (e.g., `.kappa/rules-{slug}/`)
 - **Recommendation:** Keep it short and descriptive
 
 **YAML Example:** `slug: docs-writer`
@@ -315,11 +315,11 @@ The migration process preserves the original JSON file for rollback purposes.
 
 You can provide instructions for custom modes using dedicated files or directories within your workspace, allowing for better organization and version control.
 
-### Preferred Method: Directory (`.kilo/rules-{mode-slug}/`)
+### Preferred Method: Directory (`.kappa/rules-{mode-slug}/`)
 
 ```
 .
-├── .kilo/
+├── .kappa/
 │   └── rules-docs-writer/  # Example for mode slug "docs-writer"
 │       ├── 01-style-guide.md
 │       └── 02-formatting.txt
@@ -336,8 +336,8 @@ You can provide instructions for custom modes using dedicated files or directori
 
 **Rules Directory Scope:**
 
-- **Global modes:** Rules are stored in `~/.kilo/rules-{slug}/`
-- **Project modes:** Rules are stored in `{workspace}/.kilo/rules-{slug}/`
+- **Global modes:** Rules are stored in `~/.kappa/rules-{slug}/`
+- **Project modes:** Rules are stored in `{workspace}/.kappa/rules-{slug}/`
 
 The directory method takes precedence if it exists and contains files. Files within the directory are read recursively and appended in alphabetical order.
 

@@ -3,7 +3,7 @@ import { parseServerPort } from "../../src/services/cli-backend/server-utils"
 
 describe("parseServerPort", () => {
   it("parses port from standard CLI startup message", () => {
-    expect(parseServerPort("kilo server listening on http://127.0.0.1:12345")).toBe(12345)
+    expect(parseServerPort("kappa server listening on http://127.0.0.1:12345")).toBe(12345)
   })
 
   it("parses port from localhost variant", () => {
@@ -11,7 +11,7 @@ describe("parseServerPort", () => {
   })
 
   it("parses port when embedded in longer output", () => {
-    const output = "[INFO] 2024-01-01 kilo server listening on http://127.0.0.1:54321\n[INFO] ready"
+    const output = "[INFO] 2024-01-01 kappa server listening on http://127.0.0.1:54321\n[INFO] ready"
     expect(parseServerPort(output)).toBe(54321)
   })
 

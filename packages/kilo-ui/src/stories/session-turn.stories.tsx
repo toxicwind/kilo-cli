@@ -6,7 +6,7 @@ import { DiffComponentProvider } from "@opencode-ai/ui/context/diff"
 import { DialogProvider } from "@opencode-ai/ui/context/dialog"
 import { MarkedProvider } from "@opencode-ai/ui/context/marked"
 import { Diff } from "@opencode-ai/ui/diff"
-import type { UserMessage, AssistantMessage, TextPart, ToolPart } from "@kilocode/sdk/v2"
+import type { UserMessage, AssistantMessage, TextPart, ToolPart } from "@kappacode/sdk/v2"
 
 const SESSION_ID = "session-turn-story-001"
 const USER_MSG_ID = "user-turn-msg-001"

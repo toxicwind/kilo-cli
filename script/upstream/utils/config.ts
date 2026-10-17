@@ -9,7 +9,7 @@ export interface PackageMapping {
 }
 
 export interface MergeConfig {
-  /** Package name mappings from opencode to kilo */
+  /** Package name mappings from opencode to kappa */
   packageMappings: PackageMapping[]
 
   /** Files to always keep Kilo's version (never take upstream changes) */
@@ -60,10 +60,10 @@ export interface MergeConfig {
 
 export const defaultConfig: MergeConfig = {
   packageMappings: [
-    { from: "opencode-ai", to: "@kilocode/cli" },
-    { from: "@opencode-ai/cli", to: "@kilocode/cli" },
-    { from: "@opencode-ai/sdk", to: "@kilocode/sdk" },
-    { from: "@opencode-ai/plugin", to: "@kilocode/plugin" },
+    { from: "opencode-ai", to: "@kappacode/cli" },
+    { from: "@opencode-ai/cli", to: "@kappacode/cli" },
+    { from: "@opencode-ai/sdk", to: "@kappacode/sdk" },
+    { from: "@opencode-ai/plugin", to: "@kappacode/plugin" },
   ],
 
   keepOurs: [
@@ -197,8 +197,8 @@ export const defaultConfig: MergeConfig = {
   kiloDirectories: [
     "packages/opencode/src/kilocode",
     "packages/opencode/test/kilocode",
-    "packages/kilo-gateway",
-    "packages/kilo-telemetry",
+    "packages/kappa-gateway",
+    "packages/kappa-telemetry",
     "script/upstream",
   ],
 

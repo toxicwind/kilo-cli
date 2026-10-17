@@ -1,8 +1,8 @@
-import type { Hooks, PluginInput, Plugin as PluginInstance } from "@kilocode/plugin"
+import type { Hooks, PluginInput, Plugin as PluginInstance } from "@kappacode/plugin"
 import { Config } from "../config/config"
 import { Bus } from "../bus"
 import { Log } from "../util/log"
-import { createOpencodeClient } from "@kilocode/sdk"
+import { createOpencodeClient } from "@kappacode/sdk"
 import { Server } from "../server/server"
 import { BunProc } from "../bun"
 import { Instance } from "../project/instance"
@@ -13,7 +13,7 @@ import { NamedError } from "@opencode-ai/util/error"
 import { CopilotAuthPlugin } from "./copilot"
 import { gitlabAuthPlugin as GitlabAuthPlugin } from "@gitlab/opencode-gitlab-auth"
 
-import { KiloAuthPlugin } from "@kilocode/kilo-gateway" // kilocode_change
+import { KiloAuthPlugin } from "@kappacode/kappa-gateway" // kilocode_change
 
 export namespace Plugin {
   const log = Log.create({ service: "plugin" })

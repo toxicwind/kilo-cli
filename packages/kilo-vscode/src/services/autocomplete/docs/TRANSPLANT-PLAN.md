@@ -336,23 +336,23 @@ For a standalone extension you can keep these, or narrow them (e.g. only `onStar
 
 Commands declared in Kilo Code’s `package.json` (some are placeholders):
 
-- `kilo-code.autocomplete.generateSuggestions` (registered)
-- `kilo-code.autocomplete.cancelSuggestions` (declared, not registered)
-- `kilo-code.autocomplete.applyCurrentSuggestions` (declared, not registered)
-- `kilo-code.autocomplete.applyAllSuggestions` (declared, not registered)
-- `kilo-code.autocomplete.goToNextSuggestion` (declared, not registered)
-- `kilo-code.autocomplete.goToPreviousSuggestion` (declared, not registered)
+- `kappa-code.autocomplete.generateSuggestions` (registered)
+- `kappa-code.autocomplete.cancelSuggestions` (declared, not registered)
+- `kappa-code.autocomplete.applyCurrentSuggestions` (declared, not registered)
+- `kappa-code.autocomplete.applyAllSuggestions` (declared, not registered)
+- `kappa-code.autocomplete.goToNextSuggestion` (declared, not registered)
+- `kappa-code.autocomplete.goToPreviousSuggestion` (declared, not registered)
 
 See command table in [`investigation-vscode-integration.md`](src/services/autocomplete/docs/investigation-vscode-integration.md:23).
 
 Commands registered programmatically (must be declared if you want them visible/consistent):
 
-- `kilo-code.autocomplete.reload` ([`index.ts`](src/services/autocomplete/docs/investigation-vscode-integration.md:117))
-- `kilo-code.autocomplete.codeActionQuickFix` (stub)
-- `kilo-code.autocomplete.showIncompatibilityExtensionPopup`
-- `kilo-code.autocomplete.disable`
+- `kappa-code.autocomplete.reload` ([`index.ts`](src/services/autocomplete/docs/investigation-vscode-integration.md:117))
+- `kappa-code.autocomplete.codeActionQuickFix` (stub)
+- `kappa-code.autocomplete.showIncompatibilityExtensionPopup`
+- `kappa-code.autocomplete.disable`
 - `kilocode.autocomplete.inline-completion.accepted` (acceptance callback)
-- `kilo-code.jetbrains.getInlineCompletions` (JetBrains bridge)
+- `kappa-code.jetbrains.getInlineCompletions` (JetBrains bridge)
 
 Recommendation for the new extension:
 
@@ -738,7 +738,7 @@ No profile resolver is needed in phase 1. The provider and model are fixed.
 
 ### 11.6 i18n
 
-**Decision: Wire into `@kilocode/kilo-i18n`.** Use the translations from `src/services/autocomplete/i18n/`. Keys may differ from what `kilo-i18n` uses, so mapping is required. Discard translations for locales not present in `kilo-i18n`.
+**Decision: Wire into `@kappacode/kappa-i18n`.** Use the translations from `src/services/autocomplete/i18n/`. Keys may differ from what `kappa-i18n` uses, so mapping is required. Discard translations for locales not present in `kappa-i18n`.
 
 ### 11.7 File Ignore / Access Control
 
@@ -746,7 +746,7 @@ No profile resolver is needed in phase 1. The provider and model are fixed.
 
 ### 11.8 Command Prefix
 
-**Decision: Use `kilo-code.new.autocomplete.*`** to be consistent with the existing extension naming convention.
+**Decision: Use `kappa-code.new.autocomplete.*`** to be consistent with the existing extension naming convention.
 
 ### 11.9 NPM Dependencies
 

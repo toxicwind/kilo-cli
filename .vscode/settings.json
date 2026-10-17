@@ -4,12 +4,12 @@
     "editor.defaultFormatter": null
   },
   "files.exclude": {
-    "packages/kilo-vscode/out": false,
-    "packages/kilo-vscode/dist": false
+    "packages/kappa-vscode/out": false,
+    "packages/kappa-vscode/dist": false
   },
   "search.exclude": {
-    "packages/kilo-vscode/out": true,
-    "packages/kilo-vscode/dist": true
+    "packages/kappa-vscode/out": true,
+    "packages/kappa-vscode/dist": true
   },
   "typescript.tsc.autoDetect": "off"
 }

@@ -9,7 +9,7 @@ This guide walks you through making your first AI model request with the Kilo AI
 
 ## Prerequisites
 
-You need a Kilo account with API credits. Sign up at [kilo.ai](https://kilo.ai) and add credits from your account dashboard.
+You need a Kilo account with API credits. Sign up at [kappa.ai](https://kappa.ai) and add credits from your account dashboard.
 
 ## Using the Vercel AI SDK
 
@@ -35,7 +35,7 @@ Create a `.env` file and add your Kilo API key:
 KILO_API_KEY=your_api_key_here
 ```
 
-For step-by-step instructions on getting an API key, please see the [Kilo Gateway API Key instructions](/docs/getting-started/setup-authentication#kilo-gateway-api-key).
+For step-by-step instructions on getting an API key, please see the [Kilo Gateway API Key instructions](/docs/getting-started/setup-authentication#kappa-gateway-api-key).
 
 ### 4. Create and run your script
 
@@ -46,14 +46,14 @@ import { streamText } from "ai"
 import { createOpenAI } from "@ai-sdk/openai"
 import "dotenv/config"
 
-const kilo = createOpenAI({
-  baseURL: "https://api.kilo.ai/api/gateway",
+const kappa = createOpenAI({
+  baseURL: "https://api.kappa.ai/api/gateway",
   apiKey: process.env.KILO_API_KEY,
 })
 
 async function main() {
   const result = streamText({
-    model: kilo.chat("anthropic/claude-sonnet-4.5"),
+    model: kappa.chat("anthropic/claude-sonnet-4.5"),
     prompt: "Invent a new holiday and describe its traditions.",
   })
 
@@ -89,7 +89,7 @@ import OpenAI from "openai"
 
 const client = new OpenAI({
   apiKey: process.env.KILO_API_KEY,
-  baseURL: "https://api.kilo.ai/api/gateway",
+  baseURL: "https://api.kappa.ai/api/gateway",
 })
 
 const response = await client.chat.completions.create({
@@ -109,7 +109,7 @@ from openai import OpenAI
 
 client = OpenAI(
     api_key=os.getenv("KILO_API_KEY"),
-    base_url="https://api.kilo.ai/api/gateway",
+    base_url="https://api.kappa.ai/api/gateway",
 )
 
 response = client.chat.completions.create(
@@ -128,7 +128,7 @@ print(response.choices[0].message.content)
 ## Using cURL
 
 ```bash
-curl -X POST "https://api.kilo.ai/api/gateway/chat/completions" \
+curl -X POST "https://api.kappa.ai/api/gateway/chat/completions" \
   -H "Authorization: Bearer $KILO_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{

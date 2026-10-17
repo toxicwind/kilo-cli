@@ -15,10 +15,10 @@ Mobile apps for iOS and Android are currently in development. Sign up to be noti
 
 The Kilo Code iOS app will bring AI-powered coding assistance to your iPhone and iPad.
 
-[Learn more about the iOS app →](https://kilo.ai/features/ios-app)
+[Learn more about the iOS app →](https://kappa.ai/features/ios-app)
 
 ## Android App
 
 The Kilo Code Android app will let you code with AI assistance on your Android phone or tablet.
 
-[Learn more about the Android app →](https://kilo.ai/features/android-app)
+[Learn more about the Android app →](https://kappa.ai/features/android-app)

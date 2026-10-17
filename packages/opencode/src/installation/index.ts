@@ -102,9 +102,9 @@ export namespace Installation {
 
     for (const check of checks) {
       const output = await check.command()
-      // kilocode_change start - check for @kilocode/cli instead of opencode-ai for JS package managers
+      // kilocode_change start - check for @kappacode/cli instead of opencode-ai for JS package managers
       const installedName =
-        check.name === "brew" || check.name === "choco" || check.name === "scoop" ? "opencode" : "@kilocode/cli"
+        check.name === "brew" || check.name === "choco" || check.name === "scoop" ? "opencode" : "@kappacode/cli"
       // kilocode_change end
       if (output.includes(installedName)) {
         return check.name
@@ -139,13 +139,13 @@ export namespace Installation {
         })
         break
       case "npm":
-        cmd = $`npm install -g @kilocode/cli@${target}` // kilocode_change
+        cmd = $`npm install -g @kappacode/cli@${target}` // kilocode_change
         break
       case "pnpm":
-        cmd = $`pnpm install -g @kilocode/cli@${target}` // kilocode_change
+        cmd = $`pnpm install -g @kappacode/cli@${target}` // kilocode_change
         break
       case "bun":
-        cmd = $`bun install -g @kilocode/cli@${target}` // kilocode_change
+        cmd = $`bun install -g @kappacode/cli@${target}` // kilocode_change
         break
       case "brew": {
         const formula = await getBrewFormula()
@@ -192,7 +192,7 @@ export namespace Installation {
 
   export const VERSION = typeof KILO_VERSION === "string" ? KILO_VERSION : "local"
   export const CHANNEL = typeof KILO_CHANNEL === "string" ? KILO_CHANNEL : "local"
-  export const USER_AGENT = `kilo/${CHANNEL}/${VERSION}/${Flag.KILO_CLIENT}` // kilocode_change
+  export const USER_AGENT = `kappa/${CHANNEL}/${VERSION}/${Flag.KILO_CLIENT}` // kilocode_change
 
   export async function latest(installMethod?: Method) {
     const detectedMethod = installMethod || (await method())
@@ -214,7 +214,7 @@ export namespace Installation {
         .then((data: any) => data.versions.stable)
     }
 
-    // kilocode_change start - support npm/pnpm/bun for kilocode, fetch from @kilocode/cli on npm registry
+    // kilocode_change start - support npm/pnpm/bun for kilocode, fetch from @kappacode/cli on npm registry
     if (detectedMethod === "npm" || detectedMethod === "pnpm" || detectedMethod === "bun") {
       const registry = await iife(async () => {
         const r = (await $`npm config get registry`.quiet().nothrow().text()).trim()
@@ -222,7 +222,7 @@ export namespace Installation {
         return reg.endsWith("/") ? reg.slice(0, -1) : reg
       })
       const channel = CHANNEL
-      return fetch(`${registry}/@kilocode/cli/${channel}`)
+      return fetch(`${registry}/@kappacode/cli/${channel}`)
         .then((res) => {
           if (!res.ok) throw new Error(res.statusText)
           return res.json()
@@ -254,7 +254,7 @@ export namespace Installation {
         .then((data: any) => data.version)
     }
 
-    return fetch("https://api.github.com/repos/Kilo-Org/kilo/releases/latest")
+    return fetch("https://api.github.com/repos/Kilo-Org/kappa/releases/latest")
       .then((res) => {
         if (!res.ok) throw new Error(res.statusText)
         return res.json()

@@ -40,15 +40,15 @@ describe("buildTelemetryAuthHeader", () => {
     expect(result.startsWith("Basic ")).toBe(true)
   })
 
-  it("encodes kilo:password in base64", () => {
+  it("encodes kappa:password in base64", () => {
     const result = buildTelemetryAuthHeader("secret")
-    const encoded = Buffer.from("kilo:secret").toString("base64")
+    const encoded = Buffer.from("kappa:secret").toString("base64")
     expect(result).toBe(`Basic ${encoded}`)
   })
 
   it("handles empty password", () => {
     const result = buildTelemetryAuthHeader("")
-    const encoded = Buffer.from("kilo:").toString("base64")
+    const encoded = Buffer.from("kappa:").toString("base64")
     expect(result).toBe(`Basic ${encoded}`)
   })
 })

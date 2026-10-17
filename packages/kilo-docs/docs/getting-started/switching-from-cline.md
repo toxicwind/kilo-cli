@@ -131,13 +131,13 @@ Supports IntelliJ, PyCharm, WebStorm, and all JetBrains IDEs.
 ### CLI
 
 ```shell
-npm install -g @kilocode/cli
-kilo
+npm install -g @kappacode/cli
+kappa
 ```
 
 ### Web (Cloud Agents & App Builder)
 
-Visit [app.kilo.ai](https://app.kilo.ai/) and sign in. This gives you access to:
+Visit [app.kappa.ai](https://app.kappa.ai/) and sign in. This gives you access to:
 
 - **Cloud Agents:** Run Kilo without a local machine
 - **App Builder:** Build and preview apps directly in your browser
@@ -151,7 +151,7 @@ Visit [app.kilo.ai](https://app.kilo.ai/) and sign in. This gives you access to:
 ### Create account
 
 1. Click "Try Kilo Code for Free" in the Kilo panel
-2. Sign in with OAuth at kilo.ai
+2. Sign in with OAuth at kappa.ai
 3. You'll be redirected back to your IDE
 
 ### Configure your provider
@@ -176,7 +176,7 @@ One of the biggest differences from Cline is that Kilo isn't just an IDE extensi
 
 ### Cloud Agents
 
-Run Kilo from [app.kilo.ai/cloud](https://app.kilo.ai/cloud) without needing your local machine. Great for:
+Run Kilo from [app.kappa.ai/cloud](https://app.kappa.ai/cloud) without needing your local machine. Great for:
 
 - Working from a tablet or phone
 - Offloading heavy tasks
@@ -310,6 +310,6 @@ In-line ghost-text completions with tab to complete. Works alongside the agent m
    - **Debug:** "Why is this function returning undefined?"
    - **Architect:** "Design a logging system"
    - **Orchestrator:** "Build an app, end-to-end, that…"
-3. Try Cloud Agents at [app.kilo.ai](https://app.kilo.ai/)
-4. Install the Kilo CLI with `npm install -g @kilocode/cli`
+3. Try Cloud Agents at [app.kappa.ai](https://app.kappa.ai/)
+4. Install the Kilo CLI with `npm install -g @kappacode/cli`
 5. Enable Autocomplete for inline suggestions

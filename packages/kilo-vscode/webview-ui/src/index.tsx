@@ -1,5 +1,5 @@
 /* @refresh reload */
-import "@kilocode/kilo-ui/styles"
+import "@kappacode/kappa-ui/styles"
 import { render } from "solid-js/web"
 import App from "./App"
 

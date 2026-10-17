@@ -29,7 +29,7 @@ Kilo Gateway currently supports BYOK keys for these providers:
 ## Add a BYOK key
 
 1. Log into the Kilo platform and select the account or organization you want to add the BYOK key to.
-2. Navigate to the [Bring Your Own Key (BYOK) page](https://app.kilo.ai/byok), available in the sidebar under `Account`.
+2. Navigate to the [Bring Your Own Key (BYOK) page](https://app.kappa.ai/byok), available in the sidebar under `Account`.
 3. Click `Add Your First Key`, select the provider, and paste your API key.
 4. Save.
 

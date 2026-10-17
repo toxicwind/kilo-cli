@@ -54,19 +54,19 @@ const TAURI_REPLACEMENTS: TauriReplacement[] = [
   // JSON config - identifiers
   {
     pattern: /ai\.opencode\.desktop\.dev/g,
-    replacement: "ai.kilo.desktop.dev",
+    replacement: "ai.kappa.desktop.dev",
     description: "Dev identifier",
   },
   {
     pattern: /ai\.opencode\.desktop/g,
-    replacement: "ai.kilo.desktop",
+    replacement: "ai.kappa.desktop",
     description: "Prod identifier",
   },
 
   // Binary names
   {
     pattern: /opencode-cli/g,
-    replacement: "kilo-cli",
+    replacement: "kappa-cli",
     description: "CLI binary name",
   },
   {
@@ -79,19 +79,19 @@ const TAURI_REPLACEMENTS: TauriReplacement[] = [
   // GitHub references
   {
     pattern: /github\.com\/anomalyco\/opencode/g,
-    replacement: "github.com/Kilo-Org/kilo",
+    replacement: "github.com/Kilo-Org/kappa",
     description: "GitHub URL",
   },
   {
     pattern: /anomalyco\/opencode/g,
-    replacement: "Kilo-Org/kilo",
+    replacement: "Kilo-Org/kappa",
     description: "GitHub repo",
   },
 
   // Cargo.toml specific
   {
     pattern: /name\s*=\s*"opencode-desktop"/g,
-    replacement: 'name = "kilo-desktop"',
+    replacement: 'name = "kappa-desktop"',
     description: "Cargo package name",
     fileTypes: [".toml"],
   },
@@ -111,19 +111,19 @@ const TAURI_REPLACEMENTS: TauriReplacement[] = [
   // Rust source specific
   {
     pattern: /opencode\.settings\.dat/g,
-    replacement: "kilo.settings.dat",
+    replacement: "kappa.settings.dat",
     description: "Settings file name",
     fileTypes: [".rs"],
   },
   {
     pattern: /"\.opencode\/bin"/g,
-    replacement: '".kilo/bin"',
+    replacement: '".kappa/bin"',
     description: "CLI install dir",
     fileTypes: [".rs"],
   },
   {
     pattern: /CLI_BINARY_NAME\s*=\s*"opencode"/g,
-    replacement: 'CLI_BINARY_NAME = "kilo"',
+    replacement: 'CLI_BINARY_NAME = "kappa"',
     description: "CLI binary constant",
     fileTypes: [".rs"],
   },
@@ -135,7 +135,7 @@ const TAURI_REPLACEMENTS: TauriReplacement[] = [
   },
   {
     pattern: /killall opencode-cli/g,
-    replacement: "killall kilo-cli",
+    replacement: "killall kappa-cli",
     description: "Killall command",
     fileTypes: [".rs"],
   },
@@ -143,7 +143,7 @@ const TAURI_REPLACEMENTS: TauriReplacement[] = [
   // Domain
   {
     pattern: /opencode\.ai/g,
-    replacement: "kilo.ai",
+    replacement: "kappa.ai",
     description: "Domain",
   },
 

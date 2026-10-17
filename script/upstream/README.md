@@ -22,7 +22,7 @@ bun run merge.ts --version v1.1.49
 bun run merge.ts --version v1.1.49 --dry-run
 
 # Use a different base branch (e.g., for incremental merges)
-bun run merge.ts --version v1.1.50 --base-branch catrielmuller/kilo-opencode-v1.1.44
+bun run merge.ts --version v1.1.50 --base-branch catrielmuller/kappa-opencode-v1.1.44
 ```
 
 ## Scripts
@@ -39,7 +39,7 @@ bun run merge.ts --version v1.1.50 --base-branch catrielmuller/kilo-opencode-v1.
 
 | Script                                 | Description                                                 |
 | -------------------------------------- | ----------------------------------------------------------- |
-| `transforms/package-names.ts`          | Transform opencode package names to kilo                    |
+| `transforms/package-names.ts`          | Transform opencode package names to kappa                    |
 | `transforms/preserve-versions.ts`      | Preserve Kilo's package versions                            |
 | `transforms/keep-ours.ts`              | Keep Kilo's version of specific files                       |
 | `transforms/skip-files.ts`             | Skip/remove files that shouldn't exist in Kilo              |
@@ -72,11 +72,11 @@ The merge automation follows this process, applying **all transformations BEFORE
 
 4. **Create branches**
    - `backup/<branch>-<timestamp>` - Backup of current state
-   - `<author>/kilo-opencode-<version>` - Merge target branch
+   - `<author>/kappa-opencode-<version>` - Merge target branch
    - `<author>/opencode-<version>` - Transformed upstream branch
 
 5. **Apply ALL transformations to upstream branch (PRE-MERGE)**:
-   - Transform package names (opencode-ai -> @kilocode/cli)
+   - Transform package names (opencode-ai -> @kappacode/cli)
    - Preserve Kilo's versions
    - Transform i18n files with Kilo branding
    - Transform branding-only files (UI components, configs)
@@ -106,8 +106,8 @@ Configuration is defined in `utils/config.ts`:
 {
   // Package name mappings
   packageMappings: [
-    { from: "opencode-ai", to: "@kilocode/cli" },
-    { from: "@opencode-ai/cli", to: "@kilocode/cli" },
+    { from: "opencode-ai", to: "@kappacode/cli" },
+    { from: "@opencode-ai/cli", to: "@kappacode/cli" },
     // ...
   ],
 
@@ -146,8 +146,8 @@ Configuration is defined in `utils/config.ts`:
   // Kilo-specific directories (preserved)
   kiloDirectories: [
     "packages/opencode/src/kilocode",
-    "packages/kilo-gateway",
-    "packages/kilo-telemetry",
+    "packages/kappa-gateway",
+    "packages/kappa-telemetry",
     // ...
   ],
 }
@@ -161,7 +161,7 @@ Configuration is defined in `utils/config.ts`:
 
 The following transforms are applied to the opencode branch before merging:
 
-1. **Package names** - `opencode-ai` -> `@kilocode/cli`, etc.
+1. **Package names** - `opencode-ai` -> `@kappacode/cli`, etc.
 2. **Versions** - Preserve Kilo's version numbers
 3. **i18n files** - OpenCode -> Kilo in user-visible strings
 4. **Branding files** - UI components, configs with branding only
@@ -242,13 +242,13 @@ When working on multiple upstream versions, you can create a chain of merge PRs:
 # First merge: v1.1.44 into dev
 bun run merge.ts --version v1.1.44
 
-# Create PR: catrielmuller/kilo-opencode-v1.1.44 -> dev
+# Create PR: catrielmuller/kappa-opencode-v1.1.44 -> dev
 
 # Second merge: v1.1.50 based on the previous PR (without waiting for approval)
-bun run merge.ts --version v1.1.50 --base-branch catrielmuller/kilo-opencode-v1.1.44
+bun run merge.ts --version v1.1.50 --base-branch catrielmuller/kappa-opencode-v1.1.44
 
-# Create PR: catrielmuller/kilo-opencode-v1.1.50 -> catrielmuller/kilo-opencode-v1.1.44
-# OR: catrielmuller/kilo-opencode-v1.1.50 -> dev (once first PR is merged)
+# Create PR: catrielmuller/kappa-opencode-v1.1.50 -> catrielmuller/kappa-opencode-v1.1.44
+# OR: catrielmuller/kappa-opencode-v1.1.50 -> dev (once first PR is merged)
 ```
 
 ### Benefits
@@ -262,13 +262,13 @@ bun run merge.ts --version v1.1.50 --base-branch catrielmuller/kilo-opencode-v1.
 
 ```bash
 # 1. Analyze next version from your WIP branch
-bun run analyze.ts --version v1.1.50 --base-branch catrielmuller/kilo-opencode-v1.1.44
+bun run analyze.ts --version v1.1.50 --base-branch catrielmuller/kappa-opencode-v1.1.44
 
 # 2. Run the merge
-bun run merge.ts --version v1.1.50 --base-branch catrielmuller/kilo-opencode-v1.1.44
+bun run merge.ts --version v1.1.50 --base-branch catrielmuller/kappa-opencode-v1.1.44
 
-# 3. Create PR from catrielmuller/kilo-opencode-v1.1.50
-#    - Target: catrielmuller/kilo-opencode-v1.1.44 (if first PR not merged yet)
+# 3. Create PR from catrielmuller/kappa-opencode-v1.1.50
+#    - Target: catrielmuller/kappa-opencode-v1.1.44 (if first PR not merged yet)
 #    - Target: dev (if first PR is already merged)
 ```
 

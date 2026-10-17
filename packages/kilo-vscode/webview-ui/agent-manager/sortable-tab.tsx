@@ -7,8 +7,8 @@ import { createSortable, useDragDropContext } from "@thisbeyond/solid-dnd"
 import type { Transformer } from "@thisbeyond/solid-dnd"
 import { createRoot } from "solid-js"
 import type { SessionInfo } from "../src/types/messages"
-import { IconButton } from "@kilocode/kilo-ui/icon-button"
-import { TooltipKeybind } from "@kilocode/kilo-ui/tooltip"
+import { IconButton } from "@kappacode/kappa-ui/icon-button"
+import { TooltipKeybind } from "@kappacode/kappa-ui/tooltip"
 
 /** Lock drag movement to the X axis (horizontal-only tab dragging). */
 export const ConstrainDragYAxis: Component = () => {

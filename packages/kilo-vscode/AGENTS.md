@@ -41,7 +41,7 @@ The script automatically handles building the opencode package if needed.
 - Extension code in `src/`, webview code in `webview-ui/src/` with separate tsconfig
 - Tests compile to `out/` via `compile-tests`, not `dist/`
 - CSP requires nonce for scripts and `font-src` for bundled fonts - see [`KiloProvider.ts`](src/KiloProvider.ts:777)
-- HTML root has `data-theme="kilo-vscode"` to activate kilo-ui's VS Code theme bridge
+- HTML root has `data-theme="kappa-vscode"` to activate kappa-ui's VS Code theme bridge
 - Extension and webview have no shared state - communicate via `vscode.Webview.postMessage()`
 - For editor panels, use [`AgentManagerProvider`](src/AgentManagerProvider.ts) pattern with `retainContextWhenHidden: true`
 - esbuild webview build includes [`cssPackageResolvePlugin`](esbuild.js:29) for CSS `@import` resolution and font loaders (`.woff`, `.woff2`, `.ttf`)
@@ -73,20 +73,20 @@ Key patterns:
 - `KiloProvider.dispose()` only unsubscribes from the service; `KiloConnectionService.dispose()` kills the server
 - Session→message mapping (`recordMessageSessionId`) enables resolving `message.part.updated` events to the correct session
 
-## Webview UI (kilo-ui)
+## Webview UI (kappa-ui)
 
-New webview features must use **`@kilocode/kilo-ui`** components instead of raw HTML elements with inline styles. This is a Solid.js component library built on `@kobalte/core`.
+New webview features must use **`@kappacode/kappa-ui`** components instead of raw HTML elements with inline styles. This is a Solid.js component library built on `@kobalte/core`.
 
-- Import via deep subpaths: `import { Button } from "@kilocode/kilo-ui/button"`
+- Import via deep subpaths: `import { Button } from "@kappacode/kappa-ui/button"`
 - Available components include `Button`, `IconButton`, `Dialog`, `Spinner`, `Card`, `Tabs`, `Tooltip`, `Toast`, `Code`, `Markdown`, and more
 - Provider hierarchy in [`App.tsx`](webview-ui/src/App.tsx:113): `ThemeProvider → I18nProvider → DialogProvider → MarkedProvider → VSCodeProvider → ServerProvider → ProviderProvider → SessionProvider`
-- Global styles imported via `import "@kilocode/kilo-ui/styles"` in [`index.tsx`](webview-ui/src/index.tsx:2)
-- [`chat.css`](webview-ui/src/styles/chat.css) is being progressively migrated — when replacing a component with kilo-ui, remove the corresponding CSS rules from it
-- New CSS for components not yet in kilo-ui goes into `chat.css` grouped by comment-delimited sections (`/* Component Name */`). Once a kilo-ui equivalent exists, remove the section.
-- **Check the desktop app first**: [`packages/app/src/`](../../packages/app/src/) is the reference implementation for how kilo-ui components are composed together. Always check how the app uses a component before implementing it in the webview — don't just look at the component API in isolation.
-- **`data-component` and `data-slot` attributes carry CSS styling** — kilo-ui uses `[data-component]` and `[data-slot]` attribute selectors, not class names. When the app uses e.g. `data-component="permission-prompt"` and `data-slot="permission-actions"`, these get kilo-ui styling for free.
-- **Prefer kilo-ui styles**: Always reuse existing kilo-ui CSS variables, tokens, and component styles instead of writing custom CSS. If a style doesn't exist in kilo-ui yet, add it there and reuse it rather than inlining or duplicating styles in the webview.
-- **Icons**: kilo-ui has 75+ custom SVG icons in [`packages/ui/src/components/icon.tsx`](../../packages/ui/src/components/icon.tsx). To list all available icon names: `node -e "const c=require('fs').readFileSync('../../packages/ui/src/components/icon.tsx','utf8');[...c.matchAll(/^\\s{2}[\"']?([\\w-]+)[\"']?:\\s*\x60/gm)].map(m=>m[1]).sort().forEach(n=>console.log(n))"`. Icon names use both hyphenated (`arrow-left`) and bare-word (`brain`, `console`, `providers`) keys.
+- Global styles imported via `import "@kappacode/kappa-ui/styles"` in [`index.tsx`](webview-ui/src/index.tsx:2)
+- [`chat.css`](webview-ui/src/styles/chat.css) is being progressively migrated — when replacing a component with kappa-ui, remove the corresponding CSS rules from it
+- New CSS for components not yet in kappa-ui goes into `chat.css` grouped by comment-delimited sections (`/* Component Name */`). Once a kappa-ui equivalent exists, remove the section.
+- **Check the desktop app first**: [`packages/app/src/`](../../packages/app/src/) is the reference implementation for how kappa-ui components are composed together. Always check how the app uses a component before implementing it in the webview — don't just look at the component API in isolation.
+- **`data-component` and `data-slot` attributes carry CSS styling** — kappa-ui uses `[data-component]` and `[data-slot]` attribute selectors, not class names. When the app uses e.g. `data-component="permission-prompt"` and `data-slot="permission-actions"`, these get kappa-ui styling for free.
+- **Prefer kappa-ui styles**: Always reuse existing kappa-ui CSS variables, tokens, and component styles instead of writing custom CSS. If a style doesn't exist in kappa-ui yet, add it there and reuse it rather than inlining or duplicating styles in the webview.
+- **Icons**: kappa-ui has 75+ custom SVG icons in [`packages/ui/src/components/icon.tsx`](../../packages/ui/src/components/icon.tsx). To list all available icon names: `node -e "const c=require('fs').readFileSync('../../packages/ui/src/components/icon.tsx','utf8');[...c.matchAll(/^\\s{2}[\"']?([\\w-]+)[\"']?:\\s*\x60/gm)].map(m=>m[1]).sort().forEach(n=>console.log(n))"`. Icon names use both hyphenated (`arrow-left`) and bare-word (`brain`, `console`, `providers`) keys.
 
 ## Debugging
 
@@ -96,8 +96,8 @@ New webview features must use **`@kilocode/kilo-ui`** components instead of raw 
 
 ## Naming Conventions
 
-- All VSCode commands must use `kilo-code.new.` prefix (not `kilo-code.`)
-- All view IDs must use `kilo-code.new.` prefix (e.g., `kilo-code.new.sidebarView`)
+- All VSCode commands must use `kappa-code.new.` prefix (not `kappa-code.`)
+- All view IDs must use `kappa-code.new.` prefix (e.g., `kappa-code.new.sidebarView`)
 
 ## Coexistence with Old Extension
 
@@ -105,11 +105,11 @@ While the old extension coexists, runtime labels append `(NEW)` — controlled b
 
 ## Agent Manager
 
-Opens as an editor tab (not the sidebar) and lets users run multiple independent AI sessions in parallel. It has a left sidebar listing active sessions and a right panel showing the chat UI for the selected one. Each session is a standard `kilo serve` session. The extension side uses the same `KiloProvider` wiring as the sidebar; the webview side reuses the same provider chain and `ChatView` component.
+Opens as an editor tab (not the sidebar) and lets users run multiple independent AI sessions in parallel. It has a left sidebar listing active sessions and a right panel showing the chat UI for the selected one. Each session is a standard `kappa serve` session. The extension side uses the same `KiloProvider` wiring as the sidebar; the webview side reuses the same provider chain and `ChatView` component.
 
 ## Kilocode Change Markers
 
-This package is entirely Kilo-specific — `kilocode_change` markers are NOT needed in any files under `packages/kilo-vscode/`. The markers are only necessary when modifying shared upstream opencode files.
+This package is entirely Kilo-specific — `kilocode_change` markers are NOT needed in any files under `packages/kappa-vscode/`. The markers are only necessary when modifying shared upstream opencode files.
 
 ## Style
 

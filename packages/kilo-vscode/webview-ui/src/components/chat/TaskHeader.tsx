@@ -5,8 +5,8 @@
  */
 
 import { Component, Show, createMemo } from "solid-js"
-import { IconButton } from "@kilocode/kilo-ui/icon-button"
-import { Tooltip } from "@kilocode/kilo-ui/tooltip"
+import { IconButton } from "@kappacode/kappa-ui/icon-button"
+import { Tooltip } from "@kappacode/kappa-ui/tooltip"
 import { useSession } from "../../context/session"
 import { useLanguage } from "../../context/language"
 

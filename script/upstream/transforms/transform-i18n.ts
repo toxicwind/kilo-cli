@@ -8,13 +8,13 @@
  * 3. Preserving lines marked with `// kilocode_change`
  *
  * String replacement rules:
- * - opencode.ai -> kilo.ai (domain)
- * - app.opencode.ai -> app.kilo.ai (app domain)
+ * - opencode.ai -> kappa.ai (domain)
+ * - app.opencode.ai -> app.kappa.ai (app domain)
  * - OpenCode Desktop -> Kilo Desktop (desktop app name)
  * - OpenCode -> Kilo (product name in user-visible text)
- * - opencode upgrade -> kilo upgrade (CLI commands)
- * - npx opencode -> npx kilo (CLI invocation)
- * - anomalyco/opencode -> Kilo-Org/kilo (GitHub repo)
+ * - opencode upgrade -> kappa upgrade (CLI commands)
+ * - npx opencode -> npx kappa (CLI invocation)
+ * - anomalyco/opencode -> Kilo-Org/kappa (GitHub repo)
  *
  * Preserved (not replaced):
  * - opencode.json (actual config filename)
@@ -51,24 +51,24 @@ const I18N_REPLACEMENTS: StringReplacement[] = [
   // GitHub repo references
   {
     pattern: /github\.com\/anomalyco\/opencode/g,
-    replacement: "github.com/Kilo-Org/kilo",
+    replacement: "github.com/Kilo-Org/kappa",
     description: "GitHub URL",
   },
   {
     pattern: /anomalyco\/opencode/g,
-    replacement: "Kilo-Org/kilo",
+    replacement: "Kilo-Org/kappa",
     description: "GitHub repo reference",
   },
 
   // Domain replacements (specific first)
   {
     pattern: /app\.opencode\.ai/g,
-    replacement: "app.kilo.ai",
+    replacement: "app.kappa.ai",
     description: "App domain",
   },
   {
     pattern: /opencode\.ai(?!\/zen)/g,
-    replacement: "kilo.ai",
+    replacement: "kappa.ai",
     description: "Main domain (excluding zen)",
   },
 
@@ -82,37 +82,37 @@ const I18N_REPLACEMENTS: StringReplacement[] = [
   // CLI commands (be careful with order)
   {
     pattern: /npx opencode(?!\w)/g,
-    replacement: "npx kilo",
+    replacement: "npx kappa",
     description: "npx command",
   },
   {
     pattern: /bun add opencode(?!\w)/g,
-    replacement: "bun add kilo",
+    replacement: "bun add kappa",
     description: "bun add command",
   },
   {
     pattern: /npm install opencode(?!\w)/g,
-    replacement: "npm install kilo",
+    replacement: "npm install kappa",
     description: "npm install command",
   },
   {
     pattern: /opencode upgrade(?!\w)/g,
-    replacement: "kilo upgrade",
+    replacement: "kappa upgrade",
     description: "upgrade command",
   },
   {
     pattern: /opencode dev(?!\w)/g,
-    replacement: "kilo dev",
+    replacement: "kappa dev",
     description: "dev command",
   },
   {
     pattern: /opencode serve(?!\w)/g,
-    replacement: "kilo serve",
+    replacement: "kappa serve",
     description: "serve command",
   },
   {
     pattern: /opencode auth(?!\w)/g,
-    replacement: "kilo auth",
+    replacement: "kappa auth",
     description: "auth command",
   },
 

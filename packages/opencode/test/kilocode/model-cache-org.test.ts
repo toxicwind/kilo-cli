@@ -9,7 +9,7 @@ import path from "path"
 // Capture the options passed to fetchKiloModels
 let captured: any = undefined
 
-mock.module("@kilocode/kilo-gateway", () => ({
+mock.module("@kappacode/kappa-gateway", () => ({
   fetchKiloModels: async (options: any) => {
     captured = options
     return {
@@ -21,7 +21,7 @@ mock.module("@kilocode/kilo-gateway", () => ({
       },
     }
   },
-  KILO_OPENROUTER_BASE: "https://api.kilo.ai/api/openrouter",
+  KILO_OPENROUTER_BASE: "https://api.kappa.ai/api/openrouter",
 }))
 
 // Mock BunProc and default plugins to prevent actual installations during tests
@@ -55,7 +55,7 @@ test("model fetch uses accountId from OAuth auth as kilocodeOrganizationId", asy
       await Bun.write(
         path.join(dir, "opencode.json"),
         JSON.stringify({
-          $schema: "https://app.kilo.ai/config.json",
+          $schema: "https://app.kappa.ai/config.json",
         }),
       )
     },
@@ -64,7 +64,7 @@ test("model fetch uses accountId from OAuth auth as kilocodeOrganizationId", asy
     directory: tmp.path,
     init: async () => {
       // Simulate an OAuth login where user selected an enterprise organization
-      await Auth.set("kilo", {
+      await Auth.set("kappa", {
         type: "oauth",
         access: "test-oauth-token",
         refresh: "test-refresh-token",
@@ -75,10 +75,10 @@ test("model fetch uses accountId from OAuth auth as kilocodeOrganizationId", asy
     fn: async () => {
       // Reset captured and cache
       captured = undefined
-      ModelCache.clear("kilo")
+      ModelCache.clear("kappa")
 
       // Trigger model fetch through the cache
-      await ModelCache.fetch("kilo")
+      await ModelCache.fetch("kappa")
 
       // The fetchKiloModels call should have received the organization ID
       expect(captured).toBeDefined()
@@ -94,7 +94,7 @@ test("model fetch without OAuth accountId does not set kilocodeOrganizationId", 
       await Bun.write(
         path.join(dir, "opencode.json"),
         JSON.stringify({
-          $schema: "https://app.kilo.ai/config.json",
+          $schema: "https://app.kappa.ai/config.json",
         }),
       )
     },
@@ -103,7 +103,7 @@ test("model fetch without OAuth accountId does not set kilocodeOrganizationId", 
     directory: tmp.path,
     init: async () => {
       // Simulate an OAuth login for a personal account (no accountId)
-      await Auth.set("kilo", {
+      await Auth.set("kappa", {
         type: "oauth",
         access: "test-personal-token",
         refresh: "test-refresh-token",
@@ -112,9 +112,9 @@ test("model fetch without OAuth accountId does not set kilocodeOrganizationId", 
     },
     fn: async () => {
       captured = undefined
-      ModelCache.clear("kilo")
+      ModelCache.clear("kappa")
 
-      await ModelCache.fetch("kilo")
+      await ModelCache.fetch("kappa")
 
       expect(captured).toBeDefined()
       expect(captured.kilocodeToken).toBe("test-personal-token")

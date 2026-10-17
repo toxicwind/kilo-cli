@@ -10,7 +10,7 @@ This guide walks you through setting up Mistral's Codestral model for free autoc
 
 In VS Code, open the Kilo Code panel and click the **Settings** icon (gear) in the top-right corner.
 
-![Open Kilo Code Settings](/docs/img/mistral-setup/01-open-kilo-code-settings.png)
+![Open Kilo Code Settings](/docs/img/mistral-setup/01-open-kappa-code-settings.png)
 
 ## Step 2: Add a New Configuration Profile
 

@@ -159,7 +159,7 @@ export async function createMenu(trigger: (id: string) => void) {
         items: [
           // missing native macos search
           await MenuItem.new({
-            action: () => openUrl("https://kilo.ai/docs"),
+            action: () => openUrl("https://kappa.ai/docs"),
             text: "Kilo Documentation",
           }),
           await MenuItem.new({
@@ -176,11 +176,11 @@ export async function createMenu(trigger: (id: string) => void) {
             item: "Separator",
           }),
           await MenuItem.new({
-            action: () => openUrl("https://github.com/Kilo-Org/kilo/issues/new?template=feature_request.yml"),
+            action: () => openUrl("https://github.com/Kilo-Org/kappa/issues/new?template=feature_request.yml"),
             text: "Share Feedback",
           }),
           await MenuItem.new({
-            action: () => openUrl("https://github.com/Kilo-Org/kilo/issues/new?template=bug_report.yml"),
+            action: () => openUrl("https://github.com/Kilo-Org/kappa/issues/new?template=bug_report.yml"),
             text: "Report a Bug",
           }),
         ],

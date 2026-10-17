@@ -82,7 +82,7 @@ export async function createOpencodeServer(options?: ServerOptions) {
       const lines = output.split("\n")
       for (const line of lines) {
         // kilocode_change start
-        if (line.startsWith("kilo server listening")) {
+        if (line.startsWith("kappa server listening")) {
           // kilocode_change end
           const match = line.match(/on\s+(https?:\/\/[^\s]+)/)
           if (!match) {

@@ -35,7 +35,7 @@ interface KiloRoutesDeps {
  *
  * @example
  * ```typescript
- * import { createKiloRoutes } from "@kilocode/kilo-gateway"
+ * import { createKiloRoutes } from "@kappacode/kappa-gateway"
  * import { Hono } from "hono"
  * import { describeRoute, validator, resolver } from "hono-openapi"
  * import z from "zod"
@@ -84,7 +84,7 @@ export function createKiloRoutes(deps: KiloRoutesDeps) {
       describeRoute({
         summary: "Get Kilo Gateway profile",
         description: "Fetch user profile and organizations from Kilo Gateway",
-        operationId: "kilo.profile",
+        operationId: "kappa.profile",
         responses: {
           200: {
             description: "Profile data",
@@ -99,7 +99,7 @@ export function createKiloRoutes(deps: KiloRoutesDeps) {
       }),
       async (c: any) => {
         // Get Kilo auth
-        const auth = await Auth.get("kilo")
+        const auth = await Auth.get("kappa")
 
         if (!auth || auth.type !== "oauth") {
           return c.json({ error: "Not authenticated with Kilo Gateway" }, 401)
@@ -123,7 +123,7 @@ export function createKiloRoutes(deps: KiloRoutesDeps) {
       describeRoute({
         summary: "Update Kilo Gateway organization",
         description: "Switch to a different Kilo Gateway organization",
-        operationId: "kilo.organization.set",
+        operationId: "kappa.organization.set",
         responses: {
           200: {
             description: "Organization updated successfully",
@@ -146,14 +146,14 @@ export function createKiloRoutes(deps: KiloRoutesDeps) {
         const { organizationId } = c.req.valid("json")
 
         // Get current Kilo auth
-        const auth = await Auth.get("kilo")
+        const auth = await Auth.get("kappa")
 
         if (!auth || auth.type !== "oauth") {
           return c.json({ error: "Not authenticated with Kilo Gateway" }, 401)
         }
 
         // Update auth with new organization ID
-        await Auth.set("kilo", {
+        await Auth.set("kappa", {
           type: "oauth",
           refresh: auth.refresh,
           access: auth.access,
@@ -169,7 +169,7 @@ export function createKiloRoutes(deps: KiloRoutesDeps) {
       describeRoute({
         summary: "FIM completion",
         description: "Proxy a Fill-in-the-Middle completion request to the Kilo Gateway",
-        operationId: "kilo.fim",
+        operationId: "kappa.fim",
         responses: {
           200: {
             description: "Streaming FIM completion response",
@@ -193,7 +193,7 @@ export function createKiloRoutes(deps: KiloRoutesDeps) {
         }),
       ),
       async (c: any) => {
-        const auth = await Auth.get("kilo")
+        const auth = await Auth.get("kappa")
 
         if (!auth) {
           return c.json({ error: "Not authenticated with Kilo Gateway" }, 401)
@@ -217,7 +217,7 @@ export function createKiloRoutes(deps: KiloRoutesDeps) {
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
-            // kilocode_change start - include kilo headers with autocomplete feature override
+            // kilocode_change start - include kappa headers with autocomplete feature override
             ...buildKiloHeaders(),
             [HEADER_FEATURE]: "autocomplete",
             // kilocode_change end
@@ -252,7 +252,7 @@ export function createKiloRoutes(deps: KiloRoutesDeps) {
       describeRoute({
         summary: "Get Kilo notifications",
         description: "Fetch notifications from Kilo Gateway for CLI display",
-        operationId: "kilo.notifications",
+        operationId: "kappa.notifications",
         responses: {
           200: {
             description: "Notifications list",
@@ -266,7 +266,7 @@ export function createKiloRoutes(deps: KiloRoutesDeps) {
         },
       }),
       async (c: any) => {
-        const auth = await Auth.get("kilo")
+        const auth = await Auth.get("kappa")
         if (!auth) return c.json([])
 
         const token = auth.type === "api" ? auth.key : auth.type === "oauth" ? auth.access : undefined

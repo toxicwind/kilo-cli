@@ -15,7 +15,7 @@ export const GenerateCommand = {
           {
             lang: "js",
             source: [
-              `import { createOpencodeClient } from "@kilocode/sdk`,
+              `import { createOpencodeClient } from "@kappacode/sdk`,
               ``,
               `const client = createOpencodeClient()`,
               `await client.${operation.operationId}({`,

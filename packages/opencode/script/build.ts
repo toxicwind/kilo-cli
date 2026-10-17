@@ -149,8 +149,8 @@ for (const item of targets) {
       autoloadTsconfig: true,
       autoloadPackageJson: true,
       target: name.replace(pkg.name, "bun") as any,
-      outfile: `dist/${name}/bin/kilo`,
-      execArgv: [`--user-agent=kilo/${Script.version}`, "--use-system-ca", "--"],
+      outfile: `dist/${name}/bin/kappa`,
+      execArgv: [`--user-agent=kappa/${Script.version}`, "--use-system-ca", "--"],
       windows: {},
     },
     entrypoints: ["./src/index.ts", parserWorker, workerPath],
@@ -173,7 +173,7 @@ for (const item of targets) {
         cpu: [item.arch],
         repository: {
           type: "git",
-          url: "https://github.com/Kilo-Org/kilo",
+          url: "https://github.com/Kilo-Org/kappa",
         },
       },
       null,
@@ -186,7 +186,7 @@ for (const item of targets) {
 if (Script.release) {
   const archives: string[] = [] // kilocode_change
   for (const key of Object.keys(binaries)) {
-    const archive = key.replace(pkg.name, "kilo") // kilocode_change
+    const archive = key.replace(pkg.name, "kappa") // kilocode_change
     if (key.includes("linux")) {
       const out = path.resolve("dist", `${archive}.tar.gz`) // kilocode_change
       await $`tar -czf ${out} *`.cwd(`dist/${key}/bin`) // kilocode_change

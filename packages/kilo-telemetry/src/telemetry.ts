@@ -16,7 +16,7 @@ export namespace Telemetry {
   let initialized = false
   let startTime = 0
   let props: TelemetryProperties = {
-    appName: "kilo-cli",
+    appName: "kappa-cli",
     appVersion: "unknown",
     platform: process.platform,
   }

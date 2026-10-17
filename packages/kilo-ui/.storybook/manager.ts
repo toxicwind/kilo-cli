@@ -1,10 +1,10 @@
 import { addons } from "storybook/manager-api"
 import { GLOBALS_UPDATED, SET_GLOBALS } from "storybook/internal/core-events"
 
-addons.register("kilo-ui/toolbar-visibility", (api) => {
+addons.register("kappa-ui/toolbar-visibility", (api) => {
   const update = (globals: Record<string, unknown>) => {
-    const isVscode = globals["theme"] === "kilo-vscode"
-    document.documentElement.setAttribute("data-kilo-theme", isVscode ? "kilo-vscode" : "kilo")
+    const isVscode = globals["theme"] === "kappa-vscode"
+    document.documentElement.setAttribute("data-kappa-theme", isVscode ? "kappa-vscode" : "kappa")
   }
 
   const channel = api.getChannel()

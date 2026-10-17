@@ -9,7 +9,7 @@ import { Command } from "../command"
 import { Instance } from "./instance"
 import { Vcs } from "./vcs"
 import { Log } from "@/util/log"
-import { KiloSessions } from "@/kilo-sessions/kilo-sessions" // kilocode_change
+import { KiloSessions } from "@/kappa-sessions/kappa-sessions" // kilocode_change
 import { Snapshot } from "../snapshot"
 import { Truncate } from "../tool/truncation"
 

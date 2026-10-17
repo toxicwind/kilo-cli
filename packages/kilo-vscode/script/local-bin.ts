@@ -6,15 +6,15 @@ import { chmodSync, statSync, rmSync, readdirSync } from "node:fs"
 const forceRebuild = process.argv.includes("--force")
 
 /**
- * Ensures the VS Code extension has a CLI binary at `packages/kilo-vscode/bin/kilo`.
+ * Ensures the VS Code extension has a CLI binary at `packages/kappa-vscode/bin/kappa`.
  *
  * Strategy:
- * 1) If `bin/kilo` already exists -> ok.
+ * 1) If `bin/kappa` already exists -> ok.
  * 2) Else try to locate a prebuilt binary produced by `packages/opencode` build.
  * 3) Else try to build it via `bun run build --single` in `packages/opencode`.
- * 4) Copy the resulting binary into `packages/kilo-vscode/bin/kilo` and chmod +x.
+ * 4) Copy the resulting binary into `packages/kappa-vscode/bin/kappa` and chmod +x.
  *
- * This script is intended to be run from `packages/kilo-vscode` as part of build/package.
+ * This script is intended to be run from `packages/kappa-vscode` as part of build/package.
  */
 
 const kiloVscodeDir = join(import.meta.dir, "..")
@@ -22,7 +22,7 @@ const packagesDir = join(kiloVscodeDir, "..")
 const opencodeDir = join(packagesDir, "opencode")
 
 const targetBinDir = join(kiloVscodeDir, "bin")
-const binName = process.platform === "win32" ? "kilo.exe" : "kilo"
+const binName = process.platform === "win32" ? "kappa.exe" : "kappa"
 const targetBinPath = join(targetBinDir, binName)
 
 function log(msg: string) {
@@ -53,7 +53,7 @@ async function findKiloBinaryInOpencodeDist(): Promise<string | null> {
     // fall through to generic search
   }
 
-  // Fallback: find any dist/**/bin/kilo or kilo.exe
+  // Fallback: find any dist/**/bin/kappa or kappa.exe
   const queue = [distDir]
   while (queue.length) {
     const dir = queue.pop()
@@ -72,7 +72,7 @@ async function findKiloBinaryInOpencodeDist(): Promise<string | null> {
         queue.push(p)
         continue
       }
-      if (e.isFile() && (e.name === "kilo" || e.name === "kilo.exe") && basename(dirname(p)) === "bin") {
+      if (e.isFile() && (e.name === "kappa" || e.name === "kappa.exe") && basename(dirname(p)) === "bin") {
         return p
       }
     }
@@ -106,7 +106,7 @@ async function ensureBuiltBinary(): Promise<string> {
   const built = await findKiloBinaryInOpencodeDist()
   if (!built) {
     throw new Error(
-      `CLI build completed but no binary was found in ${join(opencodeDir, "dist")} (expected dist/**/bin/kilo).`,
+      `CLI build completed but no binary was found in ${join(opencodeDir, "dist")} (expected dist/**/bin/kappa).`,
     )
   }
   return built

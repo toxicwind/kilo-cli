@@ -18,7 +18,7 @@ A lot of development work happens in the terminal—git operations, debugging, s
 **Action:** Install the Kilo CLI to enable AI-assisted terminal workflows:
 
 ```bash
-npm install -g @kilocode/cli
+npm install -g @kappacode/cli
 ```
 
 Teams that use both IDE and CLI surfaces tend to show higher daily engagement because AI is available wherever they're working.

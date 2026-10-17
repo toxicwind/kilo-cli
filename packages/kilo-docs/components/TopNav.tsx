@@ -42,14 +42,14 @@ const contributingItems: DropdownItem[] = [
     description: "Our community guidelines",
   },
   { label: "GitHub Repository", href: "https://github.com/Kilo-Org/", description: "View source and issues" },
-  { label: "Discord Community", href: "https://kilo.ai/discord", description: "Join our community" },
+  { label: "Discord Community", href: "https://kappa.ai/discord", description: "Join our community" },
 ]
 
 const helpItems: DropdownItem[] = [
   { label: "Documentation", href: "/", description: "Browse all documentation" },
   { label: "FAQ", href: "/getting-started/faq", description: "Frequently asked questions" },
   { label: "Community Projects", href: "/community", description: "Explore community resources" },
-  { label: "Support", href: "https://kilo.ai/support", description: "Get help from the team" },
+  { label: "Support", href: "https://kappa.ai/support", description: "Get help from the team" },
   {
     label: "Changelog",
     href: "https://github.com/Kilo-Org/kilocode/releases",
@@ -297,10 +297,10 @@ export function TopNav({ onMobileMenuToggle, isMobileMenuOpen = false, showMobil
             <SearchIcon />
           </button>
           <ThemeToggle />
-          <Link href="https://kilo.ai/github" className="github-link desktop-nav">
+          <Link href="https://kappa.ai/github" className="github-link desktop-nav">
             GitHub
           </Link>
-          <Link href="https://app.kilo.ai" className="signin-btn desktop-nav">
+          <Link href="https://app.kappa.ai" className="signin-btn desktop-nav">
             Sign in
           </Link>
         </div>
@@ -335,9 +335,9 @@ export function TopNav({ onMobileMenuToggle, isMobileMenuOpen = false, showMobil
       {/* Announcement banner */}
       <div className="announcement-banner">
         <p>
-          We're <Link href="https://blog.kilo.ai/p/kilo-cli">replatforming our extensions on the new Kilo CLI</Link>.
+          We're <Link href="https://blog.kappa.ai/p/kappa-cli">replatforming our extensions on the new Kilo CLI</Link>.
           Contribute to the new CLI and pre-release extensions at{" "}
-          <Link href="https://github.com/Kilo-Org/kilo">Kilo-Org/kilo</Link>.
+          <Link href="https://github.com/Kilo-Org/kappa">Kilo-Org/kappa</Link>.
         </p>
       </div>
 

@@ -6,7 +6,7 @@ const production = process.argv.includes("--production")
 const watch = process.argv.includes("--watch")
 
 /**
- * Force all solid-js imports (from kilo-ui and the webview) to resolve to
+ * Force all solid-js imports (from kappa-ui and the webview) to resolve to
  * the **same** copy so SolidJS contexts are shared across packages.
  * Without this, the monorepo hoists separate copies (pnpm vs bun) and
  * createContext / useContext can't see each other.
@@ -16,7 +16,7 @@ const watch = process.argv.includes("--watch")
 const solidDedupePlugin = {
   name: "solid-dedupe",
   setup(build) {
-    // Resolve these bare specifiers to the kilo-vscode-local copy
+    // Resolve these bare specifiers to the kappa-vscode-local copy
     const solidRoot = path.dirname(require.resolve("solid-js/package.json"))
     const aliases = {
       "solid-js": path.join(solidRoot, "dist", "solid.js"),
@@ -107,9 +107,9 @@ const svgSpritePlugin = {
         contents: `
           const svg = ${JSON.stringify(content)};
           const inject = () => {
-            if (!document.getElementById("kilo-sprite")) {
+            if (!document.getElementById("kappa-sprite")) {
               const el = document.createElement("div");
-              el.id = "kilo-sprite";
+              el.id = "kappa-sprite";
               el.style.display = "none";
               el.innerHTML = svg;
               document.body.appendChild(el);

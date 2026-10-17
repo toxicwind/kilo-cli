@@ -147,7 +147,7 @@ export function getRecommendation(
   }
 
   // Kilo directories should always keep ours
-  if (path.includes("kilocode") || path.includes("kilo-gateway") || path.includes("kilo-telemetry")) {
+  if (path.includes("kilocode") || path.includes("kappa-gateway") || path.includes("kappa-telemetry")) {
     return {
       recommendation: "keep-ours",
       reason: "File is in a Kilo-specific directory",

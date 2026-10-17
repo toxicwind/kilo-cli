@@ -1,15 +1,15 @@
 /**
  * ModeSwitcher component
  * Popover-based selector for choosing an agent/mode in the chat prompt area.
- * Uses kilo-ui Popover component (Phase 4.5 of UI implementation plan).
+ * Uses kappa-ui Popover component (Phase 4.5 of UI implementation plan).
  *
  * ModeSwitcherBase — reusable core that accepts agents/value/onSelect props.
  * ModeSwitcher     — thin wrapper wired to session context for chat usage.
  */
 
 import { Component, createSignal, For, Show } from "solid-js"
-import { Popover } from "@kilocode/kilo-ui/popover"
-import { Button } from "@kilocode/kilo-ui/button"
+import { Popover } from "@kappacode/kappa-ui/popover"
+import { Button } from "@kappacode/kappa-ui/button"
 import { useSession } from "../../context/session"
 import type { AgentInfo } from "../../types/messages"
 

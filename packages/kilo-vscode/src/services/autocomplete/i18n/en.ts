@@ -2,15 +2,15 @@
 // Source: src/i18n/locales/en/kilocode.json → "autocomplete" section
 
 export const dict = {
-  "kilocode:autocomplete.statusBar.enabled": "$(kilo-logo) Autocomplete",
+  "kilocode:autocomplete.statusBar.enabled": "$(kappa-logo) Autocomplete",
   "kilocode:autocomplete.statusBar.snoozed": "snoozed",
   "kilocode:autocomplete.statusBar.warning": "$(warning) Autocomplete",
   "kilocode:autocomplete.statusBar.tooltip.basic": "Kilo Code Autocomplete",
   "kilocode:autocomplete.statusBar.tooltip.disabled": "Kilo Code Autocomplete (disabled)",
   "kilocode:autocomplete.statusBar.tooltip.noCredits":
-    "**No credits in your account**\n\nYour Kilo Code account has no credits. To use autocomplete, please add credits to your account.\n\n[Open Settings](command:kilo-code.settingsButtonClicked)",
+    "**No credits in your account**\n\nYour Kilo Code account has no credits. To use autocomplete, please add credits to your account.\n\n[Open Settings](command:kappa-code.settingsButtonClicked)",
   "kilocode:autocomplete.statusBar.tooltip.noUsableProvider":
-    "**No autocomplete model configured**\n\nTo enable autocomplete, add a profile with one of these supported providers: {{providers}}.\n\n[Open Settings](command:kilo-code.settingsButtonClicked)",
+    "**No autocomplete model configured**\n\nTo enable autocomplete, add a profile with one of these supported providers: {{providers}}.\n\n[Open Settings](command:kappa-code.settingsButtonClicked)",
   "kilocode:autocomplete.statusBar.tooltip.sessionTotal": "Session total cost:",
   "kilocode:autocomplete.statusBar.tooltip.provider": "Provider:",
   "kilocode:autocomplete.statusBar.tooltip.model": "Model:",

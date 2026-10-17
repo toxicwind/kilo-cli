@@ -27,9 +27,9 @@ import { WebCommand } from "./cli/cmd/web"
 import { PrCommand } from "./cli/cmd/pr"
 import { SessionCommand } from "./cli/cmd/session"
 // kilocode_change start - Import telemetry, instance disposal, and legacy migration
-import { Telemetry } from "@kilocode/kilo-telemetry"
+import { Telemetry } from "@kappacode/kappa-telemetry"
 import { Instance } from "./project/instance" // kilocode_change
-import { migrateLegacyKiloAuth, ENV_FEATURE } from "@kilocode/kilo-gateway"
+import { migrateLegacyKiloAuth, ENV_FEATURE } from "@kappacode/kappa-gateway"
 
 // kilocode_change - set feature for tracking. 'serve' is spawned by other services
 // (extension, cloud) which set their own KILOCODE_FEATURE env var. Direct CLI use
@@ -58,7 +58,7 @@ process.on("uncaughtException", (e) => {
 
 const cli = yargs(hideBin(process.argv))
   .parserConfiguration({ "populate--": true })
-  .scriptName("kilo") // kilocode_change
+  .scriptName("kappa") // kilocode_change
   .wrap(100)
   .help("help", "show help")
   .alias("help", "h")
@@ -102,11 +102,11 @@ const cli = yargs(hideBin(process.argv))
 
     // Migrate legacy Kilo CLI auth if needed
     await migrateLegacyKiloAuth(
-      async () => (await Auth.get("kilo")) !== undefined,
-      async (auth) => Auth.set("kilo", auth),
+      async () => (await Auth.get("kappa")) !== undefined,
+      async (auth) => Auth.set("kappa", auth),
     )
 
-    const kiloAuth = await Auth.get("kilo")
+    const kiloAuth = await Auth.get("kappa")
     if (kiloAuth) {
       const token = kiloAuth.type === "oauth" ? kiloAuth.access : kiloAuth.key
       const accountId = kiloAuth.type === "oauth" ? kiloAuth.accountId : undefined

@@ -29,7 +29,7 @@ export {
 export { resolveThemeVariant, resolveTheme, themeToCss } from "@opencode-ai/ui/theme/resolve"
 export { applyTheme, loadThemeFromUrl, getActiveTheme, removeTheme, setColorScheme } from "@opencode-ai/ui/theme/loader"
 
-// Override: use our context with kilo default
+// Override: use our context with kappa default
 export { ThemeProvider, useTheme, type ColorScheme } from "./context"
 
 // Override: use our default-themes which includes Kilo themes

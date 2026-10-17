@@ -1,15 +1,15 @@
 // cs runtime translations for autocomplete
 
 export const dict = {
-  "kilocode:autocomplete.statusBar.enabled": "$(kilo-logo) Autocomplete",
+  "kilocode:autocomplete.statusBar.enabled": "$(kappa-logo) Autocomplete",
   "kilocode:autocomplete.statusBar.snoozed": "pozastaveno",
   "kilocode:autocomplete.statusBar.warning": "$(warning) Autocomplete",
   "kilocode:autocomplete.statusBar.tooltip.basic": "Kilo Code Autocomplete",
   "kilocode:autocomplete.statusBar.tooltip.disabled": "Kilo Code Autocomplete (zakázáno)",
   "kilocode:autocomplete.statusBar.tooltip.noCredits":
-    "**Na tvém účtu nejsou žádné kredity**\n\nTvůj účet Kilo Code nemá žádné kredity. Pro použití automatického doplňování prosím přidej kredity na svůj účet.\n\n[Otevřít Nastavení](command:kilo-code.settingsButtonClicked)",
+    "**Na tvém účtu nejsou žádné kredity**\n\nTvůj účet Kilo Code nemá žádné kredity. Pro použití automatického doplňování prosím přidej kredity na svůj účet.\n\n[Otevřít Nastavení](command:kappa-code.settingsButtonClicked)",
   "kilocode:autocomplete.statusBar.tooltip.noUsableProvider":
-    "**Není nakonfigurován žádný model automatického doplňování**\n\nPro povolení automatického doplňování přidej profil s jedním z těchto podporovaných poskytovatelů: {{providers}}.\n\n[Otevřít Nastavení](command:kilo-code.settingsButtonClicked)",
+    "**Není nakonfigurován žádný model automatického doplňování**\n\nPro povolení automatického doplňování přidej profil s jedním z těchto podporovaných poskytovatelů: {{providers}}.\n\n[Otevřít Nastavení](command:kappa-code.settingsButtonClicked)",
   "kilocode:autocomplete.statusBar.tooltip.sessionTotal": "Celkové náklady relace:",
   "kilocode:autocomplete.statusBar.tooltip.provider": "Poskytovatel:",
   "kilocode:autocomplete.statusBar.tooltip.model": "Model:",

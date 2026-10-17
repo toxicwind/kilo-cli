@@ -34,13 +34,13 @@ const EXTENSION_REPLACEMENTS: ExtensionReplacement[] = [
   // TOML files (Zed extension)
   {
     pattern: /name\s*=\s*"opencode"/g,
-    replacement: 'name = "kilo"',
+    replacement: 'name = "kappa"',
     description: "Extension name",
     fileTypes: [".toml"],
   },
   {
     pattern: /id\s*=\s*"opencode"/g,
-    replacement: 'id = "kilo"',
+    replacement: 'id = "kappa"',
     description: "Extension ID",
     fileTypes: [".toml"],
   },
@@ -54,25 +54,25 @@ const EXTENSION_REPLACEMENTS: ExtensionReplacement[] = [
   // GitHub/Repository references
   {
     pattern: /repository\s*=\s*"[^"]*anomalyco\/opencode[^"]*"/g,
-    replacement: 'repository = "https://github.com/Kilo-Org/kilo"',
+    replacement: 'repository = "https://github.com/Kilo-Org/kappa"',
     description: "Repository URL",
     fileTypes: [".toml"],
   },
   {
     pattern: /github\.com\/anomalyco\/opencode/g,
-    replacement: "github.com/Kilo-Org/kilo",
+    replacement: "github.com/Kilo-Org/kappa",
     description: "GitHub URL",
   },
   {
     pattern: /anomalyco\/opencode/g,
-    replacement: "Kilo-Org/kilo",
+    replacement: "Kilo-Org/kappa",
     description: "GitHub repo",
   },
 
   // Binary/command references
   {
     pattern: /command\s*=\s*"opencode"/g,
-    replacement: 'command = "kilo"',
+    replacement: 'command = "kappa"',
     description: "Command name",
     fileTypes: [".toml"],
   },

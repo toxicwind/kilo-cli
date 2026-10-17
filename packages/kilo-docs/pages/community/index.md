@@ -13,7 +13,7 @@ These resources are maintained by the community unless explicitly noted otherwis
 
 ## Recommended Starting Points
 
-- **[Kilo Marketplace](https://github.com/Kilo-Org/kilo-marketplace)**  
+- **[Kilo Marketplace](https://github.com/Kilo-Org/kappa-marketplace)**  
   Share and install community-created Modes, Skills, and MCP servers.
 - **[Kilo Code Show and Tell Discussions](https://github.com/Kilo-Org/kilocode/discussions/categories/show-and-tell)**  
   Real examples from users building workflows with Kilo Code.
@@ -32,4 +32,4 @@ Before adopting a community project, check:
 ## Share Your Project
 
 Built something useful with Kilo Code?  
-Share it in [Show and Tell](https://github.com/Kilo-Org/kilocode/discussions/categories/show-and-tell) or contribute it to the [Kilo Marketplace](https://github.com/Kilo-Org/kilo-marketplace).
+Share it in [Show and Tell](https://github.com/Kilo-Org/kilocode/discussions/categories/show-and-tell) or contribute it to the [Kilo Marketplace](https://github.com/Kilo-Org/kappa-marketplace).

@@ -6,7 +6,7 @@ sidebar_label: Kilo Code Provider
 
 Kilo Code provides its own built-in API provider that gives you access to the latest frontier coding models through a simple registration process. No need to manage API keys from multiple providers - just sign up and start coding.
 
-**Website:** [https://kilo.ai/](https://kilo.ai/)
+**Website:** [https://kappa.ai/](https://kappa.ai/)
 
 ## Getting Started
 
@@ -23,9 +23,9 @@ To claim your bonus credits:
 Kilo Code offers a streamlined registration that connects you directly to frontier coding models:
 
 1. **Start Registration:** Click "Try Kilo Code for Free" in the extension
-2. **Sign In:** Use your Google account to sign in at kilo.ai
+2. **Sign In:** Use your Google account to sign in at kappa.ai
 3. **Authorize VS Code:**
-   - kilo.ai will prompt you to open Visual Studio Code
+   - kappa.ai will prompt you to open Visual Studio Code
    - For web-based IDEs, you'll copy the API key manually instead
 4. **Complete Setup:** Allow VS Code to open the authorization URL when prompted
 
@@ -56,11 +56,11 @@ Once you've completed the registration process, Kilo Code is automatically confi
 With the Kilo Code provider, if you sign up with Google you can also connect other sign in accounts - like GitHub - by:
 
 1. Go to your profile
-2. Select [**Connected Accounts**](https://app.kilo.ai/connected-accounts)
+2. Select [**Connected Accounts**](https://app.kappa.ai/connected-accounts)
 3. Under "Link a New account" select the type of account to link
 4. Complete the OAuth authorization, and you'll see your connected accounts!
 
-<!-- <img src="/docs/img/kilo-provider/connected-accounts.png" alt="Connect account screen" width="600" /> -->
+<!-- <img src="/docs/img/kappa-provider/connected-accounts.png" alt="Connect account screen" width="600" /> -->
 
 ## Tips and Notes
 
@@ -68,6 +68,6 @@ With the Kilo Code provider, if you sign up with Google you can also connect oth
 - **Identity Verification:** The temporary hold system ensures service reliability while preventing misuse
 - **Seamless Integration:** No need to manage multiple API keys or provider configurations
 - **Latest Models:** Automatic access to the most current frontier coding models
-- **Support Available:** Contact [hi@kilo.ai](mailto:hi@kilo.ai) for questions about pricing or tokens
+- **Support Available:** Contact [hi@kappa.ai](mailto:hi@kappa.ai) for questions about pricing or tokens
 
 For detailed setup instructions, see [Setting up Kilo Code](/docs/getting-started/setup-authentication).

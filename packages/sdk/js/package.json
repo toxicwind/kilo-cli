@@ -1,12 +1,12 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
-  "name": "@kilocode/sdk",
+  "name": "@kappacode/sdk",
   "version": "1.0.25",
   "type": "module",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Kilo-Org/kilo",
+    "url": "https://github.com/Kilo-Org/kappa",
     "directory": "packages/sdk/js"
   },
   "scripts": {

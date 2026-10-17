@@ -11,9 +11,9 @@ console.log(`Updated package.json version to ${Script.version}`)
 
 const sidecarConfig = getCurrentSidecar()
 
-const dir = "src-tauri/target/kilo-binaries"
+const dir = "src-tauri/target/kappa-binaries"
 
 await $`mkdir -p ${dir}`
-await $`gh run download ${Bun.env.GITHUB_RUN_ID} -n kilo-cli`.cwd(dir)
+await $`gh run download ${Bun.env.GITHUB_RUN_ID} -n kappa-cli`.cwd(dir)
 
-await copyBinaryToSidecarFolder(windowsify(`${dir}/${sidecarConfig.ocBinary}/bin/kilo`))
+await copyBinaryToSidecarFolder(windowsify(`${dir}/${sidecarConfig.ocBinary}/bin/kappa`))

@@ -44,7 +44,7 @@ export { createKiloRoutes } from "./server/routes.js"
 // ============================================================================
 // Note: TUI exports moved to separate entry point
 // ============================================================================
-// For TUI components and commands, import from "@kilocode/kilo-gateway/tui"
+// For TUI components and commands, import from "@kappacode/kappa-gateway/tui"
 // This avoids circular dependencies with opencode TUI infrastructure
 
 // ============================================================================

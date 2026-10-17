@@ -6,7 +6,7 @@ import { cmd } from "./cmd"
 import { Flag } from "../../flag/flag"
 import { bootstrap } from "../bootstrap"
 import { EOL } from "os"
-import { createOpencodeClient, type Message, type OpencodeClient, type ToolPart } from "@kilocode/sdk/v2"
+import { createOpencodeClient, type Message, type OpencodeClient, type ToolPart } from "@kappacode/sdk/v2"
 import { Server } from "../../server/server"
 import { Provider } from "../../provider/provider"
 import { Agent } from "../../agent/agent"
@@ -214,7 +214,7 @@ function normalizePath(input?: string) {
 
 export const RunCommand = cmd({
   command: "run [message..]",
-  describe: "run kilo with a message", // kilocode_change
+  describe: "run kappa with a message", // kilocode_change
   builder: (yargs: Argv) => {
     return (
       yargs

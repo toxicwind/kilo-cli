@@ -6,10 +6,10 @@ export const dict = {
   "provider.connect.kiloGateway.line2":
     "Za pomocą jednego klucza API uzyskasz dostęp do modeli takich jak Claude, GPT, Gemini, GLM i innych.",
   "provider.connect.kiloGateway.visit.prefix": "Odwiedź ",
-  "provider.connect.kiloGateway.visit.link": "kilo.ai",
+  "provider.connect.kiloGateway.visit.link": "kappa.ai",
   "provider.connect.kiloGateway.visit.suffix": ", aby otrzymać swój klucz API.",
 
   // Provider dialog translations
   "dialog.provider.group.recommended": "Polecane",
-  "dialog.provider.kilo.note": "Dostęp do ponad 500 modeli AI",
+  "dialog.provider.kappa.note": "Dostęp do ponad 500 modeli AI",
 }

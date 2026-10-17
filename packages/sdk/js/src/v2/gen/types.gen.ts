@@ -4306,7 +4306,7 @@ export type KiloProfileData = {
   query?: {
     directory?: string
   }
-  url: "/kilo/profile"
+  url: "/kappa/profile"
 }
 
 export type KiloProfileErrors = {
@@ -4349,7 +4349,7 @@ export type KiloOrganizationSetData = {
   query?: {
     directory?: string
   }
-  url: "/kilo/organization"
+  url: "/kappa/organization"
 }
 
 export type KiloOrganizationSetErrors = {
@@ -4382,7 +4382,7 @@ export type KiloFimData = {
   query?: {
     directory?: string
   }
-  url: "/kilo/fim"
+  url: "/kappa/fim"
 }
 
 export type KiloFimErrors = {
@@ -4407,7 +4407,7 @@ export type KiloNotificationsData = {
   query?: {
     directory?: string
   }
-  url: "/kilo/notifications"
+  url: "/kappa/notifications"
 }
 
 export type KiloNotificationsErrors = {

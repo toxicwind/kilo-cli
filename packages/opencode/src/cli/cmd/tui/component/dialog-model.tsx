@@ -86,7 +86,7 @@ export function DialogModel(props: { providerID?: string }) {
               : undefined,
             // kilocode_change start
             category: connected()
-              ? provider.id === "kilo" && info.recommended
+              ? provider.id === "kappa" && info.recommended
                 ? "Recommended"
                 : provider.name
               : undefined,
@@ -109,8 +109,8 @@ export function DialogModel(props: { providerID?: string }) {
           sortBy(
             // kilocode_change start - Sort recommended models first for Kilo Gateway
             (x) => {
-              if (x.value.providerID !== "kilo") return 0
-              const provider = sync.data.provider.find((p) => p.id === "kilo")
+              if (x.value.providerID !== "kappa") return 0
+              const provider = sync.data.provider.find((p) => p.id === "kappa")
               const model = provider?.models[x.value.modelID]
               if (model?.recommendedIndex !== undefined) return model.recommendedIndex
               return Object.keys(provider?.models ?? {}).length
@@ -138,9 +138,9 @@ export function DialogModel(props: { providerID?: string }) {
       const filteredProviders = fuzzysort.go(needle, providerOptions, { keys: ["title", "category"] }).map((x) => x.obj)
       const filteredPopular = fuzzysort.go(needle, popularProviders, { keys: ["title"] }).map((x) => x.obj)
       // kilocode_change start - Partition Kilo Gateway results first (preserves fuzzysort order)
-      const kilo = filteredProviders.filter((x) => x.value.providerID === "kilo")
-      const rest = filteredProviders.filter((x) => x.value.providerID !== "kilo")
-      return [...kilo, ...rest, ...filteredPopular]
+      const kappa = filteredProviders.filter((x) => x.value.providerID === "kappa")
+      const rest = filteredProviders.filter((x) => x.value.providerID !== "kappa")
+      return [...kappa, ...rest, ...filteredPopular]
       // kilocode_change end
     }
 

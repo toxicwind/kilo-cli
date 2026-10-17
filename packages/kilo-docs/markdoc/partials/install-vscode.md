@@ -3,7 +3,7 @@
 1. If you don't have VS Code installed, download it from [code.visualstudio.com](https://code.visualstudio.com/)
 2. Then, you can click the button below to install Kilo Code directly from the VS Code Marketplace:
 
-[![Install Kilo Code](https://img.shields.io/badge/Install%20Kilo%20Code-F8F674?style=for-the-badge)](vscode:extension/kilocode.kilo-code)
+[![Install Kilo Code](https://img.shields.io/badge/Install%20Kilo%20Code-F8F674?style=for-the-badge)](vscode:extension/kilocode.kappa-code)
 
 ### Install from VS Code Marketplace
 
@@ -15,7 +15,7 @@
 ### Install via Command Line
 
 ```bash
-code --install-extension kilocode.kilo-code
+code --install-extension kilocode.kappa-code
 ```
 
 ### Verify Installation

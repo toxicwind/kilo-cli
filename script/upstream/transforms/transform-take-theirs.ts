@@ -39,24 +39,24 @@ const BRANDING_REPLACEMENTS: BrandingReplacement[] = [
   // GitHub repo references
   {
     pattern: /github\.com\/anomalyco\/opencode/g,
-    replacement: "github.com/Kilo-Org/kilo",
+    replacement: "github.com/Kilo-Org/kappa",
     description: "GitHub URL",
   },
   {
     pattern: /anomalyco\/opencode/g,
-    replacement: "Kilo-Org/kilo",
+    replacement: "Kilo-Org/kappa",
     description: "GitHub repo reference",
   },
 
   // Domain replacements (specific first)
   {
     pattern: /app\.opencode\.ai/g,
-    replacement: "app.kilo.ai",
+    replacement: "app.kappa.ai",
     description: "App domain",
   },
   {
     pattern: /opencode\.ai(?!\/zen)/g,
-    replacement: "kilo.ai",
+    replacement: "kappa.ai",
     description: "Main domain (excluding zen)",
   },
 
@@ -70,22 +70,22 @@ const BRANDING_REPLACEMENTS: BrandingReplacement[] = [
   // CLI commands
   {
     pattern: /npx opencode(?!\w)/g,
-    replacement: "npx kilo",
+    replacement: "npx kappa",
     description: "npx command",
   },
   {
     pattern: /bun add opencode(?!\w)/g,
-    replacement: "bun add kilo",
+    replacement: "bun add kappa",
     description: "bun add command",
   },
   {
     pattern: /npm install opencode(?!\w)/g,
-    replacement: "npm install kilo",
+    replacement: "npm install kappa",
     description: "npm install command",
   },
   {
     pattern: /opencode upgrade(?!\w)/g,
-    replacement: "kilo upgrade",
+    replacement: "kappa upgrade",
     description: "upgrade command",
   },
 
@@ -115,7 +115,7 @@ const BRANDING_REPLACEMENTS: BrandingReplacement[] = [
   },
   {
     pattern: /x-opencode-client/g,
-    replacement: "x-kilo-client",
+    replacement: "x-kappa-client",
     description: "HTTP header",
   },
   {

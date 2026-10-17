@@ -21,7 +21,7 @@ export function buildWebviewHtml(
   const csp = buildCspString(webview.cspSource, nonce, opts.port)
 
   return `<!DOCTYPE html>
-<html lang="en" data-theme="kilo-vscode">
+<html lang="en" data-theme="kappa-vscode">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">

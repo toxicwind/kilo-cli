@@ -34,7 +34,7 @@ type OAuthAuth = { type: "oauth"; access: string; refresh: string; expires: numb
 type AuthInfo = ApiAuth | OAuthAuth
 
 /**
- * Extract kilo auth from legacy config
+ * Extract kappa auth from legacy config
  */
 function extractKiloAuth(config: LegacyConfig): LegacyKiloAuth | undefined {
   if (!config.providers) return undefined
@@ -51,10 +51,10 @@ function extractKiloAuth(config: LegacyConfig): LegacyKiloAuth | undefined {
 /**
  * Migrate Kilo authentication from legacy CLI config path.
  *
- * Checks ~/.kilocode/cli/config.json for existing kilo credentials
+ * Checks ~/.kilocode/cli/config.json for existing kappa credentials
  * and migrates them to the new auth.json format.
  *
- * @param hasKiloAuth - Callback to check if kilo auth already exists
+ * @param hasKiloAuth - Callback to check if kappa auth already exists
  * @param saveKiloAuth - Callback to save the migrated auth
  * @returns true if migration was performed, false otherwise
  */
@@ -62,7 +62,7 @@ export async function migrateLegacyKiloAuth(
   hasKiloAuth: () => Promise<boolean>,
   saveKiloAuth: (auth: AuthInfo) => Promise<void>,
 ): Promise<boolean> {
-  // Skip if kilo auth already configured
+  // Skip if kappa auth already configured
   if (await hasKiloAuth()) return false
 
   // Check if legacy config exists and parse it
@@ -76,7 +76,7 @@ export async function migrateLegacyKiloAuth(
     return false
   }
 
-  // Extract kilo auth from legacy config
+  // Extract kappa auth from legacy config
   const legacy = extractKiloAuth(config)
   if (!legacy) return false
 

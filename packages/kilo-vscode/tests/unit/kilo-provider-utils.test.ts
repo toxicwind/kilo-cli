@@ -5,7 +5,7 @@ import {
   filterVisibleAgents,
   buildSettingPath,
   mapSSEEventToWebviewMessage,
-} from "../../src/kilo-provider-utils"
+} from "../../src/kappa-provider-utils"
 import type { SessionInfo, AgentInfo, Provider, SSEEvent } from "../../src/services/cli-backend/types"
 
 function makeSession(overrides: Partial<SessionInfo> = {}): SessionInfo {

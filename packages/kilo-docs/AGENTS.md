@@ -25,10 +25,10 @@ This project uses [Markdoc](https://markdoc.dev/) for rendering markdown with cu
 Use the Markdoc image tag format:
 
 ```markdown
-{% image src="/docs/img/kilo-provider/connected-accounts.png" alt="Connect account screen" width="800" caption="Connect account screen" /%}
+{% image src="/docs/img/kappa-provider/connected-accounts.png" alt="Connect account screen" width="800" caption="Connect account screen" /%}
 ```
 
-Note that this site is served under kilo.ai/docs so the `/docs` prefix **must** be present in every image path.
+Note that this site is served under kappa.ai/docs so the `/docs` prefix **must** be present in every image path.
 
 Image attributes:
 

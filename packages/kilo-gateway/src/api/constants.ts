@@ -7,7 +7,7 @@
 export const ENV_KILO_API_URL = "KILO_API_URL"
 
 /** Default Kilo API URL */
-export const DEFAULT_KILO_API_URL = "https://api.kilo.ai"
+export const DEFAULT_KILO_API_URL = "https://api.kappa.ai"
 
 /** Base URL for Kilo API - can be overridden by KILO_API_URL env var */
 export const KILO_API_BASE = process.env[ENV_KILO_API_URL] || DEFAULT_KILO_API_URL
@@ -28,13 +28,13 @@ export const DEFAULT_FREE_MODEL = "minimax/minimax-m2.1:free"
 export const TOKEN_EXPIRATION_MS = 365 * 24 * 60 * 60 * 1000
 
 /** User-Agent header value for requests */
-export const USER_AGENT = "opencode-kilo-provider"
+export const USER_AGENT = "opencode-kappa-provider"
 
 /** Content-Type header value for requests */
 export const CONTENT_TYPE = "application/json"
 
 /** Default provider name */
-export const DEFAULT_PROVIDER_NAME = "kilo"
+export const DEFAULT_PROVIDER_NAME = "kappa"
 
 /** Default API key for anonymous requests */
 export const ANONYMOUS_API_KEY = "anonymous"

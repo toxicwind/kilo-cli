@@ -17,7 +17,7 @@ const targets = ["linux-x64", "linux-arm64", "alpine-x64", "alpine-arm64", "darw
 
 const vsixFiles: string[] = []
 for (const target of targets) {
-  const vsixPath = join(outDir, `kilo-vscode-${target}.vsix`)
+  const vsixPath = join(outDir, `kappa-vscode-${target}.vsix`)
   if (!existsSync(vsixPath)) {
     throw new Error(`VSIX file not found: ${vsixPath}`)
   }
@@ -27,7 +27,7 @@ for (const target of targets) {
 console.log(`\nFound ${vsixFiles.length} VSIX files`)
 
 for (const target of targets) {
-  const vsixPath = join(outDir, `kilo-vscode-${target}.vsix`)
+  const vsixPath = join(outDir, `kappa-vscode-${target}.vsix`)
 
   console.log(`\n🚀 Publishing ${target} to VS Code Marketplace...`)
   await $`vsce publish --pre-release --packagePath ${vsixPath}`

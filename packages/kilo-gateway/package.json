@@ -1,12 +1,12 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
-  "name": "@kilocode/kilo-gateway",
+  "name": "@kappacode/kappa-gateway",
   "version": "1.0.25",
   "type": "module",
   "license": "MIT",
   "description": "Unified Kilo Gateway package for OpenCode - authentication, provider, and API integration",
   "keywords": [
-    "kilo",
+    "kappa",
     "kilocode",
     "opencode",
     "auth",
@@ -27,8 +27,8 @@
     "build": "tsc"
   },
   "dependencies": {
-    "@kilocode/plugin": "workspace:*",
-    "@kilocode/sdk": "workspace:*",
+    "@kappacode/plugin": "workspace:*",
+    "@kappacode/sdk": "workspace:*",
     "@openrouter/ai-sdk-provider": "1.5.2",
     "@clack/prompts": "1.0.0-alpha.1",
     "ai": "catalog:",

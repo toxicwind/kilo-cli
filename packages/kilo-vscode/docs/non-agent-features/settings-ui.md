@@ -1,6 +1,6 @@
 # Settings UI
 
-**GitHub Issue:** [#170](https://github.com/Kilo-Org/kilo/issues/170)
+**GitHub Issue:** [#170](https://github.com/Kilo-Org/kappa/issues/170)
 **Priority:** P1
 **Status:** 🔨 Partial
 

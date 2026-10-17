@@ -1,4 +1,4 @@
-import type { Plugin } from "@kilocode/plugin"
+import type { Plugin } from "@kappacode/plugin"
 import { authenticateWithDeviceAuthTUI } from "./auth/device-auth-tui.js"
 
 /**
@@ -12,7 +12,7 @@ import { authenticateWithDeviceAuthTUI } from "./auth/device-auth-tui.js"
 export const KiloAuthPlugin: Plugin = async (ctx) => {
   return {
     auth: {
-      provider: "kilo",
+      provider: "kappa",
       async loader(getAuth, providerInfo) {
         // Get the stored auth
         const auth = await getAuth()

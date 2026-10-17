@@ -32,7 +32,7 @@ function getNetworkIPs() {
 export const WebCommand = cmd({
   command: "web",
   builder: (yargs) => withNetworkOptions(yargs),
-  describe: "start kilo server and open web interface", // kilocode_change
+  describe: "start kappa server and open web interface", // kilocode_change
   handler: async (args) => {
     if (!Flag.KILO_SERVER_PASSWORD) {
       UI.println(UI.Style.TEXT_WARNING_BOLD + "!  " + "KILO_SERVER_PASSWORD is not set; server is unsecured.")

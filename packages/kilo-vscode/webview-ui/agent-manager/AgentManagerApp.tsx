@@ -25,23 +25,23 @@ import type {
 } from "../src/types/messages"
 import { DragDropProvider, DragDropSensors, DragOverlay, SortableProvider, closestCenter } from "@thisbeyond/solid-dnd"
 import type { DragEvent } from "@thisbeyond/solid-dnd"
-import { ThemeProvider } from "@kilocode/kilo-ui/theme"
-import { DialogProvider, useDialog } from "@kilocode/kilo-ui/context/dialog"
-import { Dialog } from "@kilocode/kilo-ui/dialog"
-import { DropdownMenu } from "@kilocode/kilo-ui/dropdown-menu"
-import { MarkedProvider } from "@kilocode/kilo-ui/context/marked"
-import { CodeComponentProvider } from "@kilocode/kilo-ui/context/code"
-import { DiffComponentProvider } from "@kilocode/kilo-ui/context/diff"
-import { Code } from "@kilocode/kilo-ui/code"
-import { Diff } from "@kilocode/kilo-ui/diff"
-import { Toast } from "@kilocode/kilo-ui/toast"
-import { ResizeHandle } from "@kilocode/kilo-ui/resize-handle"
-import { Icon } from "@kilocode/kilo-ui/icon"
-import { Button } from "@kilocode/kilo-ui/button"
-import { IconButton } from "@kilocode/kilo-ui/icon-button"
-import { Spinner } from "@kilocode/kilo-ui/spinner"
-import { Tooltip, TooltipKeybind } from "@kilocode/kilo-ui/tooltip"
-import { HoverCard } from "@kilocode/kilo-ui/hover-card"
+import { ThemeProvider } from "@kappacode/kappa-ui/theme"
+import { DialogProvider, useDialog } from "@kappacode/kappa-ui/context/dialog"
+import { Dialog } from "@kappacode/kappa-ui/dialog"
+import { DropdownMenu } from "@kappacode/kappa-ui/dropdown-menu"
+import { MarkedProvider } from "@kappacode/kappa-ui/context/marked"
+import { CodeComponentProvider } from "@kappacode/kappa-ui/context/code"
+import { DiffComponentProvider } from "@kappacode/kappa-ui/context/diff"
+import { Code } from "@kappacode/kappa-ui/code"
+import { Diff } from "@kappacode/kappa-ui/diff"
+import { Toast } from "@kappacode/kappa-ui/toast"
+import { ResizeHandle } from "@kappacode/kappa-ui/resize-handle"
+import { Icon } from "@kappacode/kappa-ui/icon"
+import { Button } from "@kappacode/kappa-ui/button"
+import { IconButton } from "@kappacode/kappa-ui/icon-button"
+import { Spinner } from "@kappacode/kappa-ui/spinner"
+import { Tooltip, TooltipKeybind } from "@kappacode/kappa-ui/tooltip"
+import { HoverCard } from "@kappacode/kappa-ui/hover-card"
 import { VSCodeProvider, useVSCode } from "../src/context/vscode"
 import { ServerProvider } from "../src/context/server"
 import { ProviderProvider } from "../src/context/provider"
@@ -1624,7 +1624,7 @@ const NewWorktreeDialog: Component<{ onClose: () => void }> = (props) => {
 
 export const AgentManagerApp: Component = () => {
   return (
-    <ThemeProvider defaultTheme="kilo-vscode">
+    <ThemeProvider defaultTheme="kappa-vscode">
       <DialogProvider>
         <VSCodeProvider>
           <ServerProvider>

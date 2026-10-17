@@ -39,7 +39,7 @@ export namespace ProviderTransform {
       case "@ai-sdk/gateway":
         return "gateway"
       case "@openrouter/ai-sdk-provider":
-      case "@kilocode/kilo-gateway": // kilocode_change
+      case "@kappacode/kappa-gateway": // kilocode_change
         return "openrouter"
     }
     return undefined
@@ -78,7 +78,7 @@ export namespace ProviderTransform {
     if (
       model.api.id.includes("claude") &&
       model.api.npm !== "@openrouter/ai-sdk-provider" &&
-      model.api.npm !== "@kilocode/kilo-gateway"
+      model.api.npm !== "@kappacode/kappa-gateway"
     ) {
       return msgs.map((msg) => {
         if ((msg.role === "assistant" || msg.role === "tool") && Array.isArray(msg.content)) {
@@ -263,7 +263,7 @@ export namespace ProviderTransform {
 
     // kilocode_change - identify OpenRouter/Kilo Gateway for thinking block stripping
     const isOpenRouterOrKilo =
-      model.api.npm === "@openrouter/ai-sdk-provider" || model.api.npm === "@kilocode/kilo-gateway"
+      model.api.npm === "@openrouter/ai-sdk-provider" || model.api.npm === "@kappacode/kappa-gateway"
 
     // kilocode_change - strip thinking/reasoning blocks for OpenRouter/Kilo Gateway
     // Anthropic's API requires thinking blocks to be EXACTLY unchanged, but our storage
@@ -281,12 +281,12 @@ export namespace ProviderTransform {
           delete result.openrouter.reasoning
           delete result.openrouter.thinking
         }
-        // Strip from kilo namespace
-        if (result.kilo) {
-          result.kilo = { ...result.kilo }
-          delete result.kilo.reasoning_details
-          delete result.kilo.reasoning
-          delete result.kilo.thinking
+        // Strip from kappa namespace
+        if (result.kappa) {
+          result.kappa = { ...result.kappa }
+          delete result.kappa.reasoning_details
+          delete result.kappa.reasoning
+          delete result.kappa.thinking
         }
         // Strip from anthropic namespace
         if (result.anthropic) {
@@ -427,7 +427,7 @@ export namespace ProviderTransform {
 
     // see: https://docs.x.ai/docs/guides/reasoning#control-how-hard-the-model-thinks
     if (id.includes("grok") && id.includes("grok-3-mini")) {
-      if (model.api.npm === "@openrouter/ai-sdk-provider" || model.api.npm === "@kilocode/kilo-gateway") {
+      if (model.api.npm === "@openrouter/ai-sdk-provider" || model.api.npm === "@kappacode/kappa-gateway") {
         // kilocode_change - add Kilo Gateway support
         return {
           low: { reasoning: { effort: "low" } },
@@ -447,7 +447,7 @@ export namespace ProviderTransform {
         return Object.fromEntries(OPENAI_EFFORTS.map((effort) => [effort, { reasoning: { effort } }]))
 
       // kilocode_change start
-      case "@kilocode/kilo-gateway":
+      case "@kappacode/kappa-gateway":
         // kilocode_change - adaptive thinking with effort levels
         // TODO: Enable when @ai-sdk/anthropic supports thinking.type: "adaptive"
         const ADAPTIVE_THINKING_ENABLED = false
@@ -762,7 +762,7 @@ export namespace ProviderTransform {
       result["store"] = false
     }
 
-    if (input.model.api.npm === "@openrouter/ai-sdk-provider" || input.model.api.npm === "@kilocode/kilo-gateway") {
+    if (input.model.api.npm === "@openrouter/ai-sdk-provider" || input.model.api.npm === "@kappacode/kappa-gateway") {
       // kilocode_change
       result["usage"] = {
         include: true,
@@ -842,8 +842,8 @@ export namespace ProviderTransform {
         result["textVerbosity"] = "low"
       }
 
-      // kilocode_change - include kilo provider for encrypted reasoning content
-      if (input.model.providerID.startsWith("opencode") || input.model.api.npm === "@kilocode/kilo-gateway") {
+      // kilocode_change - include kappa provider for encrypted reasoning content
+      if (input.model.providerID.startsWith("opencode") || input.model.api.npm === "@kappacode/kappa-gateway") {
         result["promptCacheKey"] = input.sessionID
         result["include"] = ["reasoning.encrypted_content"]
         result["reasoningSummary"] = "auto"
@@ -878,7 +878,7 @@ export namespace ProviderTransform {
       }
       return { thinkingConfig: { thinkingBudget: 0 } }
     }
-    if (model.providerID === "openrouter" || model.api.npm === "@kilocode/kilo-gateway") {
+    if (model.providerID === "openrouter" || model.api.npm === "@kappacode/kappa-gateway") {
       // kilocode_change - add Kilo Gateway support
       if (model.api.id.includes("google")) {
         return { reasoning: { enabled: false } }

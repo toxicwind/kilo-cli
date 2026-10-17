@@ -4,8 +4,8 @@
  */
 
 import { Component, For, Show, createSignal, onCleanup, onMount } from "solid-js"
-import { Button } from "@kilocode/kilo-ui/button"
-import { BasicTool } from "@kilocode/kilo-ui/basic-tool"
+import { Button } from "@kappacode/kappa-ui/button"
+import { BasicTool } from "@kappacode/kappa-ui/basic-tool"
 import { TaskHeader } from "./TaskHeader"
 import { MessageList } from "./MessageList"
 import { PromptInput } from "./PromptInput"

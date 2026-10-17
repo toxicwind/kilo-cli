@@ -25,13 +25,13 @@ if (!existsSync(cliDistDir)) {
 }
 
 const targets = [
-  { target: "linux-x64", cliDir: "@kilocode/cli-linux-x64", binary: "kilo" },
-  { target: "linux-arm64", cliDir: "@kilocode/cli-linux-arm64", binary: "kilo" },
-  { target: "alpine-x64", cliDir: "@kilocode/cli-linux-x64-musl", binary: "kilo" },
-  { target: "alpine-arm64", cliDir: "@kilocode/cli-linux-arm64-musl", binary: "kilo" },
-  { target: "darwin-x64", cliDir: "@kilocode/cli-darwin-x64", binary: "kilo" },
-  { target: "darwin-arm64", cliDir: "@kilocode/cli-darwin-arm64", binary: "kilo" },
-  { target: "win32-x64", cliDir: "@kilocode/cli-windows-x64", binary: "kilo.exe" },
+  { target: "linux-x64", cliDir: "@kappacode/cli-linux-x64", binary: "kappa" },
+  { target: "linux-arm64", cliDir: "@kappacode/cli-linux-arm64", binary: "kappa" },
+  { target: "alpine-x64", cliDir: "@kappacode/cli-linux-x64-musl", binary: "kappa" },
+  { target: "alpine-arm64", cliDir: "@kappacode/cli-linux-arm64-musl", binary: "kappa" },
+  { target: "darwin-x64", cliDir: "@kappacode/cli-darwin-x64", binary: "kappa" },
+  { target: "darwin-arm64", cliDir: "@kappacode/cli-darwin-arm64", binary: "kappa" },
+  { target: "win32-x64", cliDir: "@kappacode/cli-windows-x64", binary: "kappa.exe" },
 ]
 
 const binDir = join(import.meta.dir, "..", "bin")
@@ -72,14 +72,14 @@ for (const config of targets) {
   console.log(`  📥 Copying binary from ${config.cliDir}/bin/${config.binary}...`)
   await $`cp ${sourceBinary} ${targetBinary}`
 
-  if (config.binary !== "kilo.exe") {
+  if (config.binary !== "kappa.exe") {
     chmodSync(targetBinary, 0o755)
   }
 
   console.log(`  ✅ Binary ready at ${targetBinary}`)
 
   console.log(`  📦 Packaging .vsix for ${config.target}...`)
-  const vsixPath = join(outDir, `kilo-vscode-${config.target}.vsix`)
+  const vsixPath = join(outDir, `kappa-vscode-${config.target}.vsix`)
   await $`vsce package --pre-release --no-dependencies --skip-license --target ${config.target} -o ${vsixPath}`.env({
     ...process.env,
     npm_config_ignore_scripts: "true",

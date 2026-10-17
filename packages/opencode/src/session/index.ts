@@ -287,7 +287,7 @@ export namespace Session {
     if (cfg.share === "disabled") {
       throw new Error("Sharing is disabled in configuration")
     }
-    const { KiloSessions } = await import("@/kilo-sessions/kilo-sessions")
+    const { KiloSessions } = await import("@/kappa-sessions/kappa-sessions")
     const share = await KiloSessions.share(id) // kilocode_change
     await update(
       id,
@@ -302,7 +302,7 @@ export namespace Session {
   })
 
   export const unshare = fn(Identifier.schema("session"), async (id) => {
-    const { KiloSessions } = await import("@/kilo-sessions/kilo-sessions")
+    const { KiloSessions } = await import("@/kappa-sessions/kappa-sessions")
     await KiloSessions.unshare(id) // kilocode_change
     await update(
       id,
@@ -376,7 +376,7 @@ export namespace Session {
       for (const child of await children(sessionID)) {
         await remove(child.id)
       }
-      const { KiloSessions } = await import("@/kilo-sessions/kilo-sessions")
+      const { KiloSessions } = await import("@/kappa-sessions/kappa-sessions")
       await KiloSessions.remove(sessionID).catch(() => {}) // kilocode_change
       for (const msg of await Storage.list(["message", sessionID])) {
         for (const part of await Storage.list(["part", msg.at(-1)!])) {
@@ -530,7 +530,7 @@ export namespace Session {
         // For Kilo provider (BYOK), always prefer upstreamInferenceCost when available
         // The 'cost' field from OpenRouter is just their 5% fee for BYOK requests
         // For regular OpenRouter, use the cost field
-        const isKiloProvider = (input.provider?.id ?? input.model.providerID) === "kilo"
+        const isKiloProvider = (input.provider?.id ?? input.model.providerID) === "kappa"
         const upstreamCost = openrouterUsage.costDetails?.upstreamInferenceCost
         const openrouterCost = openrouterUsage.cost
 

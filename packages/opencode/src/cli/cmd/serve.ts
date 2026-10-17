@@ -7,14 +7,14 @@ import { Instance } from "../../project/instance" // kilocode_change
 export const ServeCommand = cmd({
   command: "serve",
   builder: (yargs) => withNetworkOptions(yargs),
-  describe: "starts a headless kilo server", // kilocode_change
+  describe: "starts a headless kappa server", // kilocode_change
   handler: async (args) => {
     if (!Flag.KILO_SERVER_PASSWORD) {
       console.log("Warning: KILO_SERVER_PASSWORD is not set; server is unsecured.")
     }
     const opts = await resolveNetworkOptions(args)
     const server = Server.listen(opts)
-    console.log(`kilo server listening on http://${server.hostname}:${server.port}`) // kilocode_change
+    console.log(`kappa server listening on http://${server.hostname}:${server.port}`) // kilocode_change
     // kilocode_change start - graceful signal shutdown
     const abort = new AbortController()
     const shutdown = async () => {

@@ -3,10 +3,10 @@ import { Plugin } from "../plugin"
 import { map, filter, pipe, fromEntries, mapValues } from "remeda"
 import z from "zod"
 import { fn } from "@/util/fn"
-import type { AuthOuathResult, Hooks } from "@kilocode/plugin"
+import type { AuthOuathResult, Hooks } from "@kappacode/plugin"
 import { NamedError } from "@opencode-ai/util/error"
 import { Auth } from "@/auth"
-import { Telemetry } from "@kilocode/kilo-telemetry" // kilocode_change
+import { Telemetry } from "@kappacode/kappa-telemetry" // kilocode_change
 
 export namespace ProviderAuth {
   const state = Instance.state(async () => {
@@ -113,7 +113,7 @@ export namespace ProviderAuth {
         }
 
         // kilocode_change start - Update telemetry identity on Kilo auth
-        if (input.providerID === "kilo") {
+        if (input.providerID === "kappa") {
           const token = "refresh" in result ? result.access : result.key
           const accountId = "refresh" in result ? result.accountId : undefined
           await Telemetry.updateIdentity(token, accountId)

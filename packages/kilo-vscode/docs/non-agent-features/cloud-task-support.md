@@ -1,6 +1,6 @@
 # Cloud Task Support
 
-**GitHub Issue:** [#168](https://github.com/Kilo-Org/kilo/issues/168)
+**GitHub Issue:** [#168](https://github.com/Kilo-Org/kappa/issues/168)
 **Priority:** P2
 **Status:** ❌ Not started
 

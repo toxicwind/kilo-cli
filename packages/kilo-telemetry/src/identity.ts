@@ -1,5 +1,5 @@
 import * as path from "path"
-import { fetchProfile } from "@kilocode/kilo-gateway"
+import { fetchProfile } from "@kappacode/kappa-gateway"
 
 export namespace Identity {
   let machineId: string | null = null

@@ -19,17 +19,17 @@ Cloud Agents let you run Kilo Code in the cloud from any device, without relying
 Before using Cloud Agents:
 
 - **GitHub or GitLab Integration must be configured**
-  Connect your account via the [Integrations tab](https://app.kilo.ai/integrations) so that Cloud Agents can access your repositories.
+  Connect your account via the [Integrations tab](https://app.kappa.ai/integrations) so that Cloud Agents can access your repositories.
 
 ## Cost
 
 - **Compute is free during limited beta**
-  - Please provide any feedback in our Cloud Agents beta Discord channel: [Kilo Discord](https://kilo.ai/discord)
+  - Please provide any feedback in our Cloud Agents beta Discord channel: [Kilo Discord](https://kappa.ai/discord)
 - **Kilo Code credits are still used** when the agent performs work (model usage, operations, etc.).
 
 ## How to Use
 
-1. **Connect your GitHub or GitLab account** in the [Integrations](https://app.kilo.ai/integrations) tab of your personal or organization dashboard.
+1. **Connect your GitHub or GitLab account** in the [Integrations](https://app.kappa.ai/integrations) tab of your personal or organization dashboard.
 2. **Select a repository** to use as your workspace.
 3. **Add environment variables** (secrets supported) and set optional startup commands.
 4. **Start chatting with Kilo Code.**
@@ -122,7 +122,7 @@ Webhook triggers are currently in beta and subject to change.
 
 ### Accessing Webhooks
 
-Webhook triggers are accessible from the main sidebar with an entry named **Webhook** and link to [https://app.kilo.ai/cloud/webhooks](https://app.kilo.ai/cloud/webhooks) for personal accounts. Organization-level webhook configurations are available through your organization's sidebar.
+Webhook triggers are accessible from the main sidebar with an entry named **Webhook** and link to [https://app.kappa.ai/cloud/webhooks](https://app.kappa.ai/cloud/webhooks) for personal accounts. Organization-level webhook configurations are available through your organization's sidebar.
 
 ### Configuration
 

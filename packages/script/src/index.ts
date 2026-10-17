@@ -34,7 +34,7 @@ const IS_PREVIEW = CHANNEL !== "latest"
 const VERSION = await (async () => {
   if (env.KILO_VERSION) return env.KILO_VERSION // kilocode_change
   if (IS_PREVIEW) return `0.0.0-${CHANNEL}-${new Date().toISOString().slice(0, 16).replace(/[-:T]/g, "")}`
-  const version = await fetch("https://registry.npmjs.org/@kilocode/cli/latest") // kilocode_change
+  const version = await fetch("https://registry.npmjs.org/@kappacode/cli/latest") // kilocode_change
     .then((res) => {
       if (!res.ok) throw new Error(res.statusText)
       return res.json()
@@ -50,7 +50,7 @@ const VERSION = await (async () => {
 // kilocode_change start
 const team = [
   "actions-user",
-  "kilo-maintainer[bot]",
+  "kappa-maintainer[bot]",
   "kiloconnect[bot]",
   "kiloconnect-lite[bot]",
   "alexkgold",
@@ -103,4 +103,4 @@ export const Script = {
     return team
   },
 }
-console.log(`kilo script`, JSON.stringify(Script, null, 2)) // kilocode_change
+console.log(`kappa script`, JSON.stringify(Script, null, 2)) // kilocode_change

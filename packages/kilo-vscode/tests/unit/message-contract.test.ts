@@ -16,7 +16,7 @@ import path from "node:path"
 const ROOT = path.resolve(import.meta.dir, "../..")
 const MESSAGES_FILE = path.join(ROOT, "webview-ui/src/types/messages.ts")
 const KILO_PROVIDER_FILE = path.join(ROOT, "src/KiloProvider.ts")
-const KILO_PROVIDER_UTILS_FILE = path.join(ROOT, "src/kilo-provider-utils.ts")
+const KILO_PROVIDER_UTILS_FILE = path.join(ROOT, "src/kappa-provider-utils.ts")
 
 function readFile(filePath: string): string {
   return fs.readFileSync(filePath, "utf-8")

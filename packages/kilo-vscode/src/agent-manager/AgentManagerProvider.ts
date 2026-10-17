@@ -18,7 +18,7 @@ import { formatKeybinding } from "./format-keybinding"
  * SESSIONS (bottom) with unassociated workspace sessions.
  */
 export class AgentManagerProvider implements vscode.Disposable {
-  public static readonly viewType = "kilo-code.new.AgentManagerPanel"
+  public static readonly viewType = "kappa-code.new.AgentManagerPanel"
 
   private panel: vscode.WebviewPanel | undefined
   private provider: KiloProvider | undefined
@@ -64,8 +64,8 @@ export class AgentManagerProvider implements vscode.Disposable {
     )
 
     this.panel.iconPath = {
-      light: vscode.Uri.joinPath(this.extensionUri, "assets", "icons", "kilo-light.svg"),
-      dark: vscode.Uri.joinPath(this.extensionUri, "assets", "icons", "kilo-dark.svg"),
+      light: vscode.Uri.joinPath(this.extensionUri, "assets", "icons", "kappa-light.svg"),
+      dark: vscode.Uri.joinPath(this.extensionUri, "assets", "icons", "kappa-dark.svg"),
     }
 
     this.panel.webview.html = this.getHtml(this.panel.webview)
@@ -224,7 +224,7 @@ export class AgentManagerProvider implements vscode.Disposable {
 
     let result: CreateWorktreeResult
     try {
-      result = await manager.createWorktree({ prompt: "kilo" })
+      result = await manager.createWorktree({ prompt: "kappa" })
     } catch (error) {
       const msg = error instanceof Error ? error.message : String(error)
       this.postToWebview({
@@ -585,17 +585,17 @@ export class AgentManagerProvider implements vscode.Disposable {
   // ---------------------------------------------------------------------------
 
   private sendKeybindings(): void {
-    const ext = vscode.extensions.getExtension("kilocode.kilo-code")
+    const ext = vscode.extensions.getExtension("kilocode.kappa-code")
     const keybindings: Array<{ command: string; key?: string; mac?: string }> =
       ext?.packageJSON?.contributes?.keybindings ?? []
 
     const mac = process.platform === "darwin"
-    const prefix = "kilo-code.new.agentManager."
+    const prefix = "kappa-code.new.agentManager."
     const bindings: Record<string, string> = {}
 
     // Global keybindings exposed to the shortcuts dialog
     const globals: Record<string, string> = {
-      "kilo-code.new.agentManagerOpen": "agentManagerOpen",
+      "kappa-code.new.agentManagerOpen": "agentManagerOpen",
     }
 
     for (const kb of keybindings) {

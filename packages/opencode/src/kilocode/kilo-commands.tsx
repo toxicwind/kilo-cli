@@ -10,9 +10,9 @@ import { useSync } from "@tui/context/sync"
 import { useDialog } from "@tui/ui/dialog"
 import { useToast } from "@tui/ui/toast"
 import { DialogAlert } from "@tui/ui/dialog-alert"
-import type { Organization } from "@kilocode/kilo-gateway"
-import { DialogKiloTeamSelect } from "./components/dialog-kilo-team-select.js"
-import { DialogKiloProfile } from "./components/dialog-kilo-profile.js"
+import type { Organization } from "@kappacode/kappa-gateway"
+import { DialogKiloTeamSelect } from "./components/dialog-kappa-team-select.js"
+import { DialogKiloProfile } from "./components/dialog-kappa-profile.js"
 
 // These types are OpenCode-internal and imported at runtime
 type UseSDK = any
@@ -33,13 +33,13 @@ export function registerKiloCommands(useSDK: () => UseSDK) {
 
   // Only show Kilo commands when connected to Kilo Gateway
   const isKiloConnected = createMemo(() => {
-    return sync.data.provider_next.connected.includes("kilo")
+    return sync.data.provider_next.connected.includes("kappa")
   })
 
   command.register(() => [
     // /profile command
     {
-      value: "kilo.profile",
+      value: "kappa.profile",
       title: "Profile",
       description: "View your Kilo Gateway profile",
       category: "Kilo",
@@ -49,7 +49,7 @@ export function registerKiloCommands(useSDK: () => UseSDK) {
       onSelect: async () => {
         try {
           // Fetch profile and balance using server endpoint
-          const response = await sdk.client.kilo.profile()
+          const response = await sdk.client.kappa.profile()
 
           if (response.error || !response.data) {
             dialog.replace(() => (
@@ -73,7 +73,7 @@ export function registerKiloCommands(useSDK: () => UseSDK) {
 
     // /teams command
     {
-      value: "kilo.teams",
+      value: "kappa.teams",
       title: "Teams",
       description: "Switch between Kilo Gateway teams",
       category: "Kilo",
@@ -83,7 +83,7 @@ export function registerKiloCommands(useSDK: () => UseSDK) {
       onSelect: async () => {
         try {
           // Fetch profile to get organizations
-          const response = await sdk.client.kilo.profile()
+          const response = await sdk.client.kappa.profile()
 
           if (response.error || !response.data) {
             dialog.replace(() => (
@@ -101,7 +101,7 @@ export function registerKiloCommands(useSDK: () => UseSDK) {
             dialog.replace(() => (
               <DialogAlert
                 title="No Teams Available"
-                message="You're not a member of any teams.\nVisit https://app.kilo.ai to create or join a team."
+                message="You're not a member of any teams.\nVisit https://app.kappa.ai to create or join a team."
               />
             ))
             return
@@ -115,7 +115,7 @@ export function registerKiloCommands(useSDK: () => UseSDK) {
               onSelect={async (orgId) => {
                 try {
                   // Switch to team immediately using server endpoint
-                  await sdk.client.kilo.organization.set({
+                  await sdk.client.kappa.organization.set({
                     organizationId: orgId,
                   })
 

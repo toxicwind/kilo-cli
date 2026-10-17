@@ -3,11 +3,11 @@ Use Kilo Code directly from your terminal for maximum flexibility.
 ### Install via npm
 
 ```bash
-npm install -g @kilocode/cli
+npm install -g @kappacode/cli
 ```
 
 ### Verify Installation
 
 ```bash
-kilo --version
+kappa --version
 ```

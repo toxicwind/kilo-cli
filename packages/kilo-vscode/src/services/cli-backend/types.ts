@@ -1,4 +1,4 @@
-// Session types from @kilocode/cli
+// Session types from @kappacode/cli
 export interface SessionInfo {
   id: string
   title: string
@@ -176,7 +176,7 @@ export interface ProviderAuthAuthorization {
   instructions: string
 }
 
-// Kilo notification from kilo-gateway
+// Kilo notification from kappa-gateway
 export interface KilocodeNotificationAction {
   actionText: string
   actionURL: string
@@ -190,7 +190,7 @@ export interface KilocodeNotification {
   showIn?: string[]
 }
 
-// Profile types from kilo-gateway
+// Profile types from kappa-gateway
 export interface KilocodeOrganization {
   id: string
   name: string

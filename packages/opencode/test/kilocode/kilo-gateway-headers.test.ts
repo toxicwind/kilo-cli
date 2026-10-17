@@ -1,7 +1,7 @@
 // kilocode_change - new file
 import { describe, it, expect, afterEach } from "bun:test"
-import { buildKiloHeaders, getFeatureHeader, getEditorNameHeader } from "@kilocode/kilo-gateway"
-import { HEADER_FEATURE, ENV_FEATURE } from "@kilocode/kilo-gateway"
+import { buildKiloHeaders, getFeatureHeader, getEditorNameHeader } from "@kappacode/kappa-gateway"
+import { HEADER_FEATURE, ENV_FEATURE } from "@kappacode/kappa-gateway"
 
 describe("getFeatureHeader", () => {
   const original = process.env[ENV_FEATURE]

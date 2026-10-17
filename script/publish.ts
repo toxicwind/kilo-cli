@@ -42,7 +42,7 @@ const pkgjsons = await Array.fromAsync(
 for (const file of pkgjsons) {
   let pkg = await Bun.file(file).text()
   // kilocode_change start
-  const version = file.includes("packages/kilo-vscode/")
+  const version = file.includes("packages/kappa-vscode/")
     ? Script.version.replace(/^\d+/, (m) => String(Number(m) + 6))
     : Script.version
   // kilocode_change end
@@ -81,7 +81,7 @@ console.log("\n=== plugin ===\n")
 await import(`../packages/plugin/script/publish.ts`)
 
 console.log("\n=== vscode ===\n")
-await import(`../packages/kilo-vscode/script/publish.ts`)
+await import(`../packages/kappa-vscode/script/publish.ts`)
 
 const dir = new URL("..", import.meta.url).pathname
 process.chdir(dir)

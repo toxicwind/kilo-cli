@@ -22,12 +22,12 @@ import { extractHttpErrorMessage, parseSSEDataLine } from "./http-utils"
 export class HttpClient {
   private readonly baseUrl: string
   private readonly authHeader: string
-  private readonly authUsername = "kilo"
+  private readonly authUsername = "kappa"
 
   constructor(config: ServerConfig) {
     this.baseUrl = config.baseUrl
-    // Auth header format: Basic base64("kilo:password")
-    // NOTE: The CLI server expects a non-empty username ("kilo"). Using an empty username
+    // Auth header format: Basic base64("kappa:password")
+    // NOTE: The CLI server expects a non-empty username ("kappa"). Using an empty username
     // (":password") results in 401 for both REST and SSE endpoints.
     this.authHeader = `Basic ${Buffer.from(`${this.authUsername}:${config.password}`).toString("base64")}`
 
@@ -316,24 +316,24 @@ export class HttpClient {
   // ============================================
 
   /**
-   * Get the current user's profile from the kilo-gateway.
+   * Get the current user's profile from the kappa-gateway.
    * Returns null if not logged in or if the request fails.
    */
   async getProfile(): Promise<ProfileData | null> {
     try {
-      return await this.request<ProfileData>("GET", "/kilo/profile")
+      return await this.request<ProfileData>("GET", "/kappa/profile")
     } catch {
       return null
     }
   }
 
   /**
-   * Fetch Kilo notifications for the current user from the kilo-gateway.
+   * Fetch Kilo notifications for the current user from the kappa-gateway.
    * Returns an empty array if not logged in or if the request fails.
    */
   async getNotifications(): Promise<KilocodeNotification[]> {
     try {
-      return await this.request<KilocodeNotification[]>("GET", "/kilo/notifications")
+      return await this.request<KilocodeNotification[]>("GET", "/kappa/notifications")
     } catch (err) {
       console.warn("[Kilo] Failed to fetch notifications:", err)
       return []
@@ -345,7 +345,7 @@ export class HttpClient {
    * Pass null to switch back to personal account.
    */
   async setOrganization(organizationId: string | null): Promise<void> {
-    await this.request<boolean>("POST", "/kilo/organization", { organizationId })
+    await this.request<boolean>("POST", "/kappa/organization", { organizationId })
   }
 
   // ============================================
@@ -368,7 +368,7 @@ export class HttpClient {
     onChunk: (text: string) => void,
     options?: { model?: string; maxTokens?: number; temperature?: number },
   ): Promise<{ cost: number; inputTokens: number; outputTokens: number }> {
-    const url = `${this.baseUrl}/kilo/fim`
+    const url = `${this.baseUrl}/kappa/fim`
 
     const response = await fetch(url, {
       method: "POST",
@@ -434,7 +434,7 @@ export class HttpClient {
 
   /**
    * Remove authentication credentials for a provider.
-   * Used for logout when called with "kilo".
+   * Used for logout when called with "kappa".
    */
   async removeAuth(providerId: string): Promise<boolean> {
     return this.request<boolean>("DELETE", `/auth/${providerId}`)
@@ -455,7 +455,7 @@ export class HttpClient {
 
   /**
    * Complete OAuth callback for a provider.
-   * For "auto" method providers (like kilo), this blocks until polling completes.
+   * For "auto" method providers (like kappa), this blocks until polling completes.
    */
   async oauthCallback(providerId: string, method: number, directory: string): Promise<boolean> {
     return this.request<boolean>("POST", `/provider/${providerId}/oauth/callback`, { method }, { directory })

@@ -19,7 +19,7 @@ afterEach(async () => {
 
 /** Create a temp git repo with an initial commit (required for worktrees). */
 async function createTempRepo(): Promise<string> {
-  const dir = await fs.mkdtemp(path.join(os.tmpdir(), "kilo-wt-"))
+  const dir = await fs.mkdtemp(path.join(os.tmpdir(), "kappa-wt-"))
   tempDirs.push(dir)
   const git = simpleGit(dir)
   await git.init()
@@ -55,12 +55,12 @@ describe("generateBranchName", () => {
     expect(prefix.length).toBeLessThanOrEqual(50)
   })
 
-  it("falls back to 'kilo' for empty input", () => {
-    expect(generateBranchName("")).toMatch(/^kilo-\d+$/)
+  it("falls back to 'kappa' for empty input", () => {
+    expect(generateBranchName("")).toMatch(/^kappa-\d+$/)
   })
 
-  it("falls back to 'kilo' for whitespace-only input", () => {
-    expect(generateBranchName("   ")).toMatch(/^kilo-\d+$/)
+  it("falls back to 'kappa' for whitespace-only input", () => {
+    expect(generateBranchName("   ")).toMatch(/^kappa-\d+$/)
   })
 
   it("strips leading and trailing hyphens from sanitized text", () => {
@@ -126,7 +126,7 @@ describe("WorktreeManager.createWorktree", () => {
   })
 
   it("throws when workspace is not a git repo", async () => {
-    const dir = await fs.mkdtemp(path.join(os.tmpdir(), "kilo-wt-nogit-"))
+    const dir = await fs.mkdtemp(path.join(os.tmpdir(), "kappa-wt-nogit-"))
     tempDirs.push(dir)
     const mgr = createManager(dir)
 

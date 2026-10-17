@@ -133,7 +133,7 @@ type IssueQueryResponse = {
 
 const AGENT_USERNAME = "kiloconnect[bot]" // kilocode_change
 const AGENT_REACTION = "eyes"
-const WORKFLOW_FILE = ".github/workflows/kilo.yml" // kilocode_change
+const WORKFLOW_FILE = ".github/workflows/kappa.yml" // kilocode_change
 
 // Event categories for routing
 // USER_EVENTS: triggered by user actions, have actor/issueId, support reactions/comments
@@ -226,9 +226,9 @@ export const GithubInstallCommand = cmd({
                 `    1. Commit the \`${WORKFLOW_FILE}\` file and push`,
                 step2,
                 "",
-                "    3. Go to a GitHub issue and comment `/kilo summarize` to see the agent in action", // kilocode_change
+                "    3. Go to a GitHub issue and comment `/kappa summarize` to see the agent in action", // kilocode_change
                 "",
-                "   Learn more about the GitHub agent - https://kilo.ai/docs/github/#usage-examples", // kilocode_change
+                "   Learn more about the GitHub agent - https://kappa.ai/docs/github/#usage-examples", // kilocode_change
               ].join("\n"),
             )
           }
@@ -252,7 +252,7 @@ export const GithubInstallCommand = cmd({
 
           async function promptProvider() {
             const priority: Record<string, number> = {
-              kilo: 0, // kilocode_change
+              kappa: 0, // kilocode_change
               anthropic: 1,
               openai: 2,
               google: 3,
@@ -347,7 +347,7 @@ export const GithubInstallCommand = cmd({
 
             async function getInstallation() {
               // kilocode_change start - updated to new endpoint
-              return await fetch(`https://api.kilo.ai/api/integrations/github/check-installation?owner=${app.owner}`)
+              return await fetch(`https://api.kappa.ai/api/integrations/github/check-installation?owner=${app.owner}`)
                 .then((res) => res.json())
                 .then((data) => data.installation)
               // kilocode_change end
@@ -362,7 +362,7 @@ export const GithubInstallCommand = cmd({
                 : providers[provider].env.map((e) => `\n          ${e}: \${{ secrets.${e} }}`).join("")
 
             const kiloGatewayEnv =
-              provider === "kilo"
+              provider === "kappa"
                 ? `\n          KILO_API_KEY: \${{ secrets.KILO_API_KEY }}\n          KILO_ORG_ID: \${{ secrets.KILO_ORG_ID }}`
                 : ""
 
@@ -370,7 +370,7 @@ export const GithubInstallCommand = cmd({
 
             await Bun.write(
               path.join(app.root, WORKFLOW_FILE),
-              `name: kilo
+              `name: kappa
 
 on:
   issue_comment:
@@ -379,12 +379,12 @@ on:
     types: [created]
 
 jobs:
-  kilo:
+  kappa:
     if: |
       contains(github.event.comment.body, ' /kc') ||
       startsWith(github.event.comment.body, '/kc') ||
-      contains(github.event.comment.body, ' /kilo') ||
-      startsWith(github.event.comment.body, '/kilo')
+      contains(github.event.comment.body, ' /kappa') ||
+      startsWith(github.event.comment.body, '/kappa')
     runs-on: ubuntu-latest
     permissions:
       id-token: write
@@ -398,7 +398,7 @@ jobs:
           persist-credentials: false
 
       - name: Run Kilo
-        uses: Kilo-Org/kilo/github@latest${envStr}
+        uses: Kilo-Org/kappa/github@latest${envStr}
         with:
           model: ${provider}/${model}`,
             )
@@ -468,7 +468,7 @@ export const GithubRunCommand = cmd({
           ? (payload as IssueCommentEvent | IssuesEvent).issue.number
           : (payload as PullRequestEvent | PullRequestReviewCommentEvent).pull_request.number
       const runUrl = `/${owner}/${repo}/actions/runs/${runId}`
-      const shareBaseUrl = isMock ? "https://dev.kilo.ai" : "https://kilo.ai" // kilocode_change
+      const shareBaseUrl = isMock ? "https://dev.kappa.ai" : "https://kappa.ai" // kilocode_change
 
       let appToken: string
       let octoRest: Octokit
@@ -516,7 +516,7 @@ export const GithubRunCommand = cmd({
           await addReaction(commentType)
         }
 
-        // Setup kilo session // kilocode_change
+        // Setup kappa session // kilocode_change
         const repoData = await fetchRepo()
         session = await Session.create({
           permission: [
@@ -534,7 +534,7 @@ export const GithubRunCommand = cmd({
           await Session.share(session.id)
           return session.id.slice(-8)
         })()
-        console.log("kilo session", session.id) // kilocode_change
+        console.log("kappa session", session.id) // kilocode_change
 
         // Handle event types:
         // REPO_EVENTS (schedule, workflow_dispatch): no issue/PR context, output to logs/PR only
@@ -684,7 +684,7 @@ export const GithubRunCommand = cmd({
 
       function normalizeOidcBaseUrl(): string {
         const value = process.env["OIDC_BASE_URL"]
-        if (!value) return "https://api.kilo.ai" // kilocode_change
+        if (!value) return "https://api.kappa.ai" // kilocode_change
         return value.replace(/\/+$/, "")
       }
 
@@ -733,7 +733,7 @@ export const GithubRunCommand = cmd({
         }
 
         const reviewContext = getReviewCommentContext()
-        const mentions = (process.env["MENTIONS"] || "/kilo,/kc") // kilocode_change
+        const mentions = (process.env["MENTIONS"] || "/kappa,/kc") // kilocode_change
           .split(",")
           .map((m) => m.trim().toLowerCase())
           .filter(Boolean)
@@ -879,7 +879,7 @@ export const GithubRunCommand = cmd({
       }
 
       async function chat(message: string, files: PromptFiles = []) {
-        console.log("Sending message to kilo...") // kilocode_change
+        console.log("Sending message to kappa...") // kilocode_change
 
         const result = await SessionPrompt.prompt({
           sessionID: session.id,
@@ -963,7 +963,7 @@ export const GithubRunCommand = cmd({
 
       async function getOidcToken() {
         try {
-          return await core.getIDToken("kilo-github-action") // kilocode_change
+          return await core.getIDToken("kappa-github-action") // kilocode_change
         } catch (error) {
           console.error("Failed to get OIDC token:", error instanceof Error ? error.message : error)
           throw new Error(
@@ -1067,9 +1067,9 @@ export const GithubRunCommand = cmd({
           .join("")
         if (type === "schedule" || type === "dispatch") {
           const hex = crypto.randomUUID().slice(0, 6)
-          return `kilo/${type}-${hex}-${timestamp}` // kilocode_change
+          return `kappa/${type}-${hex}-${timestamp}` // kilocode_change
         }
-        return `kilo/${type}${issueId}-${timestamp}` // kilocode_change
+        return `kappa/${type}${issueId}-${timestamp}` // kilocode_change
       }
 
       async function pushToNewBranch(summary: string, branch: string, commit: boolean, isSchedule: boolean) {
@@ -1302,8 +1302,8 @@ Co-authored-by: ${actor} <${actor}@users.noreply.github.com>"`
 
       function footer(opts?: { image?: boolean }) {
         // kilocode_change start - simplified footer with text branding (no image backend yet)
-        const share = shareId ? `[kilo session](${shareBaseUrl}/s/${shareId})&nbsp;&nbsp;|&nbsp;&nbsp;` : ""
-        return `\n\n---\n*Powered by [Kilo](https://kilo.ai)*&nbsp;&nbsp;|&nbsp;&nbsp;${share}[github run](${runUrl})`
+        const share = shareId ? `[kappa session](${shareBaseUrl}/s/${shareId})&nbsp;&nbsp;|&nbsp;&nbsp;` : ""
+        return `\n\n---\n*Powered by [Kilo](https://kappa.ai)*&nbsp;&nbsp;|&nbsp;&nbsp;${share}[github run](${runUrl})`
         // kilocode_change end
       }
 
@@ -1364,7 +1364,7 @@ query($owner: String!, $repo: String!, $number: Int!) {
         return [
           "<github_action_context>",
           "You are running as a GitHub Action. Important:",
-          "- Git push and PR creation are handled AUTOMATICALLY by the kilo infrastructure after your response", // kilocode_change
+          "- Git push and PR creation are handled AUTOMATICALLY by the kappa infrastructure after your response", // kilocode_change
           "- Do NOT include warnings or disclaimers about GitHub tokens, workflow permissions, or PR creation capabilities",
           "- Do NOT suggest manual steps for creating PRs or pushing code - this happens automatically",
           "- Focus only on the code changes and your analysis/response",
@@ -1502,7 +1502,7 @@ query($owner: String!, $repo: String!, $number: Int!) {
         return [
           "<github_action_context>",
           "You are running as a GitHub Action. Important:",
-          "- Git push and PR creation are handled AUTOMATICALLY by the kilo infrastructure after your response", // kilocode_change
+          "- Git push and PR creation are handled AUTOMATICALLY by the kappa infrastructure after your response", // kilocode_change
           "- Do NOT include warnings or disclaimers about GitHub tokens, workflow permissions, or PR creation capabilities",
           "- Do NOT suggest manual steps for creating PRs or pushing code - this happens automatically",
           "- Focus only on the code changes and your analysis/response",

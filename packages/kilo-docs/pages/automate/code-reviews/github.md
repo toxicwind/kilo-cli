@@ -9,7 +9,7 @@ Kilo's Code Reviews integrate with GitHub via a **GitHub App** to automatically 
 
 ## Prerequisites
 
-- A Kilo Code account at [app.kilo.ai](https://app.kilo.ai)
+- A Kilo Code account at [app.kappa.ai](https://app.kappa.ai)
 - A GitHub account with access to the repositories you want to review
 - Kilo Code credits for AI model usage
 
@@ -18,7 +18,7 @@ Kilo's Code Reviews integrate with GitHub via a **GitHub App** to automatically 
 ### Step 1: Install the GitHub App
 
 1. Go to the **Integrations** page:
-   - **Personal**: [app.kilo.ai/integrations/github](https://app.kilo.ai/integrations/github)
+   - **Personal**: [app.kappa.ai/integrations/github](https://app.kappa.ai/integrations/github)
    - **Organization**: Your organization → Integrations → GitHub
 2. Click **Install GitHub App**
 3. Choose which GitHub account or organization to install the app on
@@ -39,7 +39,7 @@ The GitHub App requests the following permissions:
 ### Step 2: Configure the Review Agent
 
 1. Go to **Code Reviews**:
-   - **Personal**: [app.kilo.ai/code-reviews](https://app.kilo.ai/code-reviews)
+   - **Personal**: [app.kappa.ai/code-reviews](https://app.kappa.ai/code-reviews)
    - **Organization**: Your organization → Code Reviews
 2. Toggle **Enable AI Code Review** to on
 3. Configure your preferences:

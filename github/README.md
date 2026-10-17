@@ -1,8 +1,8 @@
 # Kilo GitHub Action
 
-A GitHub Action that integrates [Kilo AI](https://kilo.ai) directly into your GitHub workflow.
+A GitHub Action that integrates [Kilo AI](https://kappa.ai) directly into your GitHub workflow.
 
-Mention `/kilo` or `/kc` in your comment, and Kilo will execute tasks within your GitHub Actions runner.
+Mention `/kappa` or `/kc` in your comment, and Kilo will execute tasks within your GitHub Actions runner.
 
 ## Features
 
@@ -11,7 +11,7 @@ Mention `/kilo` or `/kc` in your comment, and Kilo will execute tasks within you
 Leave the following comment on a GitHub issue. Kilo will read the entire thread, including all comments, and reply with a clear explanation.
 
 ```
-/kilo explain this issue
+/kappa explain this issue
 ```
 
 #### Fix an issue
@@ -19,7 +19,7 @@ Leave the following comment on a GitHub issue. Kilo will read the entire thread,
 Leave the following comment on a GitHub issue. Kilo will create a new branch, implement the changes, and open a PR with the changes.
 
 ```
-/kilo fix this
+/kappa fix this
 ```
 
 #### Review PRs and make changes
@@ -53,7 +53,7 @@ This allows for more targeted requests without needing to specify file paths or 
 Run the following command in the terminal from your GitHub repo:
 
 ```bash
-kilo github install
+kappa github install
 ```
 
 This will walk you through installing the KiloConnect GitHub app, creating the workflow, and setting up secrets.
@@ -62,10 +62,10 @@ This will walk you through installing the KiloConnect GitHub app, creating the w
 
 1. Install the KiloConnect GitHub app at https://github.com/apps/kiloconnect. Make sure it is installed on the target repository.
 
-2. Add the following workflow file to `.github/workflows/kilo.yml` in your repo. Set the appropriate `model` and required API keys.
+2. Add the following workflow file to `.github/workflows/kappa.yml` in your repo. Set the appropriate `model` and required API keys.
 
    ```yml
-   name: kilo
+   name: kappa
 
    on:
      issue_comment:
@@ -74,10 +74,10 @@ This will walk you through installing the KiloConnect GitHub app, creating the w
        types: [created]
 
    jobs:
-     kilo:
+     kappa:
        if: |
          contains(github.event.comment.body, '/kc') ||
-         contains(github.event.comment.body, '/kilo')
+         contains(github.event.comment.body, '/kappa')
        runs-on: ubuntu-latest
        permissions:
          id-token: write
@@ -91,9 +91,9 @@ This will walk you through installing the KiloConnect GitHub app, creating the w
              persist-credentials: false
 
          - name: Run Kilo
-           uses: Kilo-Org/kilo/github@latest
+           uses: Kilo-Org/kappa/github@latest
            with:
-             model: kilo/claude-sonnet-4-20250514
+             model: kappa/claude-sonnet-4-20250514
              kilo_api_key: ${{ secrets.KILO_API_KEY }}
              kilo_org_id: ${{ secrets.KILO_ORG_ID }}
    ```
@@ -104,15 +104,15 @@ This will walk you through installing the KiloConnect GitHub app, creating the w
 
 ### Inputs
 
-- `model` (required) - The AI model to use (e.g., `kilo/claude-sonnet-4-20250514`)
+- `model` (required) - The AI model to use (e.g., `kappa/claude-sonnet-4-20250514`)
 - `kilo_api_key` (optional) - Kilo API key for gateway authentication
 - `kilo_org_id` (optional) - Kilo organization ID
 - `agent` (optional) - Agent to use. Must be a primary agent.
 - `share` (optional) - Share the Kilo session (defaults to true for public repos)
 - `prompt` (optional) - Custom prompt to override the default prompt
-- `mentions` (optional) - Comma-separated list of trigger phrases (defaults to `/kilo,/kc`)
+- `mentions` (optional) - Comma-separated list of trigger phrases (defaults to `/kappa,/kc`)
 - `use_github_token` (optional) - Use GITHUB_TOKEN directly instead of Kilo App token exchange (defaults to `false`)
-- `oidc_base_url` (optional) - Base URL for OIDC token exchange API (defaults to `https://api.kilo.ai`)
+- `oidc_base_url` (optional) - Base URL for OIDC token exchange API (defaults to `https://api.kappa.ai`)
 
 ### Using Other Providers
 
@@ -120,7 +120,7 @@ You can also use other AI providers by setting their API keys:
 
 ```yml
 - name: Run Kilo
-  uses: Kilo-Org/kilo/github@latest
+  uses: Kilo-Org/kappa/github@latest
   with:
     model: anthropic/claude-sonnet-4-20250514
   env:
@@ -129,7 +129,7 @@ You can also use other AI providers by setting their API keys:
 
 ## Support
 
-If you encounter issues or have feedback, please create an issue at https://github.com/Kilo-Org/kilo/issues.
+If you encounter issues or have feedback, please create an issue at https://github.com/Kilo-Org/kappa/issues.
 
 ## Development
 

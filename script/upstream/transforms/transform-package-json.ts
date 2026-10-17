@@ -4,7 +4,7 @@
  *
  * This script handles package.json conflicts by:
  * 1. Taking upstream's version (to get new dependencies)
- * 2. Transforming package names (opencode -> kilo)
+ * 2. Transforming package names (opencode -> kappa)
  * 3. Injecting Kilo-specific dependencies
  * 4. Preserving Kilo's version number
  * 5. Preserving overrides and patchedDependencies
@@ -130,7 +130,7 @@ function mergeWithNewestVersions(
       if (!theirVersion) {
         // Dependency only exists in ours - keep it
         result[name] = ourVersion
-        changes.push(`${section}: preserved ${name}@${ourVersion} (kilo-only)`)
+        changes.push(`${section}: preserved ${name}@${ourVersion} (kappa-only)`)
       } else if (ourVersion !== theirVersion) {
         // Both have it with different versions - compare
         const comparison = compareVersions(ourVersion, theirVersion)
@@ -141,7 +141,7 @@ function mergeWithNewestVersions(
         } else if (comparison > 0) {
           // Ours is newer
           result[name] = ourVersion
-          changes.push(`${section}: ${name} ${theirVersion} -> ${ourVersion} (kilo newer)`)
+          changes.push(`${section}: ${name} ${theirVersion} -> ${ourVersion} (kappa newer)`)
         } else if (comparison < 0) {
           // Theirs is newer - already in result
           changes.push(`${section}: ${name} kept upstream ${theirVersion} (upstream newer)`)
@@ -169,32 +169,32 @@ export interface PackageJsonOptions {
 
 // Package name mappings
 const PACKAGE_NAME_MAP: Record<string, string> = {
-  "opencode-ai": "@kilocode/cli",
-  "@opencode-ai/cli": "@kilocode/cli",
-  "@opencode-ai/sdk": "@kilocode/sdk",
-  "@opencode-ai/plugin": "@kilocode/plugin",
+  "opencode-ai": "@kappacode/cli",
+  "@opencode-ai/cli": "@kappacode/cli",
+  "@opencode-ai/sdk": "@kappacode/sdk",
+  "@opencode-ai/plugin": "@kappacode/plugin",
 }
 
 // Kilo-specific dependencies to inject into specific packages
-// NOTE: When adding new Kilo-specific workspace dependencies (packages starting with @kilocode/kilo-*),
+// NOTE: When adding new Kilo-specific workspace dependencies (packages starting with @kappacode/kappa-*),
 // add them here to prevent them from being removed during upstream merges
 const KILO_DEPENDENCIES: Record<string, Record<string, string>> = {
   // packages/opencode/package.json needs these
   "packages/opencode/package.json": {
-    "@kilocode/kilo-gateway": "workspace:*",
-    "@kilocode/kilo-telemetry": "workspace:*",
+    "@kappacode/kappa-gateway": "workspace:*",
+    "@kappacode/kappa-telemetry": "workspace:*",
   },
   // packages/app/package.json needs these
   "packages/app/package.json": {
-    "@kilocode/kilo-i18n": "workspace:*",
+    "@kappacode/kappa-i18n": "workspace:*",
   },
 }
 
 // Packages that should have their name transformed
 const TRANSFORM_PACKAGE_NAMES: Record<string, string> = {
-  "packages/opencode/package.json": "@kilocode/cli",
-  "packages/plugin/package.json": "@kilocode/plugin",
-  "packages/sdk/js/package.json": "@kilocode/sdk",
+  "packages/opencode/package.json": "@kappacode/cli",
+  "packages/plugin/package.json": "@kappacode/plugin",
+  "packages/sdk/js/package.json": "@kappacode/sdk",
 }
 
 /**
@@ -351,7 +351,7 @@ export async function transformPackageJson(file: string, options: PackageJsonOpt
       }
     }
 
-    // 7. Transform dependency names (opencode -> kilo)
+    // 7. Transform dependency names (opencode -> kappa)
     if (pkg.dependencies) {
       const { result, changes: depChanges } = transformDependencies(pkg.dependencies)
       pkg.dependencies = result
@@ -556,7 +556,7 @@ export async function transformAllPackageJson(options: PackageJsonOptions = {}):
         }
       }
 
-      // 7. Transform dependency names (opencode -> kilo)
+      // 7. Transform dependency names (opencode -> kappa)
       if (pkg.dependencies) {
         const { result, changes: depChanges } = transformDependencies(pkg.dependencies)
         if (depChanges.length > 0) {

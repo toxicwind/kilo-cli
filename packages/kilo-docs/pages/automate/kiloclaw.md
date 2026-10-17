@@ -19,18 +19,18 @@ KiloClaw is Kilo's hosted [OpenClaw](https://openclaw.ai) service—a one-click 
 
 Before creating an instance:
 
-- **Kilo account** — Sign up at [kilo.ai](https://kilo.ai) if you haven't already
+- **Kilo account** — Sign up at [kappa.ai](https://kappa.ai) if you haven't already
 - **Gateway credits** — KiloClaw uses your existing [Gateway credits](/docs/gateway/usage-and-billing) for model inference
 
 ## Creating an Instance
 
-1. Navigate to your [Kilo profile](https://app.kilo.ai/profile)
+1. Navigate to your [Kilo profile](https://app.kappa.ai/profile)
 2. Click **Claw** in the left navigation
 
 {% image src="/docs/img/kiloclaw/profile-claw-nav.png" alt="Profile page showing Claw navigation" width="400" caption="Claw navigation in profile sidebar" /%}
 
 3. Click **Create Instance**
-4. Select your preferred model from the dropdown. See all available models at the [Kilo Leaderboard](https://kilo.ai/leaderboard#all-models).
+4. Select your preferred model from the dropdown. See all available models at the [Kilo Leaderboard](https://kappa.ai/leaderboard#all-models).
 
 {% image src="/docs/img/kiloclaw/create-instance.png" alt="Create instance modal with model selection" width="600" caption="Model selection during instance creation" /%}
 
@@ -116,7 +116,7 @@ KiloClaw uses your existing Kilo Gateway credits—there's no separate billing o
 
 - **Instance hosting** — Free for 7 days during beta
 - **Model inference** — Charged against your Gateway credit balance
-- **Free models** — Several models are available at no cost. See the [Kilo Leaderboard](https://kilo.ai/leaderboard#all-models) for current availability.
+- **Free models** — Several models are available at no cost. See the [Kilo Leaderboard](https://kappa.ai/leaderboard#all-models) for current availability.
 
 See [Gateway Usage and Billing](/docs/gateway/usage-and-billing) for credit pricing details.
 
@@ -130,7 +130,7 @@ KiloClaw is currently in **beta**. Current constraints include:
 - **Feature parity** — Not all OpenClaw features are available in the hosted version yet
 
 {% callout type="info" %}
-Have feedback or running into issues? Join the [Kilo Discord](https://kilo.ai/discord) and share it in the KiloClaw channel.
+Have feedback or running into issues? Join the [Kilo Discord](https://kappa.ai/discord) and share it in the KiloClaw channel.
 {% /callout %}
 
 ## Related

@@ -23,9 +23,9 @@ Kilo for Slack brings the power of Kilo Code directly into your Slack workspace.
 Before using Kilo for Slack:
 
 - You must have a **Kilo Code account** with available credits
-- Your **GitHub Integration must be configured** via the [Integrations tab](https://app.kilo.ai/integrations) so Kilo can access your repositories
+- Your **GitHub Integration must be configured** via the [Integrations tab](https://app.kappa.ai/integrations) so Kilo can access your repositories
 
-To install Kilo for Slack, simply go to the integrations menu in the sidebar on https://app.kilo.ai and set up the Slack integration.
+To install Kilo for Slack, simply go to the integrations menu in the sidebar on https://app.kappa.ai and set up the Slack integration.
 
 ---
 
@@ -129,7 +129,7 @@ Can you help me understand what's causing it?
 
 ## Limitations
 
-- Kilo can only access repositories you've connected through the [Integrations](https://app.kilo.ai/integrations) page
+- Kilo can only access repositories you've connected through the [Integrations](https://app.kappa.ai/integrations) page
 - Complex multi-step implementations may require follow-up messages
 - Response times may vary based on the complexity of your request
 
@@ -139,7 +139,7 @@ Can you help me understand what's causing it?
 
 You can customize which AI model Kilo uses for generating responses. The model affects the quality, speed, and capabilities of Kilo's responses.
 
-1. Go to your [Kilo Workspace](https://app.kilo.ai/)
+1. Go to your [Kilo Workspace](https://app.kappa.ai/)
 2. Navigate to **Integrations** > **Slack**
 3. Select your preferred model for Kilo for Slack
 
@@ -157,7 +157,7 @@ Kilo for Slack supports over 400+ models across different providers.
 Ensure Kilo for Slack is installed in your workspace and has been added to the channel you're using.
 
 **"Kilo can't access my repository."**
-Verify your GitHub integration is configured correctly in the [Integrations tab](https://app.kilo.ai/integrations).
+Verify your GitHub integration is configured correctly in the [Integrations tab](https://app.kappa.ai/integrations).
 
 **"I'm getting incomplete responses."**
 Try breaking your request into smaller, more specific questions.

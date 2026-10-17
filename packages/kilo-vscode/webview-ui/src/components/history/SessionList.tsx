@@ -1,16 +1,16 @@
 /**
  * SessionList component
  * Displays all sessions grouped by date, with context menu for rename/delete.
- * Uses kilo-ui List component for keyboard navigation and accessibility.
+ * Uses kappa-ui List component for keyboard navigation and accessibility.
  */
 
 import { Component, Show, createSignal, onMount, type JSX } from "solid-js"
-import { List } from "@kilocode/kilo-ui/list"
-import { ContextMenu } from "@kilocode/kilo-ui/context-menu"
-import { Dialog } from "@kilocode/kilo-ui/dialog"
-import { Button } from "@kilocode/kilo-ui/button"
-import { InlineInput } from "@kilocode/kilo-ui/inline-input"
-import { useDialog } from "@kilocode/kilo-ui/context/dialog"
+import { List } from "@kappacode/kappa-ui/list"
+import { ContextMenu } from "@kappacode/kappa-ui/context-menu"
+import { Dialog } from "@kappacode/kappa-ui/dialog"
+import { Button } from "@kappacode/kappa-ui/button"
+import { InlineInput } from "@kappacode/kappa-ui/inline-input"
+import { useDialog } from "@kappacode/kappa-ui/context/dialog"
 import { useSession } from "../../context/session"
 import { useLanguage } from "../../context/language"
 import { formatRelativeDate } from "../../utils/date"

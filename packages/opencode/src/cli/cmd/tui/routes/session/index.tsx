@@ -28,7 +28,7 @@ import {
   RGBA,
 } from "@opentui/core"
 import { Prompt, type PromptRef } from "@tui/component/prompt"
-import type { AssistantMessage, Part, ToolPart, UserMessage, TextPart, ReasoningPart } from "@kilocode/sdk/v2"
+import type { AssistantMessage, Part, ToolPart, UserMessage, TextPart, ReasoningPart } from "@kappacode/sdk/v2"
 import { useLocal } from "@tui/context/local"
 import { Locale } from "@/util/locale"
 import type { Tool } from "@/tool/tool"
@@ -234,7 +234,7 @@ export function Session() {
       [
         ``,
         `  ██ ▄█▀ ██ ██     ▄████▄  ${UI.Style.TEXT_DIM}${title}${UI.Style.TEXT_NORMAL}`,
-        `  ████   ██ ██     ██  ██  ${UI.Style.TEXT_DIM}kilo -s ${session()?.id}${UI.Style.TEXT_NORMAL}`,
+        `  ████   ██ ██     ██  ██  ${UI.Style.TEXT_DIM}kappa -s ${session()?.id}${UI.Style.TEXT_NORMAL}`,
         `  ██ ▀█▄ ██ ██████ ▀████▀  `,
       ].join("\n"),
     )

@@ -40,8 +40,8 @@ import { ArgsProvider, useArgs, type Args } from "./context/args"
 import open from "open"
 import { writeHeapSnapshot } from "v8"
 import { PromptRefProvider, usePromptRef } from "./context/prompt"
-import { registerKiloCommands } from "@/kilocode/kilo-commands" // kilocode_change
-import { initializeTUIDependencies } from "@kilocode/kilo-gateway/tui" // kilocode_change
+import { registerKiloCommands } from "@/kilocode/kappa-commands" // kilocode_change
+import { initializeTUIDependencies } from "@kappacode/kappa-gateway/tui" // kilocode_change
 
 async function getTerminalBackgroundColor(): Promise<"dark" | "light"> {
   // can't set raw mode if not a TTY
@@ -561,7 +561,7 @@ function App() {
       title: "Open docs",
       value: "docs.open",
       onSelect: () => {
-        open("https://kilo.ai/docs").catch(() => {}) // kilocode_change
+        open("https://kappa.ai/docs").catch(() => {}) // kilocode_change
         dialog.clear()
       },
       category: "System",
@@ -660,7 +660,7 @@ function App() {
     },
   ])
 
-  // kilocode_change start - Initialize TUI dependencies for kilo-gateway
+  // kilocode_change start - Initialize TUI dependencies for kappa-gateway
   initializeTUIDependencies({
     useCommandDialog: useCommandDialog,
     useSync: useSync,
@@ -735,7 +735,7 @@ function App() {
     toast.show({
       variant: "info",
       title: "Update Available",
-      message: `Kilo v${evt.properties.version} is available. Run 'kilo upgrade' to update manually.`, // kilocode_change
+      message: `Kilo v${evt.properties.version} is available. Run 'kappa upgrade' to update manually.`, // kilocode_change
       duration: 10000,
     })
   })
@@ -790,7 +790,7 @@ function ErrorComponent(props: {
   })
   const [copied, setCopied] = createSignal(false)
 
-  const issueURL = new URL("https://github.com/Kilo-Org/kilo/issues/new?template=bug-report.yml")
+  const issueURL = new URL("https://github.com/Kilo-Org/kappa/issues/new?template=bug-report.yml")
 
   // Choose safe fallback colors per mode since theme context may not be available
   const isLight = props.mode === "light"

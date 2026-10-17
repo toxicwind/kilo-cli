@@ -40,7 +40,7 @@ beforeAll(async () => {
   }))
 
   // kilocode_change start
-  mock.module("@kilocode/sdk/v2/client", () => ({
+  mock.module("@kappacode/sdk/v2/client", () => ({
     // kilocode_change end
     createOpencodeClient: (input: { directory: string }) => {
       createdClients.push(input.directory)

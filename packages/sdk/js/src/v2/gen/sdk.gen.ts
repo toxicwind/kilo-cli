@@ -2182,7 +2182,7 @@ export class Telemetry extends HeyApiClient {
   /**
    * Capture telemetry event
    *
-   * Forward a telemetry event to PostHog via kilo-telemetry.
+   * Forward a telemetry event to PostHog via kappa-telemetry.
    */
   public capture<ThrowOnError extends boolean = false>(
     parameters?: {
@@ -2290,7 +2290,7 @@ export class Organization extends HeyApiClient {
     )
     return (options?.client ?? this.client).post<KiloOrganizationSetResponses, KiloOrganizationSetErrors, ThrowOnError>(
       {
-        url: "/kilo/organization",
+        url: "/kappa/organization",
         ...options,
         ...params,
         headers: {
@@ -2317,7 +2317,7 @@ export class Kilo extends HeyApiClient {
   ) {
     const params = buildClientParams([parameters], [{ args: [{ in: "query", key: "directory" }] }])
     return (options?.client ?? this.client).get<KiloProfileResponses, KiloProfileErrors, ThrowOnError>({
-      url: "/kilo/profile",
+      url: "/kappa/profile",
       ...options,
       ...params,
     })
@@ -2355,7 +2355,7 @@ export class Kilo extends HeyApiClient {
       ],
     )
     return (options?.client ?? this.client).sse.post<KiloFimResponses, KiloFimErrors, ThrowOnError>({
-      url: "/kilo/fim",
+      url: "/kappa/fim",
       ...options,
       ...params,
       headers: {
@@ -2379,7 +2379,7 @@ export class Kilo extends HeyApiClient {
   ) {
     const params = buildClientParams([parameters], [{ args: [{ in: "query", key: "directory" }] }])
     return (options?.client ?? this.client).get<KiloNotificationsResponses, KiloNotificationsErrors, ThrowOnError>({
-      url: "/kilo/notifications",
+      url: "/kappa/notifications",
       ...options,
       ...params,
     })
@@ -3492,7 +3492,7 @@ export class OpencodeClient extends HeyApiClient {
   }
 
   private _kilo?: Kilo
-  get kilo(): Kilo {
+  get kappa(): Kilo {
     return (this._kilo ??= new Kilo({ client: this.client }))
   }
 

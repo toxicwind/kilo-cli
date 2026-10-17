@@ -1,5 +1,5 @@
 import { Component } from "solid-js"
-import { Select } from "@kilocode/kilo-ui/select"
+import { Select } from "@kappacode/kappa-ui/select"
 import { useLanguage, LOCALES, LOCALE_LABELS, type Locale } from "../../context/language"
 
 const options = ["", ...LOCALES] as const

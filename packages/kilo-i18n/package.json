@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
-  "name": "@kilocode/kilo-i18n",
+  "name": "@kappacode/kappa-i18n",
   "version": "1.0.25",
   "type": "module",
   "license": "MIT",

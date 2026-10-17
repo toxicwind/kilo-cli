@@ -5,7 +5,7 @@ import { createMemo } from "solid-js"
 
 // kilocode_change start - Preferred providers list (order determines display priority)
 export const popularProviders = [
-  "kilo",
+  "kappa",
   "opencode",
   "anthropic",
   "github-copilot",

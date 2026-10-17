@@ -4,9 +4,9 @@
  */
 
 import { Component, createSignal, createEffect, on, For, Index, onCleanup, Show, untrack } from "solid-js"
-import { Button } from "@kilocode/kilo-ui/button"
-import { Tooltip } from "@kilocode/kilo-ui/tooltip"
-import { FileIcon } from "@kilocode/kilo-ui/file-icon"
+import { Button } from "@kappacode/kappa-ui/button"
+import { Tooltip } from "@kappacode/kappa-ui/tooltip"
+import { FileIcon } from "@kappacode/kappa-ui/file-icon"
 import { useSession } from "../../context/session"
 import { useServer } from "../../context/server"
 import { useLanguage } from "../../context/language"

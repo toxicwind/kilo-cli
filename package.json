@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
-  "name": "@kilocode/kilo",
+  "name": "@kappacode/kappa",
   "description": "AI-powered development tool",
   "private": true,
   "type": "module",
@@ -73,14 +73,14 @@
   },
   "dependencies": {
     "@aws-sdk/client-s3": "3.933.0",
-    "@kilocode/plugin": "workspace:*",
+    @kappacode/plugin": "workspace:*",
     "@opencode-ai/script": "workspace:*",
-    "@kilocode/sdk": "workspace:*",
+    @kappacode/sdk": "workspace:*",
     "typescript": "catalog:"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Kilo-Org/kilo"
+    "url": "https://github.com/Kilo-Org/kappa"
   },
   "license": "MIT",
   "prettier": {

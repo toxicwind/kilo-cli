@@ -15,7 +15,7 @@ If you're typing code in the editor and want AI to finish your line or block, ch
 
 ## Quick Setup
 
-Find the Kilo Code icon ({% kilo-code-icon /%}) in VS Code's Primary Side Bar. Click it to open the chat panel.
+Find the Kilo Code icon ({% kappa-code-icon /%}) in VS Code's Primary Side Bar. Click it to open the chat panel.
 
 **Lost the panel?** Go to View > Open View... and search for "Kilo Code"
 

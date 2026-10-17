@@ -31,7 +31,7 @@ Your sessions sync across all of these, so you can start a task on your phone an
 2. [Connect an AI provider](/docs/ai-providers) or use Kilo's built-in provider & credits
 3. [Run your first task](/docs/getting-started/quickstart)
 
-New to AI coding assistants? Before learning what Kilo itself does, you can learn about agentic engineering at [path.kilo.ai](https://path.kilo.ai)
+New to AI coding assistants? Before learning what Kilo itself does, you can learn about agentic engineering at [path.kappa.ai](https://path.kappa.ai)
 
 Coming from Cursor or Windsurf? See our [migration guide](/docs/getting-started/migrating)
 
@@ -45,6 +45,6 @@ Kilo Code is open source. You can inspect the code, contribute features, or fork
 
 ## Get Help
 
-- [**Discord**](https://kilo.ai/discord) — Real-time help and community discussion
+- [**Discord**](https://kappa.ai/discord) — Real-time help and community discussion
 - [**GitHub Issues**](https://github.com/Kilo-Org/kilocode/issues?q=sort%3Aupdated-desc+is%3Aissue+is%3Aopen) — Report bugs or request features
-- [**YouTube**](https://kilo.ai/youtube) — Tutorials and walkthroughs
+- [**YouTube**](https://kappa.ai/youtube) — Tutorials and walkthroughs

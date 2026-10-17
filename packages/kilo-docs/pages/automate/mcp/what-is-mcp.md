@@ -44,6 +44,6 @@ MCP provides a standardized way for AI systems to interact with external tools a
 Ready to dig deeper? Check out these guides:
 
 - [MCP Overview](overview) - A quick glance at the MCP documentation structure
-- [Using MCP in Kilo Code](using-in-kilo-code) - Get started with MCP in Kilo Code, including creating simple servers
+- [Using MCP in Kilo Code](using-in-kappa-code) - Get started with MCP in Kilo Code, including creating simple servers
 - [MCP vs API](mcp-vs-api) - Technical advantages compared to traditional APIs
 - [STDIO & SSE Transports](server-transports) - Local vs. hosted deployment models

@@ -6,11 +6,11 @@ import "./fonts.css"
 import "../src/styles/index.css"
 
 const themeDecorator: DecoratorFunction<SolidRenderer> = (Story, context) => {
-  const themeId = (context.globals["theme"] as string) ?? "kilo"
+  const themeId = (context.globals["theme"] as string) ?? "kappa"
   const vscodeThemeId = (context.globals["vscodeTheme"] as string) ?? "dark-modern"
 
   const colorScheme = (() => {
-    if (themeId === "kilo-vscode") return applyVscodeTheme(vscodeThemeId)
+    if (themeId === "kappa-vscode") return applyVscodeTheme(vscodeThemeId)
     clearVscodeTheme()
     return (context.globals["colorScheme"] as "light" | "dark") ?? "dark"
   })()
@@ -39,8 +39,8 @@ const preview: Preview = {
         title: "Theme",
         icon: "paintbrush",
         items: [
-          { value: "kilo", title: "Kilo" },
-          { value: "kilo-vscode", title: "Kilo VSCode" },
+          { value: "kappa", title: "Kilo" },
+          { value: "kappa-vscode", title: "Kilo VSCode" },
         ],
         dynamicTitle: true,
       },
@@ -85,7 +85,7 @@ const preview: Preview = {
     },
   },
   initialGlobals: {
-    theme: "kilo",
+    theme: "kappa",
     colorScheme: "dark",
     vscodeTheme: "dark-modern",
   },

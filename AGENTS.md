@@ -22,15 +22,15 @@ Turborepo + Bun workspaces. The packages you'll work with most:
 
 | Package                    | Name                       | Purpose                                                                                    |
 | -------------------------- | -------------------------- | ------------------------------------------------------------------------------------------ |
-| `packages/opencode/`       | `@kilocode/cli`            | Core CLI -- agents, tools, sessions, server, TUI. This is where most work happens.         |
-| `packages/sdk/js/`         | `@kilocode/sdk`            | Auto-generated TypeScript SDK (client for the server API). Do not edit `src/gen/` by hand. |
-| `packages/kilo-vscode/`    | `@kilocode/kilo-vscode`    | VS Code extension with SolidJS webview UI. See its own `AGENTS.md` for details.            |
-| `packages/kilo-gateway/`   | `@kilocode/kilo-gateway`   | Kilo auth, provider routing, API integration                                               |
-| `packages/kilo-telemetry/` | `@kilocode/kilo-telemetry` | PostHog analytics + OpenTelemetry                                                          |
-| `packages/kilo-i18n/`      | `@kilocode/kilo-i18n`      | Internationalization / translations                                                        |
+| `packages/opencode/`       | `@kappacode/cli`            | Core CLI -- agents, tools, sessions, server, TUI. This is where most work happens.         |
+| `packages/sdk/js/`         | `@kappacode/sdk`            | Auto-generated TypeScript SDK (client for the server API). Do not edit `src/gen/` by hand. |
+| `packages/kappa-vscode/`    | `@kappacode/kappa-vscode`    | VS Code extension with SolidJS webview UI. See its own `AGENTS.md` for details.            |
+| `packages/kappa-gateway/`   | `@kappacode/kappa-gateway`   | Kilo auth, provider routing, API integration                                               |
+| `packages/kappa-telemetry/` | `@kappacode/kappa-telemetry` | PostHog analytics + OpenTelemetry                                                          |
+| `packages/kappa-i18n/`      | `@kappacode/kappa-i18n`      | Internationalization / translations                                                        |
 | `packages/app/`            | `@opencode-ai/app`         | Web/TUI frontend (SolidJS + Vite)                                                          |
 | `packages/util/`           | `@opencode-ai/util`        | Shared utilities (error, path, retry, slug, etc.)                                          |
-| `packages/plugin/`         | `@kilocode/plugin`         | Plugin/tool interface definitions                                                          |
+| `packages/plugin/`         | `@kappacode/plugin`         | Plugin/tool interface definitions                                                          |
 
 Other packages (`desktop/`, `containers/`, `extensions/`) are for desktop app, Docker containers, and editor extensions.
 
@@ -140,7 +140,7 @@ Tests MUST test actual implementation, do not duplicate logic into a test.
 
 ## Fork Merge Process
 
-Kilo CLI is a fork of [opencode](https://github.com/Kilo-Org/kilo).
+Kilo CLI is a fork of [opencode](https://github.com/Kilo-Org/kappa).
 
 ### Minimizing Merge Conflicts
 
@@ -149,12 +149,12 @@ We regularly merge upstream changes from opencode. To minimize merge conflicts a
 1. **Prefer `kilocode` directories** - Place Kilo-specific code in dedicated directories whenever possible:
    - `packages/opencode/src/kilocode/` - Kilo-specific source code
    - `packages/opencode/test/kilocode/` - Kilo-specific tests
-   - `packages/kilo-gateway/` - The Kilo Gateway package
+   - `packages/kappa-gateway/` - The Kilo Gateway package
 
 2. **Minimize changes to shared files** - When you must modify files that exist in upstream opencode, keep changes as small and isolated as possible.
 
 3. **Use `kilocode_change` markers** - When modifying shared code, mark your changes with `kilocode_change` comments so they can be easily identified during merges.
-   Do not use these markers in files within directories with kilo in the name
+   Do not use these markers in files within directories with kappa in the name
 
 4. **Avoid restructuring upstream code** - Don't refactor or reorganize code that comes from opencode unless absolutely necessary.
 

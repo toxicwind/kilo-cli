@@ -73,9 +73,9 @@ export const DialogSelectProvider: Component = () => {
             <ProviderIcon data-slot="list-item-extra-icon" id={icon(i.id)} />
             <span>{i.name}</span>
             {/* kilocode_change start - Provider tags and notes */}
-            <Show when={i.id === "kilo"}>
+            <Show when={i.id === "kappa"}>
               <Tag>{language.t("dialog.provider.tag.recommended")}</Tag>
-              <div class="text-14-regular text-text-weak">{language.t("dialog.provider.kilo.note")}</div>
+              <div class="text-14-regular text-text-weak">{language.t("dialog.provider.kappa.note")}</div>
             </Show>
             {/* kilocode_change end */}
             <Show when={i.id === CUSTOM_ID}>

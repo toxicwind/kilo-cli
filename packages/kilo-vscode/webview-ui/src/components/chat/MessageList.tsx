@@ -5,7 +5,7 @@
  */
 
 import { Component, For, Show, createSignal, createEffect, createMemo, onCleanup, JSX } from "solid-js"
-import { Spinner } from "@kilocode/kilo-ui/spinner"
+import { Spinner } from "@kappacode/kappa-ui/spinner"
 import { useSession } from "../../context/session"
 import { useServer } from "../../context/server"
 import { useLanguage } from "../../context/language"
@@ -56,10 +56,10 @@ const KiloLogo = (): JSX.Element => {
   const iconsBaseUri = (window as { ICONS_BASE_URI?: string }).ICONS_BASE_URI || ""
   const isLight =
     document.body.classList.contains("vscode-light") || document.body.classList.contains("vscode-high-contrast-light")
-  const iconFile = isLight ? "kilo-light.svg" : "kilo-dark.svg"
+  const iconFile = isLight ? "kappa-light.svg" : "kappa-dark.svg"
 
   return (
-    <div class="kilo-logo">
+    <div class="kappa-logo">
       <img src={`${iconsBaseUri}/${iconFile}`} alt="Kilo Code" />
     </div>
   )
@@ -167,7 +167,7 @@ export const MessageList: Component<MessageListProps> = (props) => {
         <Show when={isEmpty()}>
           <div class="message-list-empty">
             <KiloLogo />
-            <p class="kilo-about-text">{language.t("session.messages.welcome")}</p>
+            <p class="kappa-about-text">{language.t("session.messages.welcome")}</p>
             <Show when={recent().length > 0 && props.onSelectSession}>
               <div class="recent-sessions">
                 <span class="recent-sessions-label">{language.t("session.recent")}</span>

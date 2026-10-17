@@ -1,14 +1,14 @@
 /**
  * QuestionDock component
  * Displays question requests from the AI assistant inline above the prompt input.
- * Uses kilo-ui's data-component/data-slot CSS pattern for styling.
+ * Uses kappa-ui's data-component/data-slot CSS pattern for styling.
  */
 
 import { Component, For, Show, createMemo, createEffect } from "solid-js"
 import { createStore } from "solid-js/store"
-import { Button } from "@kilocode/kilo-ui/button"
-import { BasicTool } from "@kilocode/kilo-ui/basic-tool"
-import { Icon } from "@kilocode/kilo-ui/icon"
+import { Button } from "@kappacode/kappa-ui/button"
+import { BasicTool } from "@kappacode/kappa-ui/basic-tool"
+import { Icon } from "@kappacode/kappa-ui/icon"
 import { useSession } from "../../context/session"
 import { useLanguage } from "../../context/language"
 import type { QuestionRequest } from "../../types/messages"

@@ -1,15 +1,15 @@
 /**
  * ModelSelector component
  * Popover-based selector for choosing a provider/model in the chat prompt area.
- * Uses kilo-ui Popover component (Phase 4.5 of UI implementation plan).
+ * Uses kappa-ui Popover component (Phase 4.5 of UI implementation plan).
  *
  * ModelSelectorBase — reusable core that accepts value/onSelect props.
  * ModelSelector    — thin wrapper wired to session context for chat usage.
  */
 
 import { Component, createSignal, createMemo, createEffect, For, Show } from "solid-js"
-import { Popover } from "@kilocode/kilo-ui/popover"
-import { Button } from "@kilocode/kilo-ui/button"
+import { Popover } from "@kappacode/kappa-ui/popover"
+import { Button } from "@kappacode/kappa-ui/button"
 import { useProvider, EnrichedModel } from "../../context/provider"
 import { useSession } from "../../context/session"
 import { useLanguage } from "../../context/language"

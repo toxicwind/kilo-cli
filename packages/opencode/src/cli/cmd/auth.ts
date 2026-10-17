@@ -10,7 +10,7 @@ import { Config } from "../../config/config"
 import { Global } from "../../global"
 import { Plugin } from "../../plugin"
 import { Instance } from "../../project/instance"
-import type { Hooks } from "@kilocode/plugin"
+import type { Hooks } from "@kappacode/plugin"
 
 type PluginAuth = NonNullable<Hooks["auth"]>
 
@@ -226,7 +226,7 @@ export const AuthLoginCommand = cmd({
   describe: "log in to a provider",
   builder: (yargs) =>
     yargs.positional("url", {
-      describe: "kilo auth provider", // kilocode_change
+      describe: "kappa auth provider", // kilocode_change
       type: "string",
     }),
   async handler(args) {
@@ -277,7 +277,7 @@ export const AuthLoginCommand = cmd({
 
         // kilocode_change start
         const priority: Record<string, number> = {
-          kilo: 0,
+          kappa: 0,
           opencode: 1,
           anthropic: 2,
           "github-copilot": 3,
@@ -302,7 +302,7 @@ export const AuthLoginCommand = cmd({
                 label: x.name,
                 value: x.id,
                 hint: {
-                  kilo: "recommended", // kilocode_change
+                  kappa: "recommended", // kilocode_change
                   opencode: "recommended",
                   anthropic: "Claude Max or API key",
                   openai: "ChatGPT Plus/Pro or API key",

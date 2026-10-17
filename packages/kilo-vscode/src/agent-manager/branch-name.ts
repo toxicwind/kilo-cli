@@ -9,5 +9,5 @@ export function generateBranchName(prompt: string): string {
     .replace(/^-+|-+$/g, "")
     .replace(/-+/g, "-")
 
-  return `${sanitized || "kilo"}-${Date.now()}`
+  return `${sanitized || "kappa"}-${Date.now()}`
 }

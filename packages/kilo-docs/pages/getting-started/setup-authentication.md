@@ -18,14 +18,14 @@ When you install Kilo Code, you'll be prompted to sign in or create a free accou
 That's it! You're ready to [start your first task](/docs/getting-started/quickstart).
 
 {% callout type="tip" title="Bonus Credits" %}
-[Add credits to your account](https://app.kilo.ai/profile) and get $20 bonus credits, or sign up for [Kilo Pass](https://kilo.ai/features/kilo-pass).
+[Add credits to your account](https://app.kappa.ai/profile) and get $20 bonus credits, or sign up for [Kilo Pass](https://kappa.ai/features/kappa-pass).
 {% /callout %}
 
 ## Kilo Gateway API Key
 
 If you're using the [Kilo AI Gateway](/docs/gateway/) outside of the Kilo Code extension (for example, with the Vercel AI SDK or OpenAI SDK), you'll need an API key:
 
-1. Go to [app.kilo.ai](https://app.kilo.ai)
+1. Go to [app.kappa.ai](https://app.kappa.ai)
 2. Go to **Your Profile** on your **personal account** (not in an organization)
 3. Scroll to the bottom of the page
 4. Copy your API key
@@ -75,12 +75,12 @@ Already have a ChatGPT subscription? You can use it with Kilo Code through the [
 
 ### Configuring Your Provider
 
-1. Click the {% kilo-code-icon /%} icon in the VS Code sidebar
+1. Click the {% kappa-code-icon /%} icon in the VS Code sidebar
 2. Select your API provider from the dropdown
 3. Paste your API key
 4. Choose your model:
 5. Click **"Let's go!"**
 
 {% callout type="info" title="Need Help?" %}
-Reach out to our [support team](mailto:hi@kilo.ai) or join our [Discord community](https://kilo.ai/discord).
+Reach out to our [support team](mailto:hi@kappa.ai) or join our [Discord community](https://kappa.ai/discord).
 {% /callout %}

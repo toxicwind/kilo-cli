@@ -1,8 +1,8 @@
 import { Component, Show, createSignal, createMemo, createEffect, onMount } from "solid-js"
-import { Button } from "@kilocode/kilo-ui/button"
-import { Card } from "@kilocode/kilo-ui/card"
-import { Select } from "@kilocode/kilo-ui/select"
-import { Tooltip } from "@kilocode/kilo-ui/tooltip"
+import { Button } from "@kappacode/kappa-ui/button"
+import { Card } from "@kappacode/kappa-ui/card"
+import { Select } from "@kappacode/kappa-ui/select"
+import { Tooltip } from "@kappacode/kappa-ui/tooltip"
 import { useVSCode } from "../context/vscode"
 import { useLanguage } from "../context/language"
 import DeviceAuthCard from "./DeviceAuthCard"
@@ -89,7 +89,7 @@ const ProfileView: Component<ProfileViewProps> = (props) => {
   }
 
   const handleDashboard = () => {
-    vscode.postMessage({ type: "openExternal", url: "https://app.kilo.ai/profile" })
+    vscode.postMessage({ type: "openExternal", url: "https://app.kappa.ai/profile" })
   }
 
   const handleCancelLogin = () => {

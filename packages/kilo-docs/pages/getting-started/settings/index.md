@@ -19,7 +19,7 @@ Clicking the **Export** button saves your current Kilo Code settings to a JSON f
 - **Security Warning:** The exported JSON file contains **all** your configured API Provider Profiles and Global Settings. Crucially, this includes **API keys in plaintext**. Treat this file as highly sensitive. Do not share it publicly or with untrusted individuals, as it grants access to your API accounts.
 - **Process:**
   1.  Click **Export**.
-  2.  A file save dialog appears, suggesting `kilo-code-settings.json` as the filename (usually in your `~/Documents` folder).
+  2.  A file save dialog appears, suggesting `kappa-code-settings.json` as the filename (usually in your `~/Documents` folder).
   3.  Choose a location and save the file.
 
 This creates a backup of your configuration or a file you can share.
@@ -30,7 +30,7 @@ Clicking the **Import** button allows you to load settings from a previously exp
 
 - **Process:**
   1.  Click **Import**.
-  2.  A file open dialog appears. Select the `kilo-code-settings.json` file (or similarly named file) you want to import.
+  2.  A file open dialog appears. Select the `kappa-code-settings.json` file (or similarly named file) you want to import.
   3.  Kilo Code reads the file, validates its contents against the expected schema, and applies the settings.
 - **Merging:** Importing settings **merges** the configurations. It adds new API profiles and updates existing ones and global settings based on the file content. It does **not** delete configurations present in your current setup but missing from the imported file.
 - **Validation:** Only valid settings matching the internal schema can be imported, preventing configuration errors. A success notification appears upon completion.

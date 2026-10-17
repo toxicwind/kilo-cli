@@ -58,7 +58,7 @@ export class AutocompleteModel {
 
   /**
    * Generate a FIM (Fill-in-the-Middle) completion via the CLI backend.
-   * The CLI backend handles auth using the stored kilo OAuth token.
+   * The CLI backend handles auth using the stored kappa OAuth token.
    */
   public async generateFimResponse(
     prefix: string,

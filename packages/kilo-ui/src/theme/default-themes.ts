@@ -1,8 +1,8 @@
 // kilocode_change - new file
 import type { DesktopTheme } from "@opencode-ai/ui/theme/types"
 import { DEFAULT_THEMES as UPSTREAM_THEMES } from "@opencode-ai/ui/theme/default-themes"
-import kiloJson from "./themes/kilo.json"
-import kiloVscodeJson from "./themes/kilo-vscode.json"
+import kiloJson from "./themes/kappa.json"
+import kiloVscodeJson from "./themes/kappa-vscode.json"
 
 // Re-export all upstream theme constants
 export {
@@ -27,8 +27,8 @@ export const kiloTheme = kiloJson as DesktopTheme
 export const kiloVscodeTheme = kiloVscodeJson as DesktopTheme
 
 export const KILO_THEMES: Record<string, DesktopTheme> = {
-  kilo: kiloTheme,
-  "kilo-vscode": kiloVscodeTheme,
+  kappa: kiloTheme,
+  "kappa-vscode": kiloVscodeTheme,
 }
 
 // Override DEFAULT_THEMES: Kilo themes first, then upstream

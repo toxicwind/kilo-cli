@@ -44,7 +44,7 @@ Mode-specific instructions can be set using the Modes Tab
 
 For version-controlled mode instructions, use the mode rules file paths documented in [Custom Modes](/docs/customize/custom-modes#mode-specific-instructions-via-filesdirectories):
 
-- Preferred: `.kilo/rules-{mode-slug}/` (directory)
+- Preferred: `.kappa/rules-{mode-slug}/` (directory)
 - Fallback: `.kilorules-{mode-slug}` (single file)
 
 {% callout type="info" title="Legacy Naming Note" %}

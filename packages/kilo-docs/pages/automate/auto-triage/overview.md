@@ -16,7 +16,7 @@ Kilo's **Auto-Triage** automatically analyses every new GitHub issue the moment 
 When an issue arrives, Auto-Triage compares it against every previously-triaged issue in your repository using vector-similarity search. If it finds a match, it:
 
 - Posts a comment on the new issue linking to the original, including its title and similarity score.
-- Labels the issue `kilo-triaged` and `kilo-duplicate`.
+- Labels the issue `kappa-triaged` and `kappa-duplicate`.
 - Marks the triage ticket as actioned.
 
 ### 2. Classification
@@ -36,7 +36,7 @@ Along with the classification, the model produces a confidence score (0–1), a 
 
 After classification, Auto-Triage applies labels to the issue on GitHub:
 
-- `kilo-triaged` is always applied to every issue that completes triage.
+- `kappa-triaged` is always applied to every issue that completes triage.
 - The AI selects zero or more **additional labels** from your repository's existing label set — it will only ever choose labels that already exist in your repo, never invent new ones.
 - Labels you have configured as **skip labels** or **required labels** (see [Configuration](#configuration-reference) below) are excluded from the AI's choices so they remain under your control.
 
@@ -115,7 +115,7 @@ Auto-Triage uses two reserved labels for tracking. You should create these in yo
 
 | Label            | Meaning                                                                       |
 | ---------------- | ----------------------------------------------------------------------------- |
-| `kilo-triaged`   | Applied to every issue that completes triage successfully.                    |
-| `kilo-duplicate` | Applied alongside `kilo-triaged` when the issue is identified as a duplicate. |
+| `kappa-triaged`   | Applied to every issue that completes triage successfully.                    |
+| `kappa-duplicate` | Applied alongside `kappa-triaged` when the issue is identified as a duplicate. |
 
 These labels are managed by Kilo and should not be added to your **skip labels** list.

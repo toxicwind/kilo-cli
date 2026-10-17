@@ -29,7 +29,7 @@ You can edit both global and project-level MCP configuration files directly from
    - **`Edit Global MCP`**: Opens the global `mcp_settings.json` file.
    - **`Edit Project MCP`**: Opens the project-specific `.kilocode/mcp.json` file. If this file doesn't exist, Kilo Code will create it for you.
 
-{% image src="/docs/img/using-mcp-in-kilo-code/mcp-installed-config.png" alt="Edit Global MCP and Edit Project MCP buttons" width="600" caption="Edit Global MCP and Edit Project MCP buttons" /%}
+{% image src="/docs/img/using-mcp-in-kappa-code/mcp-installed-config.png" alt="Edit Global MCP and Edit Project MCP buttons" width="600" caption="Edit Global MCP and Edit Project MCP buttons" /%}
 
 Both files use a JSON format with a `mcpServers` object containing named server configurations:
 
@@ -148,7 +148,7 @@ SSE configuration example:
 1. Press the {% codicon name="trash" /%} next to the MCP server you would like to delete
 2. Press the `Delete` button on the confirmation box
 
-{% image src="/docs/img/using-mcp-in-kilo-code/using-mcp-in-kilo-code-5.png" alt="Delete confirmation box" width="400" caption="Delete confirmation box" /%}
+{% image src="/docs/img/using-mcp-in-kappa-code/using-mcp-in-kappa-code-5.png" alt="Delete confirmation box" width="400" caption="Delete confirmation box" /%}
 
 ### Restarting a Server
 
@@ -164,7 +164,7 @@ To set the maximum time to wait for a response after a tool call to the MCP serv
 
 1. Click the `Network Timeout` pulldown at the bottom of the individual MCP server's config box and change the time. Default is 1 minute but it can be set between 30 seconds and 5 minutes.
 
-{% image src="/docs/img/using-mcp-in-kilo-code/using-mcp-in-kilo-code-6.png" alt="Network Timeout pulldown" width="400" caption="Network Timeout pulldown" /%}
+{% image src="/docs/img/using-mcp-in-kappa-code/using-mcp-in-kappa-code-6.png" alt="Network Timeout pulldown" width="400" caption="Network Timeout pulldown" /%}
 
 ### Auto Approve Tools
 
@@ -174,7 +174,7 @@ MCP tool auto-approval works on a per-tool basis and is disabled by default. To 
 2. Navigate to Settings > Agent Behaviour > MCP Servers, then locate the specific tool you want to auto-approve
 3. Check the `Always allow` checkbox next to the tool name
 
-{% image src="/docs/img/using-mcp-in-kilo-code/using-mcp-in-kilo-code-7.png" alt="Always allow checkbox for MCP tools" width="120" caption="Always allow checkbox for MCP tools" /%}
+{% image src="/docs/img/using-mcp-in-kappa-code/using-mcp-in-kappa-code-7.png" alt="Always allow checkbox for MCP tools" width="120" caption="Always allow checkbox for MCP tools" /%}
 
 When enabled, Kilo Code will automatically approve this specific tool without prompting. Note that the global "Use MCP servers" setting takes precedence - if it's disabled, no MCP tools will be auto-approved.
 

@@ -16,7 +16,7 @@ export class SSEClient {
   private handlers: Set<SSEEventHandler> = new Set()
   private errorHandlers: Set<SSEErrorHandler> = new Set()
   private stateHandlers: Set<SSEStateHandler> = new Set()
-  private readonly authUsername = "kilo"
+  private readonly authUsername = "kappa"
 
   constructor(private readonly config: ServerConfig) {}
 

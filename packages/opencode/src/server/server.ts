@@ -30,7 +30,7 @@ import { ConfigRoutes } from "./routes/config"
 import { ExperimentalRoutes } from "./routes/experimental"
 import { TelemetryRoutes } from "./routes/telemetry" // kilocode_change
 import { ProviderRoutes } from "./routes/provider"
-import { createKiloRoutes } from "@kilocode/kilo-gateway" // kilocode_change
+import { createKiloRoutes } from "@kappacode/kappa-gateway" // kilocode_change
 import { lazy } from "../util/lazy"
 import { InstanceBootstrap } from "../project/bootstrap"
 import { Storage } from "../storage/storage"
@@ -86,7 +86,7 @@ export namespace Server {
           if (c.req.method === "OPTIONS") return next()
           const password = Flag.KILO_SERVER_PASSWORD
           if (!password) return next()
-          const username = Flag.KILO_SERVER_USERNAME ?? "kilo" // kilocode_change
+          const username = Flag.KILO_SERVER_USERNAME ?? "kappa" // kilocode_change
           return basicAuth({ username, password })(c, next)
         })
         .use(async (c, next) => {
@@ -239,7 +239,7 @@ export namespace Server {
         .route("/commit-message", CommitMessageRoutes()) // kilocode_change
         // kilocode_change start - Kilo Gateway routes
         .route(
-          "/kilo",
+          "/kappa",
           createKiloRoutes({
             Hono,
             describeRoute,

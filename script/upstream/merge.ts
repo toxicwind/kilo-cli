@@ -261,7 +261,7 @@ async function main() {
   logger.info(`Created backup branch: ${backupBranch}`)
 
   // Create Kilo merge branch
-  const kiloBranch = `${author}/kilo-opencode-${targetVersion.tag}`
+  const kiloBranch = `${author}/kappa-opencode-${targetVersion.tag}`
   const kiloBackup = await git.backupAndDeleteBranch(kiloBranch)
   if (kiloBackup) {
     logger.info(`Backed up existing branch to: ${kiloBackup}`)
@@ -287,7 +287,7 @@ async function main() {
   // This reduces conflicts by transforming upstream code to Kilo conventions BEFORE merging
   logger.step(6, 8, "Applying transformations to opencode branch (pre-merge)...")
 
-  // 6a. Transform package names (opencode-ai -> @kilocode/cli)
+  // 6a. Transform package names (opencode-ai -> @kappacode/cli)
   logger.info("Transforming package names...")
   const nameResults = await transformPackageNames({ dryRun: false, verbose: options.verbose })
   logger.success(`Transformed ${nameResults.length} files`)
@@ -364,7 +364,7 @@ async function main() {
 
   // Commit all transformations
   await git.stageAll()
-  await git.commit(`refactor: kilo compat for ${targetVersion.tag}`)
+  await git.commit(`refactor: kappa compat for ${targetVersion.tag}`)
   logger.success("Committed pre-merge transformations")
 
   // Step 7: Merge into Kilo branch

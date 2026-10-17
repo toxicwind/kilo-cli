@@ -7,12 +7,12 @@ const terminalContent = {
     <>
       <span className="terminal-comment"># Install Kilo Code VS Code Extension</span>
       {"\n"}
-      <span className="terminal-prompt">$</span> code --install-extension kilocode.kilo-code
+      <span className="terminal-prompt">$</span> code --install-extension kilocode.kappa-code
       {"\n"}
       {"\n"}
       <span className="terminal-comment"># Or install via CLI</span>
       {"\n"}
-      <span className="terminal-prompt">$</span> npm install -g @kilocode/cli
+      <span className="terminal-prompt">$</span> npm install -g @kappacode/cli
     </>
   ),
   gateway: (
@@ -21,7 +21,7 @@ const terminalContent = {
       {"\n"}
       <span className="terminal-prompt">$</span> export KILO_API_KEY="YOUR_API_KEY"
       {"\n"}
-      <span className="terminal-prompt">$</span> curl https://api.kilo.ai/api/gateway/chat/completions \{"\n"}
+      <span className="terminal-prompt">$</span> curl https://api.kappa.ai/api/gateway/chat/completions \{"\n"}
       -H "Authorization: Bearer $KILO_API_KEY" \{"\n"}
       -H "Content-Type: application/json" \{"\n"}
       {`  -d '{"model":"anthropic/claude-sonnet-4.5","messages":[{"role":"user","content":"Say hi from Kilo Gateway"}]}'`}
@@ -31,19 +31,19 @@ const terminalContent = {
     <>
       <span className="terminal-comment"># Start a new task with Kilo Code</span>
       {"\n"}
-      <span className="terminal-prompt">$</span> kilo "Create a React component for a user profile"
+      <span className="terminal-prompt">$</span> kappa "Create a React component for a user profile"
       {"\n"}
       {"\n"}
       <span className="terminal-comment">
         # Or for interactive sessions, just run the Kilo CLI in your project folder
       </span>
       {"\n"}
-      <span className="terminal-prompt">$</span> kilo
+      <span className="terminal-prompt">$</span> kappa
       {"\n"}
       {"\n"}
       <span className="terminal-comment"># Run in architect mode for planning</span>
       {"\n"}
-      <span className="terminal-prompt">$</span> kilo --mode architect "Design a REST API"
+      <span className="terminal-prompt">$</span> kappa --mode architect "Design a REST API"
     </>
   ),
   customRules: (
@@ -55,14 +55,14 @@ const terminalContent = {
       {"\n"}
       <span className="terminal-comment"># Or use the CLI to add rules</span>
       {"\n"}
-      <span className="terminal-prompt">$</span> kilo rules add "Always use TypeScript"
+      <span className="terminal-prompt">$</span> kappa rules add "Always use TypeScript"
       {"\n"}
-      <span className="terminal-prompt">$</span> kilo rules add "Follow React best practices"
+      <span className="terminal-prompt">$</span> kappa rules add "Follow React best practices"
       {"\n"}
       {"\n"}
       <span className="terminal-comment"># List all active rules</span>
       {"\n"}
-      <span className="terminal-prompt">$</span> kilo rules list
+      <span className="terminal-prompt">$</span> kappa rules list
     </>
   ),
 }
@@ -345,7 +345,7 @@ export default function HomePage() {
             <span className="footer-icon">💬</span>
             <div>
               <strong>Need help?</strong>
-              <Link href="https://kilo.ai/discord" className="footer-link">
+              <Link href="https://kappa.ai/discord" className="footer-link">
                 Join our Discord
               </Link>
             </div>

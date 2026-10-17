@@ -15,7 +15,7 @@ afterEach(async () => {
 })
 
 async function createTempWorkspace(): Promise<string> {
-  const dir = await fs.mkdtemp(path.join(os.tmpdir(), "kilo-ignore-"))
+  const dir = await fs.mkdtemp(path.join(os.tmpdir(), "kappa-ignore-"))
   tempDirs.push(dir)
   return dir
 }

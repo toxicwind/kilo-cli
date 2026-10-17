@@ -1,13 +1,13 @@
 import { Component, createSignal, createMemo, Switch, Match, Show, onMount, onCleanup } from "solid-js"
-import { ThemeProvider } from "@kilocode/kilo-ui/theme"
-import { DialogProvider } from "@kilocode/kilo-ui/context/dialog"
-import { MarkedProvider } from "@kilocode/kilo-ui/context/marked"
-import { CodeComponentProvider } from "@kilocode/kilo-ui/context/code"
-import { DiffComponentProvider } from "@kilocode/kilo-ui/context/diff"
-import { Code } from "@kilocode/kilo-ui/code"
-import { Diff } from "@kilocode/kilo-ui/diff"
-import { DataProvider } from "@kilocode/kilo-ui/context/data"
-import { Toast } from "@kilocode/kilo-ui/toast"
+import { ThemeProvider } from "@kappacode/kappa-ui/theme"
+import { DialogProvider } from "@kappacode/kappa-ui/context/dialog"
+import { MarkedProvider } from "@kappacode/kappa-ui/context/marked"
+import { CodeComponentProvider } from "@kappacode/kappa-ui/context/code"
+import { DiffComponentProvider } from "@kappacode/kappa-ui/context/diff"
+import { Code } from "@kappacode/kappa-ui/code"
+import { Diff } from "@kappacode/kappa-ui/diff"
+import { DataProvider } from "@kappacode/kappa-ui/context/data"
+import { Toast } from "@kappacode/kappa-ui/toast"
 import Settings from "./components/Settings"
 import ProfileView from "./components/ProfileView"
 import { VSCodeProvider, useVSCode } from "./context/vscode"
@@ -20,7 +20,7 @@ import { ChatView } from "./components/chat"
 import { KiloNotifications } from "./components/chat/KiloNotifications"
 import SessionList from "./components/history/SessionList"
 import { NotificationsProvider } from "./context/notifications"
-import type { Message as SDKMessage, Part as SDKPart } from "@kilocode/sdk/v2"
+import type { Message as SDKMessage, Part as SDKPart } from "@kappacode/sdk/v2"
 import "./styles/chat.css"
 
 type ViewType = "newTask" | "marketplace" | "history" | "profile" | "settings"
@@ -184,7 +184,7 @@ const AppContent: Component = () => {
 // Main App component with context providers
 const App: Component = () => {
   return (
-    <ThemeProvider defaultTheme="kilo-vscode">
+    <ThemeProvider defaultTheme="kappa-vscode">
       <DialogProvider>
         <VSCodeProvider>
           <ServerProvider>

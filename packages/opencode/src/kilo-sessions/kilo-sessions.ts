@@ -5,28 +5,28 @@ import { MessageV2 } from "@/session/message-v2"
 import { Storage } from "@/storage/storage"
 import { Log } from "@/util/log"
 import { Auth } from "@/auth"
-import { IngestQueue } from "@/kilo-sessions/ingest-queue"
-import { clearInFlightCache, withInFlightCache } from "@/kilo-sessions/inflight-cache"
-import type * as SDK from "@kilocode/sdk/v2"
+import { IngestQueue } from "@/kappa-sessions/ingest-queue"
+import { clearInFlightCache, withInFlightCache } from "@/kappa-sessions/inflight-cache"
+import type * as SDK from "@kappacode/sdk/v2"
 import z from "zod"
-import { KILO_API_BASE } from "@kilocode/kilo-gateway"
+import { KILO_API_BASE } from "@kappacode/kappa-gateway"
 import { Instance } from "@/project/instance"
 import { Vcs } from "@/project/vcs"
 import simpleGit from "simple-git"
 
 export namespace KiloSessions {
-  const log = Log.create({ service: "kilo-sessions" })
+  const log = Log.create({ service: "kappa-sessions" })
 
   const Uuid = z.uuid()
   type Uuid = z.infer<typeof Uuid>
 
-  const tokenValidKeyTemplate = "kilo-sessions:token-valid:"
+  const tokenValidKeyTemplate = "kappa-sessions:token-valid:"
   let tokenValidKey = tokenValidKeyTemplate + "unknown"
 
-  const tokenKey = "kilo-sessions:token"
-  const orgKey = "kilo-sessions:org"
-  const clientKey = "kilo-sessions:client"
-  const gitUrlKeyPrefix = "kilo-sessions:git-url:"
+  const tokenKey = "kappa-sessions:token"
+  const orgKey = "kappa-sessions:org"
+  const clientKey = "kappa-sessions:client"
+  const gitUrlKeyPrefix = "kappa-sessions:git-url:"
 
   const ttlMs = 10_000
 
@@ -64,7 +64,7 @@ export namespace KiloSessions {
 
   async function kilocodeToken() {
     return withInFlightCache(tokenKey, ttlMs, async () => {
-      const auth = await Auth.get("kilo")
+      const auth = await Auth.get("kappa")
       if (auth?.type === "api" && auth.key.length > 0) return auth.key
       if (auth?.type === "oauth" && auth.access.length > 0) return auth.access
       if (auth?.type === "wellknown" && auth.token.length > 0) return auth.token
@@ -227,7 +227,7 @@ export namespace KiloSessions {
 
     const client = await getClient()
     if (!client) {
-      throw new Error("Unable to share session: no Kilo credentials found. Run `kilo auth login`.")
+      throw new Error("Unable to share session: no Kilo credentials found. Run `kappa auth login`.")
     }
 
     const current = (await get(sessionId).catch(() => undefined)) ?? (await create(sessionId))
@@ -251,7 +251,7 @@ export namespace KiloSessions {
       throw new Error(`Unable to share session ${sessionId}: server did not return a public id`)
     }
 
-    const url = `https://app.kilo.ai/s/${result.public_id}`
+    const url = `https://app.kappa.ai/s/${result.public_id}`
 
     await Storage.write(["session_share", sessionId], {
       ...current,
@@ -272,7 +272,7 @@ export namespace KiloSessions {
 
     const client = await getClient()
     if (!client) {
-      throw new Error("Unable to unshare session: no Kilo credentials found. Run `kilo auth login`.")
+      throw new Error("Unable to unshare session: no Kilo credentials found. Run `kappa auth login`.")
     }
 
     log.info("unsharing", { sessionId })
@@ -433,7 +433,7 @@ export namespace KiloSessions {
     if (isUuid(env)) return env
 
     return withInFlightCache(orgKey, ttlMs, async () => {
-      const auth = await Auth.get("kilo")
+      const auth = await Auth.get("kappa")
       if (auth?.type === "oauth" && isUuid(auth.accountId)) return auth.accountId
       return undefined
     })

@@ -13,7 +13,7 @@ Orchestrate agents from your terminal. Plan, debug, and code fast with keyboard-
 
 The Kilo Code CLI uses the same underlying technology that powers the IDE extensions, so you can expect the same workflow to handle agentic coding tasks from start to finish.
 
-**Source code & issues (Kilo CLI 1.0):** [Kilo-Org/kilo](https://github.com/Kilo-Org/kilo) · [Report an issue](https://github.com/Kilo-Org/kilo/issues)
+**Source code & issues (Kilo CLI 1.0):** [Kilo-Org/kappa](https://github.com/Kilo-Org/kappa) · [Report an issue](https://github.com/Kilo-Org/kappa/issues)
 
 ## Getting Started
 
@@ -21,32 +21,32 @@ The Kilo Code CLI uses the same underlying technology that powers the IDE extens
 
 {% partial file="install-cli.md" /%}
 
-Change directory to where you want to work and run kilo:
+Change directory to where you want to work and run kappa:
 
 ```bash
 # Start the TUI
-kilo
+kappa
 
 # Check the version
-kilo --version
+kappa --version
 
 # Get help
-kilo --help
+kappa --help
 ```
 
 ### First-Time Setup with `/connect`
 
-After installation, run `kilo` and use the `/connect` command to add your first provider credentials. This is the interactive way to configure API keys for model providers.
+After installation, run `kappa` and use the `/connect` command to add your first provider credentials. This is the interactive way to configure API keys for model providers.
 
 ## Update
 
 Upgrade the Kilo CLI:
 
-`kilo upgrade`
+`kappa upgrade`
 
 Or use npm:
 
-`npm update -g @kilocode/cli`
+`npm update -g @kappacode/cli`
 
 ## What you can do with Kilo Code CLI
 
@@ -62,25 +62,25 @@ Or use npm:
 
 | Command                   | Description                                |
 | ------------------------- | ------------------------------------------ |
-| `kilo [project]`          | Start the TUI (Terminal User Interface)    |
-| `kilo run [message..]`    | Run with a message (non-interactive mode)  |
-| `kilo attach <url>`       | Attach to a running kilo server            |
-| `kilo serve`              | Start a headless server                    |
-| `kilo web`                | Start server and open web interface        |
-| `kilo auth`               | Manage credentials (login, logout, list)   |
-| `kilo agent`              | Manage agents (create, list)               |
-| `kilo mcp`                | Manage MCP servers (list, add, auth)       |
-| `kilo models [provider]`  | List available models                      |
-| `kilo stats`              | Show token usage and cost statistics       |
-| `kilo session`            | Manage sessions (list)                     |
-| `kilo export [sessionID]` | Export session data as JSON                |
-| `kilo import <file>`      | Import session data from JSON file or URL  |
-| `kilo upgrade [target]`   | Upgrade kilo to latest or specific version |
-| `kilo uninstall`          | Uninstall kilo and remove related files    |
-| `kilo pr <number>`        | Fetch and checkout a GitHub PR branch      |
-| `kilo github`             | Manage GitHub agent (install, run)         |
-| `kilo debug`              | Debugging and troubleshooting tools        |
-| `kilo completion`         | Generate shell completion script           |
+| `kappa [project]`          | Start the TUI (Terminal User Interface)    |
+| `kappa run [message..]`    | Run with a message (non-interactive mode)  |
+| `kappa attach <url>`       | Attach to a running kappa server            |
+| `kappa serve`              | Start a headless server                    |
+| `kappa web`                | Start server and open web interface        |
+| `kappa auth`               | Manage credentials (login, logout, list)   |
+| `kappa agent`              | Manage agents (create, list)               |
+| `kappa mcp`                | Manage MCP servers (list, add, auth)       |
+| `kappa models [provider]`  | List available models                      |
+| `kappa stats`              | Show token usage and cost statistics       |
+| `kappa session`            | Manage sessions (list)                     |
+| `kappa export [sessionID]` | Export session data as JSON                |
+| `kappa import <file>`      | Import session data from JSON file or URL  |
+| `kappa upgrade [target]`   | Upgrade kappa to latest or specific version |
+| `kappa uninstall`          | Uninstall kappa and remove related files    |
+| `kappa pr <number>`        | Fetch and checkout a GitHub PR branch      |
+| `kappa github`             | Manage GitHub agent (install, run)         |
+| `kappa debug`              | Debugging and troubleshooting tools        |
+| `kappa completion`         | Generate shell completion script           |
 
 ### Global Options
 
@@ -167,8 +167,8 @@ Review your code locally before pushing — catch issues early without waiting f
 Configuration is managed through:
 
 - `/connect` command for provider setup (interactive)
-- Config files in **`~/.config/kilo/`**: the CLI (Kilo CLI 1.0 from [Kilo-Org/kilo](https://github.com/Kilo-Org/kilo)) merges `config.json`, `opencode.json`, and `opencode.jsonc`. Use **`opencode.json`** (or `opencode.jsonc`) for provider, model, permission, and **MCP** settings. Restart the CLI after editing. See [Using MCP in the CLI](/docs/automate/mcp/using-in-cli) for MCP config format.
-- `kilo auth` for credential management
+- Config files in **`~/.config/kappa/`**: the CLI (Kilo CLI 1.0 from [Kilo-Org/kappa](https://github.com/Kilo-Org/kappa)) merges `config.json`, `opencode.json`, and `opencode.jsonc`. Use **`opencode.json`** (or `opencode.jsonc`) for provider, model, permission, and **MCP** settings. Restart the CLI after editing. See [Using MCP in the CLI](/docs/automate/mcp/using-in-cli) for MCP config format.
+- `kappa auth` for credential management
 
 ## Slash Commands
 
@@ -196,7 +196,7 @@ You can set permissions globally (with `*`), and override specific tools.
 
 ```json
 {
-  "$schema": "https://kilo.ai/config.json",
+  "$schema": "https://kappa.ai/config.json",
   "permission": {
     "*": "ask",
     "bash": "allow",
@@ -209,7 +209,7 @@ You can also set all permissions at once:
 
 ```json
 {
-  "$schema": "https://kilo.ai/config.json",
+  "$schema": "https://kappa.ai/config.json",
   "permission": "allow"
 }
 ```
@@ -220,7 +220,7 @@ For most permissions, you can use an object to apply different actions based on 
 
 ```json
 {
-  "$schema": "https://app.kilo.ai/config.json",
+  "$schema": "https://app.kappa.ai/config.json",
   "permission": {
     "bash": {
       "*": "ask",
@@ -261,7 +261,7 @@ Use `external_directory` to allow tool calls that touch paths outside the workin
 
 ```json
 {
-  "$schema": "https://kilo.ai/config.json",
+  "$schema": "https://kappa.ai/config.json",
   "permission": {
     "external_directory": {
       "~/projects/personal/**": "allow"
@@ -274,7 +274,7 @@ Any directory allowed here inherits the same defaults as the current workspace. 
 
 ```json
 {
-  "$schema": "https://kilo.ai/config.json",
+  "$schema": "https://kappa.ai/config.json",
   "permission": {
     "external_directory": {
       "~/projects/personal/**": "allow"
@@ -290,13 +290,13 @@ Any directory allowed here inherits the same defaults as the current workspace. 
 
 ## Configuration
 
-The Kilo CLI is a fork of [OpenCode](https://opencode.ai) and supports the same configuration options. The CLI you install with `npm install -g @kilocode/cli` (Kilo CLI 1.0) is built from [Kilo-Org/kilo](https://github.com/Kilo-Org/kilo). For comprehensive configuration documentation, see the [OpenCode Config documentation](https://opencode.ai/docs/config).
+The Kilo CLI is a fork of [OpenCode](https://opencode.ai) and supports the same configuration options. The CLI you install with `npm install -g @kappacode/cli` (Kilo CLI 1.0) is built from [Kilo-Org/kappa](https://github.com/Kilo-Org/kappa). For comprehensive configuration documentation, see the [OpenCode Config documentation](https://opencode.ai/docs/config).
 
 ### Config File Location (Kilo CLI 1.0)
 
 | Scope       | Path                                                                                              |
 | ----------- | ------------------------------------------------------------------------------------------------- |
-| **Global**  | `~/.config/kilo/opencode.json` or `opencode.jsonc` (Windows: config dir may vary; same filenames) |
+| **Global**  | `~/.config/kappa/opencode.json` or `opencode.jsonc` (Windows: config dir may vary; same filenames) |
 | **Project** | `./opencode.json` or `./.opencode/` in project root                                               |
 
 Project-level configuration takes precedence over global settings.
@@ -305,7 +305,7 @@ Project-level configuration takes precedence over global settings.
 
 ```json
 {
-  "$schema": "https://app.kilo.ai/config.json",
+  "$schema": "https://app.kappa.ai/config.json",
   "model": "anthropic/claude-sonnet-4-20250514",
   "provider": {
     "anthropic": {
@@ -378,7 +378,7 @@ Autonomous mode allows Kilo Code to run in automated environments like CI/CD pip
 
 ```bash
 # Run in autonomous mode with a message
-kilo run --auto "Implement feature X"
+kappa run --auto "Implement feature X"
 ```
 
 ### Autonomous Mode Behavior
@@ -414,7 +414,7 @@ This instructs the AI to proceed without user input.
 # GitHub Actions example
 - name: Run Kilo Code
   run: |
-    kilo run "Implement the new feature" --auto
+    kappa run "Implement the new feature" --auto
 ```
 
 ## Session Continuation
@@ -423,8 +423,8 @@ Resume your last conversation from the current workspace using the `--continue` 
 
 ```bash
 # Resume the most recent session from this workspace
-kilo --continue
-kilo -c
+kappa --continue
+kappa -c
 ```
 
 This feature:
@@ -439,13 +439,13 @@ This feature:
 
 ```bash
 # Start a session
-kilo
+kappa
 # > "Create a REST API"
 # ... work on the task ...
 # Exit with /exit
 
 # Later, resume the same session
-kilo --continue
+kappa --continue
 # Conversation history is restored, ready to continue
 ```
 

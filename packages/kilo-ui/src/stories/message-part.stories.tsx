@@ -8,7 +8,7 @@ import { DialogProvider } from "@opencode-ai/ui/context/dialog"
 import { MarkedProvider } from "@opencode-ai/ui/context/marked"
 import { Diff } from "@opencode-ai/ui/diff"
 import { Code } from "@opencode-ai/ui/code"
-import type { UserMessage, AssistantMessage, TextPart, ToolPart } from "@kilocode/sdk/v2"
+import type { UserMessage, AssistantMessage, TextPart, ToolPart } from "@kappacode/sdk/v2"
 
 const SESSION_ID = "session-story-001"
 const USER_MSG_ID = "user-msg-001"

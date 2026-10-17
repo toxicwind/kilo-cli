@@ -1,4 +1,4 @@
-import type { ProviderAuthAuthorization } from "@kilocode/sdk/v2/client"
+import type { ProviderAuthAuthorization } from "@kappacode/sdk/v2/client"
 import { Button } from "@opencode-ai/ui/button"
 import { useDialog } from "@opencode-ai/ui/context/dialog"
 import { Dialog } from "@opencode-ai/ui/dialog"
@@ -271,13 +271,13 @@ export function DialogConnectProvider(props: { provider: string }) {
       <div class="flex flex-col gap-6">
         <Switch>
           {/* kilocode_change start */}
-          <Match when={provider().id === "kilo"}>
+          <Match when={provider().id === "kappa"}>
             <div class="flex flex-col gap-4">
               <div class="text-14-regular text-text-base">{language.t("provider.connect.kiloGateway.line1")}</div>
               <div class="text-14-regular text-text-base">{language.t("provider.connect.kiloGateway.line2")}</div>
               <div class="text-14-regular text-text-base">
                 {language.t("provider.connect.kiloGateway.visit.prefix")}
-                <Link href="https://kilo.ai" tabIndex={-1}>
+                <Link href="https://kappa.ai" tabIndex={-1}>
                   {language.t("provider.connect.kiloGateway.visit.link")}
                 </Link>
                 {language.t("provider.connect.kiloGateway.visit.suffix")}

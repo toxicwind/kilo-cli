@@ -542,8 +542,8 @@ module.exports = [
     permanent: true,
   },
   {
-    source: "/docs/features/mcp/using-mcp-in-kilo-code",
-    destination: "/docs/automate/mcp/using-in-kilo-code",
+    source: "/docs/features/mcp/using-mcp-in-kappa-code",
+    destination: "/docs/automate/mcp/using-in-kappa-code",
     basePath: false,
     permanent: true,
   },

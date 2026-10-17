@@ -10,9 +10,9 @@ import { createEffect, createMemo, createSignal, on, Show } from "solid-js"
 import { useSync } from "@tui/context/sync"
 import { useSDK } from "@tui/context/sdk"
 import { useDialog } from "@tui/ui/dialog"
-import type { KilocodeNotification } from "@kilocode/kilo-gateway"
+import type { KilocodeNotification } from "@kappacode/kappa-gateway"
 import { NotificationBanner } from "./notification-banner.js"
-import { DialogKiloNotifications } from "./dialog-kilo-notifications.js"
+import { DialogKiloNotifications } from "./dialog-kappa-notifications.js"
 
 export function KiloNews() {
   const sync = useSync()
@@ -21,7 +21,7 @@ export function KiloNews() {
 
   const [notifications, setNotifications] = createSignal<KilocodeNotification[]>([])
   const [fetched, setFetched] = createSignal(false)
-  const isKiloConnected = createMemo(() => sync.data.provider_next.connected.includes("kilo"))
+  const isKiloConnected = createMemo(() => sync.data.provider_next.connected.includes("kappa"))
 
   const openNewsDialog = () => {
     const items = notifications()
@@ -41,7 +41,7 @@ export function KiloNews() {
 
         if (!isKiloConnected()) return
 
-        const result = await sdk.client.kilo.notifications()
+        const result = await sdk.client.kappa.notifications()
         const items = result.data
         if (items && items.length > 0) {
           setNotifications(items)

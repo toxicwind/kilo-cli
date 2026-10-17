@@ -8,15 +8,15 @@ import { DialogPrompt } from "../ui/dialog-prompt"
 import { Link } from "../ui/link"
 import { useTheme } from "../context/theme"
 import { TextAttributes } from "@opentui/core"
-import type { ProviderAuthAuthorization } from "@kilocode/sdk/v2"
+import type { ProviderAuthAuthorization } from "@kappacode/sdk/v2"
 import { DialogModel } from "./dialog-model"
 import { useKeyboard } from "@opentui/solid"
 import { Clipboard } from "@tui/util/clipboard"
 import { useToast } from "../ui/toast"
-import { KiloAutoMethod } from "@/kilocode/components/dialog-kilo-auto-method" // kilocode_change
+import { KiloAutoMethod } from "@/kilocode/components/dialog-kappa-auto-method" // kilocode_change
 
 const PROVIDER_PRIORITY: Record<string, number> = {
-  kilo: -1, // kilocode_change - Kilo Gateway at top
+  kappa: -1, // kilocode_change - Kilo Gateway at top
   // kilocode_change - removed opencode from popular providers
   anthropic: 0,
   "github-copilot": 1,
@@ -36,7 +36,7 @@ export function createDialogProviderOptions() {
         title: provider.name,
         value: provider.id,
         description: {
-          kilo: "(Recommended)", // kilocode_change
+          kappa: "(Recommended)", // kilocode_change
           anthropic: "(Claude Max or API key)",
           openai: "(ChatGPT Plus/Pro or API key)",
         }[provider.id],
@@ -80,7 +80,7 @@ export function createDialogProviderOptions() {
             }
             if (result.data?.method === "auto") {
               // kilocode_change start - Use custom handler for Kilo Gateway
-              if (provider.id === "kilo") {
+              if (provider.id === "kappa") {
                 dialog.replace(() => (
                   <KiloAutoMethod
                     providerID={provider.id}
@@ -244,7 +244,7 @@ function ApiMethod(props: ApiMethodProps) {
               Kilo Gateway gives you access to all the best coding models at the cheapest prices with a single API key.
             </text>
             <text fg={theme.text}>
-              Go to <span style={{ fg: theme.primary }}>https://kilo.ai/gateway</span> to get a key
+              Go to <span style={{ fg: theme.primary }}>https://kappa.ai/gateway</span> to get a key
             </text>
             {/* kilocode_change end */}
           </box>

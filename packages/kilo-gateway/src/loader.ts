@@ -1,10 +1,10 @@
 import type { CustomLoaderResult, ProviderInfo } from "./types.js"
 
 /**
- * Custom loader function for the kilo provider
+ * Custom loader function for the kappa provider
  *
  * This function is called by OpenCode's provider system to determine
- * if the kilo provider should be auto-loaded and what options to use.
+ * if the kappa provider should be auto-loaded and what options to use.
  *
  * @param provider - Provider information from the models database
  * @returns Loader result with autoload status and options
@@ -15,7 +15,7 @@ export async function kiloCustomLoader(provider: ProviderInfo): Promise<CustomLo
 
   // Handle empty models case
   if (!provider.models || Object.keys(provider.models).length === 0) {
-    console.log("[kilo-provider] No models available, autoload: false")
+    console.log("[kappa-provider] No models available, autoload: false")
     return {
       autoload: false,
       options: hasKey ? {} : { apiKey: "anonymous" },
@@ -24,7 +24,7 @@ export async function kiloCustomLoader(provider: ProviderInfo): Promise<CustomLo
 
   // Log initial model count
   const initialCount = Object.keys(provider.models).length
-  console.log(`[kilo-provider] Loaded ${initialCount} models, hasAuth: ${hasKey}`)
+  console.log(`[kappa-provider] Loaded ${initialCount} models, hasAuth: ${hasKey}`)
 
   // If no key, remove paid models
   if (!hasKey) {
@@ -35,12 +35,12 @@ export async function kiloCustomLoader(provider: ProviderInfo): Promise<CustomLo
     }
     const freeCount = Object.keys(provider.models).length
     console.log(
-      `[kilo-provider] Filtered to ${freeCount} free models (removed ${initialCount - freeCount} paid models)`,
+      `[kappa-provider] Filtered to ${freeCount} free models (removed ${initialCount - freeCount} paid models)`,
     )
   }
 
   const autoload = Object.keys(provider.models).length > 0
-  console.log(`[kilo-provider] Autoload: ${autoload}`)
+  console.log(`[kappa-provider] Autoload: ${autoload}`)
 
   return {
     autoload,

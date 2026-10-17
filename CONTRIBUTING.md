@@ -1,6 +1,6 @@
 # Contributing to Kilo CLI
 
-See [the Documentation for details on contributing](https://kilo.ai/docs/contributing).
+See [the Documentation for details on contributing](https://kappa.ai/docs/contributing).
 
 ## TL;DR
 
@@ -12,7 +12,7 @@ There are lots of ways to contribute to the project:
 - **Feature Requests:** Suggest new features or improvements
 - **Community Support:** Help other users in the community
 
-The Kilo Community is [on Discord](https://kilo.ai/discord).
+The Kilo Community is [on Discord](https://kappa.ai/discord).
 
 ## Developing Kilo CLI
 
@@ -26,7 +26,7 @@ The Kilo Community is [on Discord](https://kilo.ai/discord).
 
 ### Running against a different directory
 
-By default, `bun dev` runs Kilo CLI in the `packages/kilo-cli` directory. To run it against a different directory or repository:
+By default, `bun dev` runs Kilo CLI in the `packages/kappa-cli` directory. To run it against a different directory or repository:
 
 ```bash
 bun dev <directory>
@@ -43,20 +43,20 @@ bun dev .
 To compile a standalone executable:
 
 ```bash
-./packages/kilo-cli/script/build.ts --single
+./packages/kappa-cli/script/build.ts --single
 ```
 
 Then run it with:
 
 ```bash
-./packages/kilo-cli/dist/kilo-cli-<platform>/bin/kilo
+./packages/kappa-cli/dist/kappa-cli-<platform>/bin/kappa
 ```
 
 Replace `<platform>` with your platform (e.g., `darwin-arm64`, `linux-x64`).
 
-### Understanding bun dev vs kilo
+### Understanding bun dev vs kappa
 
-During development, `bun dev` is the local equivalent of the built `kilo` command. Both run the same CLI interface:
+During development, `bun dev` is the local equivalent of the built `kappa` command. Both run the same CLI interface:
 
 ```bash
 # Development (from project root)
@@ -65,9 +65,9 @@ bun dev serve            # Start headless API server
 bun dev web              # Start server + open web interface
 
 # Production
-kilo --help          # Show all available commands
-kilo serve           # Start headless API server
-kilo web             # Start server + open web interface
+kappa --help          # Show all available commands
+kappa serve           # Start headless API server
+kappa web             # Start server + open web interface
 ```
 
 ### Pull Request Expectations

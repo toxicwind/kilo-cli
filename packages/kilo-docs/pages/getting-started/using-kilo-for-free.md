@@ -33,7 +33,7 @@ Free models are clearly labeled in the model picker across all Kilo platforms. T
 
 **In the CLI:**
 
-1. Open the CLI by running `kilo`
+1. Open the CLI by running `kappa`
 2. Use the `/models` command to browse available models
 3. Free models are labeled as "free"
 4. Select a free model for your tasks
@@ -86,7 +86,7 @@ Background tasks degrade gracefully when you don't have credits:
 
 ### How to Get It Free
 
-Configure the `small_model` parameter in `~/.config/kilo/config.json` to use a free model:
+Configure the `small_model` parameter in `~/.config/kappa/config.json` to use a free model:
 
 ```json
 {

@@ -28,7 +28,7 @@ import { createOpenAI } from "@ai-sdk/openai"
 import { createOpenAICompatible } from "@ai-sdk/openai-compatible"
 import { createOpenRouter, type LanguageModelV2 } from "@openrouter/ai-sdk-provider"
 import { createOpenaiCompatible as createGitHubCopilotOpenAICompatible } from "./sdk/copilot"
-import { createKilo } from "@kilocode/kilo-gateway" // kilocode_change
+import { createKilo } from "@kappacode/kappa-gateway" // kilocode_change
 import { createXai } from "@ai-sdk/xai"
 import { createMistral } from "@ai-sdk/mistral"
 import { createGroq } from "@ai-sdk/groq"
@@ -70,7 +70,7 @@ export namespace Provider {
     "@ai-sdk/openai": createOpenAI,
     "@ai-sdk/openai-compatible": createOpenAICompatible,
     "@openrouter/ai-sdk-provider": createOpenRouter,
-    "@kilocode/kilo-gateway": createKilo, // kilocode_change
+    "@kappacode/kappa-gateway": createKilo, // kilocode_change
     "@ai-sdk/xai": createXai,
     "@ai-sdk/mistral": createMistral,
     "@ai-sdk/groq": createGroq,
@@ -422,7 +422,7 @@ export namespace Provider {
       const providerConfig = config.provider?.["gitlab"]
 
       const aiGatewayHeaders = {
-        "User-Agent": `kilo/${Installation.VERSION} gitlab-ai-provider/${GITLAB_PROVIDER_VERSION} (${os.platform()} ${os.release()}; ${os.arch()})`, // kilocode_change
+        "User-Agent": `kappa/${Installation.VERSION} gitlab-ai-provider/${GITLAB_PROVIDER_VERSION} (${os.platform()} ${os.release()}; ${os.arch()})`, // kilocode_change
         ...(providerConfig?.options?.aiGatewayHeaders || {}),
       }
 
@@ -522,13 +522,13 @@ export namespace Provider {
       }
     },
     // kilocode_change start
-    kilo: async (input) => {
+    kappa: async (input) => {
       const env = Env.all()
       const hasKey = await (async () => {
         if (input.env.some((item) => env[item])) return true
         if (await Auth.get(input.id)) return true
         const config = await Config.get()
-        if (config.provider?.["kilo"]?.options?.apiKey) return true
+        if (config.provider?.["kappa"]?.options?.apiKey) return true
         return false
       })()
 
@@ -1196,7 +1196,7 @@ export namespace Provider {
         "gpt-5-nano",
       ]
       // kilocode_change start
-      if (providerID.startsWith("kilo")) {
+      if (providerID.startsWith("kappa")) {
         priority = ["gpt-5-nano"]
       }
       // kilocode_change end
@@ -1236,10 +1236,10 @@ export namespace Provider {
     }
 
     // kilocode_change start
-    // Check if kilo provider is available before using it
-    const kiloProvider = await state().then((state) => state.providers["kilo"])
+    // Check if kappa provider is available before using it
+    const kiloProvider = await state().then((state) => state.providers["kappa"])
     if (kiloProvider && kiloProvider.models["gpt-5-nano"]) {
-      return getModel("kilo", "gpt-5-nano")
+      return getModel("kappa", "gpt-5-nano")
     }
     // kilocode_change end
 

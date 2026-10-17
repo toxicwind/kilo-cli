@@ -4,7 +4,7 @@ Batch approval UI for file read operations.
 
 ## Location
 
-Permissions are now rendered through kilo-ui's `DataProvider` pattern using `Dialog` + `BasicTool` + `data-component="permission-prompt"`. There is no standalone `BatchFilePermission.tsx` — the permission UI is integrated into the kilo-ui message rendering pipeline.
+Permissions are now rendered through kappa-ui's `DataProvider` pattern using `Dialog` + `BasicTool` + `data-component="permission-prompt"`. There is no standalone `BatchFilePermission.tsx` — the permission UI is integrated into the kappa-ui message rendering pipeline.
 
 ## Interactions
 
@@ -20,7 +20,7 @@ Permissions are now rendered through kilo-ui's `DataProvider` pattern using `Dia
 - If Kilo CLI permission prompts are per-tool-call (not "batch per-file"), you may need to:
   - either keep a batch UI but respond to permissions one-by-one, or
   - simplify the UI to match Kilo CLI's permission granularity.
-- Kilo CLI UI reference: permission prompt actions exist in [`packages/ui/src/components/message-part.tsx`](https://github.com/Kilo-Org/kilo/blob/main/packages/ui/src/components/message-part.tsx:1).
+- Kilo CLI UI reference: permission prompt actions exist in [`packages/ui/src/components/message-part.tsx`](https://github.com/Kilo-Org/kappa/blob/main/packages/ui/src/components/message-part.tsx:1).
 
 ## TODO: Render permissions inline instead of in a modal Dialog
 

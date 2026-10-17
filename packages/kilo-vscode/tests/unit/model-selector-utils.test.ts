@@ -10,7 +10,7 @@ import {
 const labels = { select: "Select model", noProviders: "No providers", notSet: "Not set" }
 
 describe("providerSortKey", () => {
-  it("returns 0 for kilo gateway", () => {
+  it("returns 0 for kappa gateway", () => {
     expect(providerSortKey(KILO_GATEWAY_ID)).toBe(0)
   })
 
@@ -37,9 +37,9 @@ describe("providerSortKey", () => {
   })
 
   it("sorts providers correctly when used with sort", () => {
-    const ids = ["google", "anthropic", "kilo", "openai"]
+    const ids = ["google", "anthropic", "kappa", "openai"]
     const sorted = ids.slice().sort((a, b) => providerSortKey(a) - providerSortKey(b))
-    expect(sorted).toEqual(["kilo", "anthropic", "openai", "google"])
+    expect(sorted).toEqual(["kappa", "anthropic", "openai", "google"])
   })
 })
 
@@ -62,12 +62,12 @@ describe("buildTriggerLabel", () => {
     expect(buildTriggerLabel("GPT-4o", null, false, "", true, labels)).toBe("GPT-4o")
   })
 
-  it("returns modelID for kilo gateway raw selection", () => {
-    const raw = { providerID: "kilo", modelID: "kilo/auto" }
-    expect(buildTriggerLabel(undefined, raw, false, "", true, labels)).toBe("kilo/auto")
+  it("returns modelID for kappa gateway raw selection", () => {
+    const raw = { providerID: "kappa", modelID: "kappa/auto" }
+    expect(buildTriggerLabel(undefined, raw, false, "", true, labels)).toBe("kappa/auto")
   })
 
-  it("returns providerID / modelID for non-kilo raw selection", () => {
+  it("returns providerID / modelID for non-kappa raw selection", () => {
     const raw = { providerID: "anthropic", modelID: "claude-3-5-sonnet" }
     expect(buildTriggerLabel(undefined, raw, false, "", true, labels)).toBe("anthropic / claude-3-5-sonnet")
   })

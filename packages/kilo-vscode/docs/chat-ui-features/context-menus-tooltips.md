@@ -10,7 +10,7 @@ This document covers **webview-internal** context menus and tooltips — i.e., r
 
 ## Current State
 
-- kilo-ui provides `Tooltip` and `Popover` components, already in use throughout the webview (TaskHeader, ModelSelector, etc.)
+- kappa-ui provides `Tooltip` and `Popover` components, already in use throughout the webview (TaskHeader, ModelSelector, etc.)
 - No webview-internal right-click context menu exists yet
 
 ## Remaining Work
@@ -22,8 +22,8 @@ This document covers **webview-internal** context menus and tooltips — i.e., r
 ## Location
 
 - [`webview-ui/src/components/common/ContextMenu.tsx`](../../webview-ui/src/components/common/ContextMenu.tsx:1)
-- kilo-ui `Tooltip` component usage throughout webview
+- kappa-ui `Tooltip` component usage throughout webview
 
 ## Implementation Notes
 
-These are presentation-layer affordances; the CLI backend is not involved. kilo-ui already provides the tooltip infrastructure needed.
+These are presentation-layer affordances; the CLI backend is not involved. kappa-ui already provides the tooltip infrastructure needed.

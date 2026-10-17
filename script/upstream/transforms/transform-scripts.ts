@@ -3,7 +3,7 @@
  * Transform script files with GitHub API references
  *
  * This script handles script files that contain GitHub API references
- * by transforming them from anomalyco/opencode to Kilo-Org/kilo.
+ * by transforming them from anomalyco/opencode to Kilo-Org/kappa.
  */
 
 import { $ } from "bun"
@@ -33,31 +33,31 @@ const SCRIPT_REPLACEMENTS: ScriptReplacement[] = [
   // GitHub API URLs
   {
     pattern: /api\.github\.com\/repos\/anomalyco\/opencode/g,
-    replacement: "api.github.com/repos/Kilo-Org/kilo",
+    replacement: "api.github.com/repos/Kilo-Org/kappa",
     description: "GitHub API URL",
   },
   {
     pattern: /\/repos\/anomalyco\/opencode/g,
-    replacement: "/repos/Kilo-Org/kilo",
+    replacement: "/repos/Kilo-Org/kappa",
     description: "GitHub repos path",
   },
 
   // gh CLI commands
   {
     pattern: /gh api "\/repos\/anomalyco\/opencode/g,
-    replacement: 'gh api "/repos/Kilo-Org/kilo',
+    replacement: 'gh api "/repos/Kilo-Org/kappa',
     description: "gh api command",
   },
 
   // Direct GitHub references
   {
     pattern: /github\.com\/anomalyco\/opencode/g,
-    replacement: "github.com/Kilo-Org/kilo",
+    replacement: "github.com/Kilo-Org/kappa",
     description: "GitHub URL",
   },
   {
     pattern: /anomalyco\/opencode/g,
-    replacement: "Kilo-Org/kilo",
+    replacement: "Kilo-Org/kappa",
     description: "GitHub repo reference",
   },
 

@@ -11,7 +11,7 @@ Both **GitLab.com** and **self-hosted GitLab instances** are supported.
 
 ## Prerequisites
 
-- A Kilo Code account at [app.kilo.ai](https://app.kilo.ai)
+- A Kilo Code account at [app.kappa.ai](https://app.kappa.ai)
 - A GitLab account with **Maintainer** role (or higher) on the projects you want to review
 - Kilo Code credits for AI model usage
 
@@ -27,7 +27,7 @@ You can connect using **OAuth** or a **Personal Access Token (PAT)**. Choose the
 {% tab label="OAuth (GitLab.com)" %}
 
 1. Go to the **Integrations** page:
-   - **Personal**: [app.kilo.ai/integrations/gitlab](https://app.kilo.ai/integrations/gitlab)
+   - **Personal**: [app.kappa.ai/integrations/gitlab](https://app.kappa.ai/integrations/gitlab)
    - **Organization**: Your organization → Integrations → GitLab
 2. Click **Connect GitLab**
 3. Authorize the application on GitLab
@@ -41,7 +41,7 @@ For self-hosted GitLab instances using OAuth, you need to register an OAuth appl
 1. In your GitLab instance, go to **Admin Area → Applications** (or **User Settings → Applications**)
 2. Create a new application:
    - **Name**: `Kilo Code`
-   - **Redirect URI**: `https://app.kilo.ai/api/integrations/gitlab/callback`
+   - **Redirect URI**: `https://app.kappa.ai/api/integrations/gitlab/callback`
    - **Scopes**: `api`, `read_user`, `read_repository`, `write_repository`
    - **Confidential**: Yes
 3. Copy the **Application ID** and **Secret**
@@ -67,7 +67,7 @@ For self-hosted GitLab instances using OAuth, you need to register an OAuth appl
 ### Step 2: Configure the Review Agent
 
 1. Go to **Code Reviews**:
-   - **Personal**: [app.kilo.ai/code-reviews](https://app.kilo.ai/code-reviews)
+   - **Personal**: [app.kappa.ai/code-reviews](https://app.kappa.ai/code-reviews)
    - **Organization**: Your organization → Code Reviews
 2. Toggle **Enable AI Code Review** to on
 3. Configure your preferences:
@@ -129,7 +129,7 @@ Kilo manages webhooks automatically:
 
 You don't need to set up webhooks manually. If automatic webhook creation fails due to permissions, you can add the webhook manually in **GitLab → Project → Settings → Webhooks**:
 
-- **URL**: `https://app.kilo.ai/api/webhooks/gitlab`
+- **URL**: `https://app.kappa.ai/api/webhooks/gitlab`
 - **Secret token**: Available in your integration settings
 - **Trigger**: Merge request events
 
@@ -177,4 +177,4 @@ You need **Maintainer role** on the GitLab project. Both webhook creation and bo
 - Verify your instance URL is accessible from the internet
 - Ensure HTTPS is configured
 - Check that OAuth application scopes include all required scopes
-- Verify the redirect URI matches: `https://app.kilo.ai/api/integrations/gitlab/callback`
+- Verify the redirect URI matches: `https://app.kappa.ai/api/integrations/gitlab/callback`

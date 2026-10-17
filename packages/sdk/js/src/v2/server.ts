@@ -65,7 +65,7 @@ export async function createOpencodeServer(options?: ServerOptions) {
   if (options.config?.logLevel) args.push(`--log-level=${options.config.logLevel}`)
 
   // kilocode_change start
-  const proc = spawn(`kilo`, args, {
+  const proc = spawn(`kappa`, args, {
     // kilocode_change end
     signal: options.signal,
     env: {
@@ -84,7 +84,7 @@ export async function createOpencodeServer(options?: ServerOptions) {
       const lines = output.split("\n")
       for (const line of lines) {
         // kilocode_change start
-        if (line.startsWith("kilo server listening")) {
+        if (line.startsWith("kappa server listening")) {
           // kilocode_change end
           const match = line.match(/on\s+(https?:\/\/[^\s]+)/)
           if (!match) {
@@ -144,7 +144,7 @@ export function createOpencodeTui(options?: TuiOptions) {
   }
 
   // kilocode_change start
-  const proc = spawn(`kilo`, args, {
+  const proc = spawn(`kappa`, args, {
     // kilocode_change end
     signal: options?.signal,
     stdio: "inherit",

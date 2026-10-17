@@ -8,7 +8,7 @@ import { lazy } from "@/util/lazy"
 import { Config } from "../config/config" // kilocode_change
 import { ModelCache } from "./model-cache" // kilocode_change
 import { Auth } from "../auth" // kilocode_change
-import { KILO_OPENROUTER_BASE } from "@kilocode/kilo-gateway" // kilocode_change
+import { KILO_OPENROUTER_BASE } from "@kappacode/kappa-gateway" // kilocode_change
 
 // Try to import bundled snapshot (generated at build time)
 // Falls back to undefined in dev mode when snapshot doesn't exist
@@ -123,16 +123,16 @@ export namespace ModelsDev {
     // kilocode_change start
     const providers = result as Record<string, Provider>
 
-    if (providers["kilo"]) {
-      delete providers["kilo"]
+    if (providers["kappa"]) {
+      delete providers["kappa"]
     }
 
-    // Inject kilo provider with dynamic model fetching
-    if (!providers["kilo"]) {
+    // Inject kappa provider with dynamic model fetching
+    if (!providers["kappa"]) {
       const config = await Config.get()
-      const kiloOptions = config.provider?.kilo?.options
+      const kiloOptions = config.provider?.kappa?.options
       // kilocode_change start - resolve org ID from auth (OAuth accountId) not just config
-      const kiloAuth = await Auth.get("kilo")
+      const kiloAuth = await Auth.get("kappa")
       const kiloOrgId =
         kiloOptions?.kilocodeOrganizationId ?? (kiloAuth?.type === "oauth" ? kiloAuth.accountId : undefined)
       // kilocode_change end
@@ -142,21 +142,21 @@ export namespace ModelsDev {
         ...(kiloOrgId ? { kilocodeOrganizationId: kiloOrgId } : {}),
       }
       const defaultBaseURL = kiloOrgId
-        ? `https://api.kilo.ai/api/organizations/${kiloOrgId}`
-        : "https://api.kilo.ai/api/openrouter"
+        ? `https://api.kappa.ai/api/organizations/${kiloOrgId}`
+        : "https://api.kappa.ai/api/openrouter"
       const providerBaseURL = normalizedBaseURL ?? defaultBaseURL
       const ensureTrailingSlash = (value: string): string => (value.endsWith("/") ? value : `${value}/`)
-      const kiloModels = await ModelCache.fetch("kilo", kiloFetchOptions).catch(() => ({}))
-      providers["kilo"] = {
-        id: "kilo",
+      const kiloModels = await ModelCache.fetch("kappa", kiloFetchOptions).catch(() => ({}))
+      providers["kappa"] = {
+        id: "kappa",
         name: "Kilo Gateway",
         env: ["KILO_API_KEY"],
         api: ensureTrailingSlash(KILO_OPENROUTER_BASE),
-        npm: "@kilocode/kilo-gateway",
+        npm: "@kappacode/kappa-gateway",
         models: kiloModels,
       }
       if (Object.keys(kiloModels).length === 0) {
-        ModelCache.refresh("kilo", kiloFetchOptions).catch(() => {})
+        ModelCache.refresh("kappa", kiloFetchOptions).catch(() => {})
       }
     }
 

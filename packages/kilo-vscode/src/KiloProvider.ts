@@ -17,10 +17,10 @@ import {
   filterVisibleAgents,
   buildSettingPath,
   mapSSEEventToWebviewMessage,
-} from "./kilo-provider-utils"
+} from "./kappa-provider-utils"
 
 export class KiloProvider implements vscode.WebviewViewProvider, TelemetryPropertiesProvider {
-  public static readonly viewType = "kilo-code.new.sidebarView"
+  public static readonly viewType = "kappa-code.new.sidebarView"
 
   private webview: vscode.Webview | null = null
   private currentSession: SessionInfo | null = null
@@ -28,7 +28,7 @@ export class KiloProvider implements vscode.WebviewViewProvider, TelemetryProper
   private loginAttempt = 0
   private isWebviewReady = false
   private readonly extensionVersion =
-    vscode.extensions.getExtension("kilocode.kilo-code")?.packageJSON?.version ?? "unknown"
+    vscode.extensions.getExtension("kilocode.kappa-code")?.packageJSON?.version ?? "unknown"
   /** Cached providersLoaded payload so requestProviders can be served before httpClient is ready */
   private cachedProvidersMessage: unknown = null
   /** Cached agentsLoaded payload so requestAgents can be served before httpClient is ready */
@@ -62,7 +62,7 @@ export class KiloProvider implements vscode.WebviewViewProvider, TelemetryProper
 
   getTelemetryProperties(): Record<string, unknown> {
     return {
-      appName: "kilo-code",
+      appName: "kappa-code",
       appVersion: this.extensionVersion,
       platform: "vscode",
       editorName: vscode.env.appName,
@@ -112,7 +112,7 @@ export class KiloProvider implements vscode.WebviewViewProvider, TelemetryProper
 
     // Re-send ready so the webview can recover after refresh.
     if (serverInfo) {
-      const langConfig = vscode.workspace.getConfiguration("kilo-code.new")
+      const langConfig = vscode.workspace.getConfiguration("kappa-code.new")
       this.postMessage({
         type: "ready",
         serverInfo,
@@ -366,7 +366,7 @@ export class KiloProvider implements vscode.WebviewViewProvider, TelemetryProper
           break
         case "setLanguage":
           await vscode.workspace
-            .getConfiguration("kilo-code.new")
+            .getConfiguration("kappa-code.new")
             .update("language", message.locale || undefined, vscode.ConfigurationTarget.Global)
           break
         case "requestAutocompleteSettings":
@@ -380,7 +380,7 @@ export class KiloProvider implements vscode.WebviewViewProvider, TelemetryProper
           ])
           if (allowedKeys.has(message.key)) {
             await vscode.workspace
-              .getConfiguration("kilo-code.new.autocomplete")
+              .getConfiguration("kappa-code.new.autocomplete")
               .update(message.key, message.value, vscode.ConfigurationTarget.Global)
             this.sendAutocompleteSettings()
           }
@@ -524,7 +524,7 @@ export class KiloProvider implements vscode.WebviewViewProvider, TelemetryProper
       this.connectionState = this.connectionService.getConnectionState()
 
       if (serverInfo) {
-        const langConfig = vscode.workspace.getConfiguration("kilo-code.new")
+        const langConfig = vscode.workspace.getConfiguration("kappa-code.new")
         this.postMessage({
           type: "ready",
           serverInfo,
@@ -845,9 +845,9 @@ export class KiloProvider implements vscode.WebviewViewProvider, TelemetryProper
 
       const normalized = normalizeProviders(response.all)
 
-      const config = vscode.workspace.getConfiguration("kilo-code.new.model")
-      const providerID = config.get<string>("providerID", "kilo")
-      const modelID = config.get<string>("modelID", "kilo/auto")
+      const config = vscode.workspace.getConfiguration("kappa-code.new.model")
+      const providerID = config.get<string>("providerID", "kappa")
+      const modelID = config.get<string>("modelID", "kappa/auto")
 
       const message = {
         type: "providersLoaded",
@@ -938,11 +938,11 @@ export class KiloProvider implements vscode.WebviewViewProvider, TelemetryProper
 
     try {
       const notifications = await this.httpClient.getNotifications()
-      const existing = this.extensionContext?.globalState.get<string[]>("kilo.dismissedNotificationIds", []) ?? []
+      const existing = this.extensionContext?.globalState.get<string[]>("kappa.dismissedNotificationIds", []) ?? []
       const active = new Set(notifications.map((n) => n.id))
       const dismissedIds = existing.filter((id) => active.has(id))
       if (dismissedIds.length !== existing.length) {
-        await this.extensionContext?.globalState.update("kilo.dismissedNotificationIds", dismissedIds)
+        await this.extensionContext?.globalState.update("kappa.dismissedNotificationIds", dismissedIds)
       }
       const message = { type: "notificationsLoaded", notifications, dismissedIds }
       this.cachedNotificationsMessage = message
@@ -957,9 +957,9 @@ export class KiloProvider implements vscode.WebviewViewProvider, TelemetryProper
    */
   private async handleDismissNotification(notificationId: string): Promise<void> {
     if (!this.extensionContext) return
-    const existing = this.extensionContext.globalState.get<string[]>("kilo.dismissedNotificationIds", [])
+    const existing = this.extensionContext.globalState.get<string[]>("kappa.dismissedNotificationIds", [])
     if (!existing.includes(notificationId)) {
-      await this.extensionContext.globalState.update("kilo.dismissedNotificationIds", [...existing, notificationId])
+      await this.extensionContext.globalState.update("kappa.dismissedNotificationIds", [...existing, notificationId])
     }
     await this.fetchAndSendNotifications()
     this.connectionService.notifyNotificationDismissed(notificationId)
@@ -969,8 +969,8 @@ export class KiloProvider implements vscode.WebviewViewProvider, TelemetryProper
    * Read notification/sound settings from VS Code config and push to webview.
    */
   private sendNotificationSettings(): void {
-    const notifications = vscode.workspace.getConfiguration("kilo-code.new.notifications")
-    const sounds = vscode.workspace.getConfiguration("kilo-code.new.sounds")
+    const notifications = vscode.workspace.getConfiguration("kappa-code.new.notifications")
+    const sounds = vscode.workspace.getConfiguration("kappa-code.new.sounds")
     this.postMessage({
       type: "notificationSettingsLoaded",
       settings: {
@@ -1227,7 +1227,7 @@ export class KiloProvider implements vscode.WebviewViewProvider, TelemetryProper
       const workspaceDir = this.getWorkspaceDirectory()
 
       // Step 1: Initiate OAuth authorization
-      const auth = await this.httpClient.oauthAuthorize("kilo", 0, workspaceDir)
+      const auth = await this.httpClient.oauthAuthorize("kappa", 0, workspaceDir)
       console.log("[Kilo New] KiloProvider: 🔐 Got auth URL:", auth.url)
 
       // Parse code from instructions (format: "Open URL and enter code: ABCD-1234")
@@ -1246,7 +1246,7 @@ export class KiloProvider implements vscode.WebviewViewProvider, TelemetryProper
       })
 
       // Step 3: Wait for callback (blocks until polling completes)
-      await this.httpClient.oauthCallback("kilo", 0, workspaceDir)
+      await this.httpClient.oauthCallback("kappa", 0, workspaceDir)
 
       // Check if this attempt was cancelled
       if (attempt !== this.loginAttempt) {
@@ -1341,7 +1341,7 @@ export class KiloProvider implements vscode.WebviewViewProvider, TelemetryProper
     }
 
     console.log("[Kilo New] KiloProvider: 🚪 Logging out...")
-    await this.httpClient.removeAuth("kilo")
+    await this.httpClient.removeAuth("kappa")
     console.log("[Kilo New] KiloProvider: 🚪 Logged out successfully")
     this.postMessage({
       type: "profileData",
@@ -1367,20 +1367,20 @@ export class KiloProvider implements vscode.WebviewViewProvider, TelemetryProper
 
   /**
    * Handle a generic setting update from the webview.
-   * The key uses dot notation relative to `kilo-code.new` (e.g. "browserAutomation.enabled").
+   * The key uses dot notation relative to `kappa-code.new` (e.g. "browserAutomation.enabled").
    */
   private async handleUpdateSetting(key: string, value: unknown): Promise<void> {
     const { section, leaf } = buildSettingPath(key)
-    const config = vscode.workspace.getConfiguration(`kilo-code.new${section ? `.${section}` : ""}`)
+    const config = vscode.workspace.getConfiguration(`kappa-code.new${section ? `.${section}` : ""}`)
     await config.update(leaf, value, vscode.ConfigurationTarget.Global)
   }
 
   /**
-   * Reset all "kilo-code.new.*" extension settings to their defaults by reading
+   * Reset all "kappa-code.new.*" extension settings to their defaults by reading
    * contributes.configuration from the extension's package.json at runtime.
-   * Only resets settings under the "kilo-code.new." namespace to avoid touching
+   * Only resets settings under the "kappa-code.new." namespace to avoid touching
    * settings from the previous version of the extension which shares the same
-   * extension ID and "kilo-code.*" namespace.
+   * extension ID and "kappa-code.*" namespace.
    */
   // kilocode_change start
   private async handleResetAllSettings(): Promise<void> {
@@ -1391,8 +1391,8 @@ export class KiloProvider implements vscode.WebviewViewProvider, TelemetryProper
     )
     if (confirmed !== "Reset") return
 
-    const prefix = "kilo-code.new."
-    const ext = vscode.extensions.getExtension("kilocode.kilo-code")
+    const prefix = "kappa-code.new."
+    const ext = vscode.extensions.getExtension("kilocode.kappa-code")
     const properties = ext?.packageJSON?.contributes?.configuration?.properties as Record<string, unknown> | undefined
     if (!properties) return
 
@@ -1416,7 +1416,7 @@ export class KiloProvider implements vscode.WebviewViewProvider, TelemetryProper
    * Read the current browser automation settings and push them to the webview.
    */
   private sendBrowserSettings(): void {
-    const config = vscode.workspace.getConfiguration("kilo-code.new.browserAutomation")
+    const config = vscode.workspace.getConfiguration("kappa-code.new.browserAutomation")
     this.postMessage({
       type: "browserSettingsLoaded",
       settings: {
@@ -1473,7 +1473,7 @@ export class KiloProvider implements vscode.WebviewViewProvider, TelemetryProper
    * Read autocomplete settings from VS Code configuration and push to the webview.
    */
   private sendAutocompleteSettings(): void {
-    const config = vscode.workspace.getConfiguration("kilo-code.new.autocomplete")
+    const config = vscode.workspace.getConfiguration("kappa-code.new.autocomplete")
     this.postMessage({
       type: "autocompleteSettingsLoaded",
       settings: {

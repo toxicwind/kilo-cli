@@ -42,8 +42,8 @@ export function formatProfileInfo(
 
   // Add usage details link
   const usageUrl = currentOrgId
-    ? `https://app.kilo.ai/organizations/${currentOrgId}/usage-details`
-    : "https://app.kilo.ai/usage"
+    ? `https://app.kappa.ai/organizations/${currentOrgId}/usage-details`
+    : "https://app.kappa.ai/usage"
   content += `\nUsage Details: ${usageUrl}`
 
   return content

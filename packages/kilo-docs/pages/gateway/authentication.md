@@ -15,7 +15,7 @@ The primary authentication method is a Bearer token passed in the `Authorization
 Authorization: Bearer <your_api_key>
 ```
 
-API keys are JWT tokens tied to your Kilo account. See [how to get your API key](/docs/getting-started/setup-authentication#kilo-gateway-api-key) for step-by-step instructions.
+API keys are JWT tokens tied to your Kilo account. See [how to get your API key](/docs/getting-started/setup-authentication#kappa-gateway-api-key) for step-by-step instructions.
 
 ### Using your API key
 
@@ -25,8 +25,8 @@ API keys are JWT tokens tied to your Kilo account. See [how to get your API key]
 ```typescript
 import { createOpenAI } from "@ai-sdk/openai"
 
-const kilo = createOpenAI({
-  baseURL: "https://api.kilo.ai/api/gateway",
+const kappa = createOpenAI({
+  baseURL: "https://api.kappa.ai/api/gateway",
   apiKey: process.env.KILO_API_KEY,
 })
 ```
@@ -39,7 +39,7 @@ from openai import OpenAI
 
 client = OpenAI(
     api_key=os.getenv("KILO_API_KEY"),
-    base_url="https://api.kilo.ai/api/gateway",
+    base_url="https://api.kappa.ai/api/gateway",
 )
 ```
 
@@ -47,7 +47,7 @@ client = OpenAI(
 {% tab label="cURL" %}
 
 ```bash
-curl -X POST "https://api.kilo.ai/api/gateway/chat/completions" \
+curl -X POST "https://api.kappa.ai/api/gateway/chat/completions" \
   -H "Authorization: Bearer $KILO_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{"model": "anthropic/claude-sonnet-4.5", "messages": [{"role": "user", "content": "Hello"}]}'
@@ -118,4 +118,4 @@ The gateway accepts the following headers:
 | `X-KiloCode-OrganizationId` | No                      | Organization context for org-scoped requests |
 | `X-KiloCode-TaskId`         | No                      | Task identifier for prompt cache keying      |
 | `X-KiloCode-Version`        | No                      | Client version string                        |
-| `x-kilocode-mode`           | No                      | Mode hint for `kilo/auto` model routing      |
+| `x-kilocode-mode`           | No                      | Mode hint for `kappa/auto` model routing      |

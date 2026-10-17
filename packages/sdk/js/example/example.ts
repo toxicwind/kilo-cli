@@ -1,4 +1,4 @@
-import { createOpencodeClient, createOpencodeServer } from "@kilocode/sdk"
+import { createOpencodeClient, createOpencodeServer } from "@kappacode/sdk"
 import { pathToFileURL } from "bun"
 
 const server = await createOpencodeServer()

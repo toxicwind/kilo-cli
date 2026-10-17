@@ -40,10 +40,10 @@ import { Config } from "@/config/config"
 import { Todo } from "@/session/todo"
 import { z } from "zod"
 import { LoadAPIKeyError } from "ai"
-import type { AssistantMessage, Event, OpencodeClient, SessionMessageResponse } from "@kilocode/sdk/v2"
+import type { AssistantMessage, Event, OpencodeClient, SessionMessageResponse } from "@kappacode/sdk/v2"
 import { applyPatch } from "diff"
 
-import { fetchDefaultModel } from "@kilocode/kilo-gateway" // kilocode_change
+import { fetchDefaultModel } from "@kappacode/kappa-gateway" // kilocode_change
 
 type ModeOption = { id: string; name: string; description?: string }
 type ModelOption = { modelId: string; name: string }
@@ -1500,7 +1500,7 @@ export namespace ACP {
     if (specified && !providers.length) return specified
 
     // kilocode_change start
-    const kiloProvider = providers.find((p) => p.id === "kilo")
+    const kiloProvider = providers.find((p) => p.id === "kappa")
     if (kiloProvider) {
       const [best] = Provider.sort(Object.values(kiloProvider.models))
       if (best) {
@@ -1526,7 +1526,7 @@ export namespace ACP {
     // kilocode_change start
     const freeModel = await fetchDefaultModel()
     const parsed = Provider.parseModel(freeModel)
-    return { providerID: "kilo", modelID: parsed.modelID }
+    return { providerID: "kappa", modelID: parsed.modelID }
     // kilocode_change end
   }
 

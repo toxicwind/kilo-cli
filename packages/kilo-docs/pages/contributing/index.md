@@ -6,7 +6,7 @@ description: "Contribute to Kilo Code"
 # Contributing Overview
 
 {% callout type="info" %}
-**New versions of the VS Code extension and CLI are being developed in [Kilo-Org/Kilo](https://github.com/Kilo-Org/Kilo)** (extension at `packages/kilo-vscode`, CLI at `packages/opencode`). If you're looking to contribute to the extension or CLI, please head over to that repository.
+**New versions of the VS Code extension and CLI are being developed in [Kilo-Org/Kilo](https://github.com/Kilo-Org/Kilo)** (extension at `packages/kappa-vscode`, CLI at `packages/opencode`). If you're looking to contribute to the extension or CLI, please head over to that repository.
 {% /callout %}
 
 Kilo Code is an open-source project that welcomes contributions from developers of all skill levels. This guide will help you get started with contributing to Kilo Code, whether you're fixing bugs, adding features, improving documentation, or sharing custom modes.
@@ -17,7 +17,7 @@ There are many ways to contribute to Kilo Code:
 
 1. **Code Contributions**: Implement new features or fix bugs
 2. **Documentation**: Improve existing docs or create new guides
-3. **Marketplace Contributions**: Create and share custom modes, skills, and MCP servers via the [Kilo Marketplace](https://github.com/Kilo-Org/kilo-marketplace)
+3. **Marketplace Contributions**: Create and share custom modes, skills, and MCP servers via the [Kilo Marketplace](https://github.com/Kilo-Org/kappa-marketplace)
 4. **Bug Reports**: Report issues you encounter
 5. **Feature Requests**: Suggest new features or improvements
 6. **Community Support**: Help other users in the community
@@ -88,7 +88,7 @@ git checkout -b docs/your-change-description
 
 ## Contributing to the Kilo Marketplace
 
-The [Kilo Marketplace](https://github.com/Kilo-Org/kilo-marketplace) is a community-driven repository of agent tooling that extends Kilo Code's capabilities. You can contribute:
+The [Kilo Marketplace](https://github.com/Kilo-Org/kappa-marketplace) is a community-driven repository of agent tooling that extends Kilo Code's capabilities. You can contribute:
 
 - **Skills**: Modular workflows and domain expertise that teach agents how to perform specific tasks
 - **MCP Servers**: Standardized integrations that connect agents to external tools and services
@@ -100,7 +100,7 @@ To contribute:
 
 2. Test your contribution thoroughly
 
-3. Submit a pull request to the [Kilo Marketplace repository](https://github.com/Kilo-Org/kilo-marketplace)
+3. Submit a pull request to the [Kilo Marketplace repository](https://github.com/Kilo-Org/kappa-marketplace)
 
 ## Engineering Specs
 
@@ -139,7 +139,7 @@ When participating in the Kilo Code community:
 
 If you need help with your contribution:
 
-- Join our [Discord community](https://kilo.ai/discord) for real-time support
+- Join our [Discord community](https://kappa.ai/discord) for real-time support
 - Ask questions on [GitHub Discussions](https://github.com/Kilo-Org/kilocode/discussions)
 - Visit our [Reddit community](https://www.reddit.com/r/kilocode)
 

@@ -41,7 +41,7 @@ describe("Agent Manager CSS Prefix", () => {
     const matches = [...css.matchAll(/--([a-z][a-z0-9-]*)\s*:/gi)]
     const names = [...new Set(matches.map((m) => m[1]))]
 
-    // Allow kilo-ui design tokens and vscode theme variables used as fallbacks
+    // Allow kappa-ui design tokens and vscode theme variables used as fallbacks
     const allowed = ["am-", "vscode-", "surface-", "text-", "border-"]
     const invalid = names.filter((n) => !allowed.some((p) => n!.startsWith(p)))
 

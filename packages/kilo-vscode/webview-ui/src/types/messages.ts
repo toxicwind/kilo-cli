@@ -174,7 +174,7 @@ export interface DeviceAuthState {
   error?: string
 }
 
-// Kilo notification types (mirrored from kilo-gateway)
+// Kilo notification types (mirrored from kappa-gateway)
 export interface KilocodeNotificationAction {
   actionText: string
   actionURL: string
@@ -188,7 +188,7 @@ export interface KilocodeNotification {
   showIn?: string[]
 }
 
-// Profile types from kilo-gateway
+// Profile types from kappa-gateway
 export interface KilocodeBalance {
   balance: number
 }

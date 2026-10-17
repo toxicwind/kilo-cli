@@ -66,7 +66,7 @@ Today we have no structured way to answer these questions. Manual testing is not
 │              │  ┌─────────────────┐  │                  │
 │              │  │  Agent Under    │  │                  │
 │              │  │  Test           │  │                  │
-│              │  │  (kilo --auto)  │  │                  │
+│              │  │  (kappa --auto)  │  │                  │
 │              │  └────────┬────────┘  │                  │
 │              │           │           │                  │
 │              │           ▼           │                  │
@@ -126,7 +126,7 @@ This granularity is what enables step-level comparison between runs -- not just 
 [Opik](https://www.comet.com/docs/opik) (by Comet) provides trace ingestion and analysis with a first-class Harbor integration. Running benchmarks through Opik is as simple as:
 
 ```bash
-opik harbor run -d terminal-bench@head -a kilo -m anthropic/claude-opus-4
+opik harbor run -d terminal-bench@head -a kappa -m anthropic/claude-opus-4
 ```
 
 Opik adds value beyond what the tbench.ai dashboard provides:
@@ -175,7 +175,7 @@ See the [Harbor task tutorial](https://www.tbench.ai/docs/task-tutorial) for a s
 The primary engineering deliverable. This adapter:
 
 - **Installs Kilo CLI** in a Docker container
-- **Configures autonomous execution** using `kilo run --auto`, which disables all permission prompts so the agent runs fully unattended
+- **Configures autonomous execution** using `kappa run --auto`, which disables all permission prompts so the agent runs fully unattended
 - **Translates Harbor task prompts** into Kilo CLI invocations
 - **Emits ATIF-compliant trajectories** capturing every step, tool call, and metric
 
@@ -229,13 +229,13 @@ Run the same Kilo Code agent against Terminal-Bench with different models:
 
 ```bash
 # Run with Claude Opus
-opik harbor run -d terminal-bench@2.0 -a kilo -m anthropic/claude-opus-4
+opik harbor run -d terminal-bench@2.0 -a kappa -m anthropic/claude-opus-4
 
 # Run with GPT-5
-opik harbor run -d terminal-bench@2.0 -a kilo -m openai/gpt-5
+opik harbor run -d terminal-bench@2.0 -a kappa -m openai/gpt-5
 
 # Run with Gemini 3 Pro
-opik harbor run -d terminal-bench@2.0 -a kilo -m google/gemini-3-pro
+opik harbor run -d terminal-bench@2.0 -a kappa -m google/gemini-3-pro
 ```
 
 Compare results in tbench.ai for aggregate scores and in Opik for step-level analysis of where models diverge.
@@ -246,7 +246,7 @@ Run different agents against the same dataset with the same model:
 
 ```bash
 # Run Kilo Code
-opik harbor run -d terminal-bench@2.0 -a kilo -m anthropic/claude-opus-4
+opik harbor run -d terminal-bench@2.0 -a kappa -m anthropic/claude-opus-4
 
 # Run Claude Code
 opik harbor run -d terminal-bench@2.0 -a claude-code -m anthropic/claude-opus-4
@@ -258,10 +258,10 @@ Test a new release against the previous version:
 
 ```bash
 # Run current release
-opik harbor run -d terminal-bench@2.0 -a kilo@v2.0 -m anthropic/claude-opus-4
+opik harbor run -d terminal-bench@2.0 -a kappa@v2.0 -m anthropic/claude-opus-4
 
 # Run candidate release
-opik harbor run -d terminal-bench@2.0 -a kilo@v2.1-rc1 -m anthropic/claude-opus-4
+opik harbor run -d terminal-bench@2.0 -a kappa@v2.1-rc1 -m anthropic/claude-opus-4
 ```
 
 Use Opik's trace comparison view to identify specific steps where the new version regressed or improved.
@@ -270,7 +270,7 @@ Use Opik's trace comparison view to identify specific steps where the new versio
 
 ```bash
 # Run against a custom Kilo-specific dataset
-opik harbor run -d kilo-refactoring@1.0 -a kilo -m anthropic/claude-opus-4
+opik harbor run -d kappa-refactoring@1.0 -a kappa -m anthropic/claude-opus-4
 ```
 
 ## LLM Judge: Two Levels

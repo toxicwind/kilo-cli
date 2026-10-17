@@ -23,7 +23,7 @@ import path from "path"
 import { Plugin } from "@/plugin"
 import { Skill } from "../skill"
 
-import { Telemetry } from "@kilocode/kilo-telemetry" // kilocode_change
+import { Telemetry } from "@kappacode/kappa-telemetry" // kilocode_change
 
 export namespace Agent {
   export const Info = z

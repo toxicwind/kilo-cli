@@ -1,30 +1,30 @@
 /**
  * Language context
- * Provides i18n translations for kilo-ui components.
- * Merges UI translations from @opencode-ai/ui and Kilo overrides from @kilocode/kilo-i18n.
+ * Provides i18n translations for kappa-ui components.
+ * Merges UI translations from @opencode-ai/ui and Kilo overrides from @kappacode/kappa-i18n.
  *
  * Locale priority: user override → VS Code display language → browser language → "en"
  */
 
 import { createSignal, createMemo, createEffect, ParentComponent, Accessor } from "solid-js"
-import { I18nProvider } from "@kilocode/kilo-ui/context"
-import type { UiI18nKey, UiI18nParams } from "@kilocode/kilo-ui/context"
-import { dict as uiEn } from "@kilocode/kilo-ui/i18n/en"
-import { dict as uiZh } from "@kilocode/kilo-ui/i18n/zh"
-import { dict as uiZht } from "@kilocode/kilo-ui/i18n/zht"
-import { dict as uiKo } from "@kilocode/kilo-ui/i18n/ko"
-import { dict as uiDe } from "@kilocode/kilo-ui/i18n/de"
-import { dict as uiEs } from "@kilocode/kilo-ui/i18n/es"
-import { dict as uiFr } from "@kilocode/kilo-ui/i18n/fr"
-import { dict as uiDa } from "@kilocode/kilo-ui/i18n/da"
-import { dict as uiJa } from "@kilocode/kilo-ui/i18n/ja"
-import { dict as uiPl } from "@kilocode/kilo-ui/i18n/pl"
-import { dict as uiRu } from "@kilocode/kilo-ui/i18n/ru"
-import { dict as uiAr } from "@kilocode/kilo-ui/i18n/ar"
-import { dict as uiNo } from "@kilocode/kilo-ui/i18n/no"
-import { dict as uiBr } from "@kilocode/kilo-ui/i18n/br"
-import { dict as uiTh } from "@kilocode/kilo-ui/i18n/th"
-import { dict as uiBs } from "@kilocode/kilo-ui/i18n/bs"
+import { I18nProvider } from "@kappacode/kappa-ui/context"
+import type { UiI18nKey, UiI18nParams } from "@kappacode/kappa-ui/context"
+import { dict as uiEn } from "@kappacode/kappa-ui/i18n/en"
+import { dict as uiZh } from "@kappacode/kappa-ui/i18n/zh"
+import { dict as uiZht } from "@kappacode/kappa-ui/i18n/zht"
+import { dict as uiKo } from "@kappacode/kappa-ui/i18n/ko"
+import { dict as uiDe } from "@kappacode/kappa-ui/i18n/de"
+import { dict as uiEs } from "@kappacode/kappa-ui/i18n/es"
+import { dict as uiFr } from "@kappacode/kappa-ui/i18n/fr"
+import { dict as uiDa } from "@kappacode/kappa-ui/i18n/da"
+import { dict as uiJa } from "@kappacode/kappa-ui/i18n/ja"
+import { dict as uiPl } from "@kappacode/kappa-ui/i18n/pl"
+import { dict as uiRu } from "@kappacode/kappa-ui/i18n/ru"
+import { dict as uiAr } from "@kappacode/kappa-ui/i18n/ar"
+import { dict as uiNo } from "@kappacode/kappa-ui/i18n/no"
+import { dict as uiBr } from "@kappacode/kappa-ui/i18n/br"
+import { dict as uiTh } from "@kappacode/kappa-ui/i18n/th"
+import { dict as uiBs } from "@kappacode/kappa-ui/i18n/bs"
 import { dict as appEn } from "../i18n/en"
 import { dict as appZh } from "../i18n/zh"
 import { dict as appZht } from "../i18n/zht"
@@ -41,22 +41,22 @@ import { dict as appNo } from "../i18n/no"
 import { dict as appBr } from "../i18n/br"
 import { dict as appTh } from "../i18n/th"
 import { dict as appBs } from "../i18n/bs"
-import { dict as kiloEn } from "@kilocode/kilo-i18n/en"
-import { dict as kiloZh } from "@kilocode/kilo-i18n/zh"
-import { dict as kiloZht } from "@kilocode/kilo-i18n/zht"
-import { dict as kiloKo } from "@kilocode/kilo-i18n/ko"
-import { dict as kiloDe } from "@kilocode/kilo-i18n/de"
-import { dict as kiloEs } from "@kilocode/kilo-i18n/es"
-import { dict as kiloFr } from "@kilocode/kilo-i18n/fr"
-import { dict as kiloDa } from "@kilocode/kilo-i18n/da"
-import { dict as kiloJa } from "@kilocode/kilo-i18n/ja"
-import { dict as kiloPl } from "@kilocode/kilo-i18n/pl"
-import { dict as kiloRu } from "@kilocode/kilo-i18n/ru"
-import { dict as kiloAr } from "@kilocode/kilo-i18n/ar"
-import { dict as kiloNo } from "@kilocode/kilo-i18n/no"
-import { dict as kiloBr } from "@kilocode/kilo-i18n/br"
-import { dict as kiloTh } from "@kilocode/kilo-i18n/th"
-import { dict as kiloBs } from "@kilocode/kilo-i18n/bs"
+import { dict as kiloEn } from "@kappacode/kappa-i18n/en"
+import { dict as kiloZh } from "@kappacode/kappa-i18n/zh"
+import { dict as kiloZht } from "@kappacode/kappa-i18n/zht"
+import { dict as kiloKo } from "@kappacode/kappa-i18n/ko"
+import { dict as kiloDe } from "@kappacode/kappa-i18n/de"
+import { dict as kiloEs } from "@kappacode/kappa-i18n/es"
+import { dict as kiloFr } from "@kappacode/kappa-i18n/fr"
+import { dict as kiloDa } from "@kappacode/kappa-i18n/da"
+import { dict as kiloJa } from "@kappacode/kappa-i18n/ja"
+import { dict as kiloPl } from "@kappacode/kappa-i18n/pl"
+import { dict as kiloRu } from "@kappacode/kappa-i18n/ru"
+import { dict as kiloAr } from "@kappacode/kappa-i18n/ar"
+import { dict as kiloNo } from "@kappacode/kappa-i18n/no"
+import { dict as kiloBr } from "@kappacode/kappa-i18n/br"
+import { dict as kiloTh } from "@kappacode/kappa-i18n/th"
+import { dict as kiloBs } from "@kappacode/kappa-i18n/bs"
 import { useVSCode } from "./vscode"
 import { normalizeLocale as _normalizeLocale, resolveTemplate as _resolveTemplate } from "./language-utils"
 
@@ -84,7 +84,7 @@ export const LOCALE_LABELS: Record<Locale, string> = {
   bs: "Bosanski",
 }
 
-// Merge all 3 dict layers: app + ui + kilo (kilo overrides last, English base always present)
+// Merge all 3 dict layers: app + ui + kappa (kappa overrides last, English base always present)
 const base = { ...appEn, ...uiEn, ...kiloEn }
 const dicts: Record<Locale, Record<string, string>> = {
   en: base,

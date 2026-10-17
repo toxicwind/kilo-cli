@@ -6,7 +6,7 @@ description: "Set up your development environment for contributing"
 # Development Environment
 
 {% callout type="info" %}
-**New versions of the VS Code extension and CLI are being developed in [Kilo-Org/Kilo](https://github.com/Kilo-Org/Kilo)** (extension at `packages/kilo-vscode`, CLI at `packages/opencode`). For extension and CLI development, please head over to that repository.
+**New versions of the VS Code extension and CLI are being developed in [Kilo-Org/Kilo](https://github.com/Kilo-Org/Kilo)** (extension at `packages/kappa-vscode`, CLI at `packages/opencode`). For extension and CLI development, please head over to that repository.
 {% /callout %}
 
 This document will help you set up your development environment and understand how to work with the codebase. Whether you're fixing bugs, adding features, or just exploring the code, this guide will get you started.
@@ -25,12 +25,12 @@ Before you begin, make sure you have the following installed:
 
 1. **Fork and Clone the Repository**:
    - **Fork the Repository**:
-     - Visit the [Kilo Code GitHub repository](https://github.com/Kilo-Org/kilo)
+     - Visit the [Kilo Code GitHub repository](https://github.com/Kilo-Org/kappa)
      - Click the "Fork" button in the top-right corner to create your own copy.
    - **Clone Your Fork**:
      ```bash
-     git clone https://github.com/[YOUR-USERNAME]/kilo.git
-     cd kilo
+     git clone https://github.com/[YOUR-USERNAME]/kappa.git
+     cd kappa
      ```
      Replace `[YOUR-USERNAME]` with your actual GitHub username.
 
@@ -108,7 +108,7 @@ In development mode (NODE_ENV="development"), changing the core code will trigge
 To install your built extension:
 
 ```bash
-code --install-extension "$(ls -1v bin/kilo-code-*.vsix | tail -n1)"
+code --install-extension "$(ls -1v bin/kappa-code-*.vsix | tail -n1)"
 ```
 
 Replace `[version]` with the current version number.

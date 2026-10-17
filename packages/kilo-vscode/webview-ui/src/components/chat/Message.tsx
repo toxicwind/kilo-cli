@@ -1,6 +1,6 @@
 /**
  * Message component
- * Uses kilo-ui's Message component from @kilocode/kilo-ui/message-part
+ * Uses kappa-ui's Message component from @kappacode/kappa-ui/message-part
  * which handles all part types: text (Markdown), tool (BasicTool + per-tool renderers),
  * reasoning, and more — matching the desktop app's rendering.
  *
@@ -9,10 +9,10 @@
  */
 
 import { Component, Show } from "solid-js"
-import { Message as KiloMessage } from "@kilocode/kilo-ui/message-part"
+import { Message as KiloMessage } from "@kappacode/kappa-ui/message-part"
 import { useSession } from "../../context/session"
 import type { Message as MessageType } from "../../types/messages"
-import type { Message as SDKMessage, Part as SDKPart } from "@kilocode/sdk/v2"
+import type { Message as SDKMessage, Part as SDKPart } from "@kappacode/sdk/v2"
 
 interface MessageProps {
   message: MessageType

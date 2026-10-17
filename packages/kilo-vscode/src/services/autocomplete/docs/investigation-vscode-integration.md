@@ -26,23 +26,23 @@ Commands declared in `src/package.json` `contributes.commands`:
 
 | Command ID                                       | Title Key                                        | Registered in Code?                        |
 | ------------------------------------------------ | ------------------------------------------------ | ------------------------------------------ |
-| `kilo-code.autocomplete.generateSuggestions`     | `%autocomplete.commands.generateSuggestions%`    | ✅ `src/services/autocomplete/index.ts:26` |
-| `kilo-code.autocomplete.cancelSuggestions`       | `%autocomplete.commands.cancelSuggestions%`      | ❌ Never registered — placeholder          |
-| `kilo-code.autocomplete.applyCurrentSuggestions` | `%autocomplete.commands.applyCurrentSuggestion%` | ❌ Never registered — placeholder          |
-| `kilo-code.autocomplete.applyAllSuggestions`     | `%autocomplete.commands.applyAllSuggestions%`    | ❌ Never registered — placeholder          |
-| `kilo-code.autocomplete.goToNextSuggestion`      | `%autocomplete.commands.goToNextSuggestion%`     | ❌ Never registered — placeholder          |
-| `kilo-code.autocomplete.goToPreviousSuggestion`  | `%autocomplete.commands.goToPreviousSuggestion%` | ❌ Never registered — placeholder          |
+| `kappa-code.autocomplete.generateSuggestions`     | `%autocomplete.commands.generateSuggestions%`    | ✅ `src/services/autocomplete/index.ts:26` |
+| `kappa-code.autocomplete.cancelSuggestions`       | `%autocomplete.commands.cancelSuggestions%`      | ❌ Never registered — placeholder          |
+| `kappa-code.autocomplete.applyCurrentSuggestions` | `%autocomplete.commands.applyCurrentSuggestion%` | ❌ Never registered — placeholder          |
+| `kappa-code.autocomplete.applyAllSuggestions`     | `%autocomplete.commands.applyAllSuggestions%`    | ❌ Never registered — placeholder          |
+| `kappa-code.autocomplete.goToNextSuggestion`      | `%autocomplete.commands.goToNextSuggestion%`     | ❌ Never registered — placeholder          |
+| `kappa-code.autocomplete.goToPreviousSuggestion`  | `%autocomplete.commands.goToPreviousSuggestion%` | ❌ Never registered — placeholder          |
 
 Additional commands registered **programmatically** but NOT declared in package.json:
 
 | Command ID                                                 | Registered in                                                                                 | Notes                                       |
 | ---------------------------------------------------------- | --------------------------------------------------------------------------------------------- | ------------------------------------------- |
-| `kilo-code.autocomplete.reload`                            | `src/services/autocomplete/index.ts:16`                                                       | Reloads settings and model                  |
-| `kilo-code.autocomplete.codeActionQuickFix`                | `src/services/autocomplete/index.ts:21`                                                       | No-op stub                                  |
-| `kilo-code.autocomplete.showIncompatibilityExtensionPopup` | `src/services/autocomplete/index.ts:31`                                                       | Shows Copilot conflict dialog               |
-| `kilo-code.autocomplete.disable`                           | `src/services/autocomplete/index.ts:36`                                                       | Disables autocomplete                       |
+| `kappa-code.autocomplete.reload`                            | `src/services/autocomplete/index.ts:16`                                                       | Reloads settings and model                  |
+| `kappa-code.autocomplete.codeActionQuickFix`                | `src/services/autocomplete/index.ts:21`                                                       | No-op stub                                  |
+| `kappa-code.autocomplete.showIncompatibilityExtensionPopup` | `src/services/autocomplete/index.ts:31`                                                       | Shows Copilot conflict dialog               |
+| `kappa-code.autocomplete.disable`                           | `src/services/autocomplete/index.ts:36`                                                       | Disables autocomplete                       |
 | `kilocode.autocomplete.inline-completion.accepted`         | `src/services/autocomplete/classic-auto-complete/AutocompleteInlineCompletionProvider.ts:313` | Telemetry callback when suggestion accepted |
-| `kilo-code.jetbrains.getInlineCompletions`                 | `src/services/autocomplete/AutocompleteJetbrainsBridge.ts:289`                                | JetBrains bridge                            |
+| `kappa-code.jetbrains.getInlineCompletions`                 | `src/services/autocomplete/AutocompleteJetbrainsBridge.ts:289`                                | JetBrains bridge                            |
 
 ### 1.3 Keybindings
 
@@ -50,9 +50,9 @@ From `src/package.json` `contributes.keybindings`:
 
 | Command                                                    | Key      | Mac     | When Clause                                                                                                                                                 |
 | ---------------------------------------------------------- | -------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `kilo-code.autocomplete.cancelSuggestions`                 | `Escape` | same    | `editorTextFocus && !editorTabMovesFocus && !inSnippetMode && kilocode.autocomplete.hasSuggestions`                                                         |
-| `kilo-code.autocomplete.generateSuggestions`               | `Ctrl+L` | `Cmd+L` | `editorTextFocus && !editorTabMovesFocus && !inSnippetMode && kilocode.autocomplete.enableSmartInlineTaskKeybinding && !github.copilot.completions.enabled` |
-| `kilo-code.autocomplete.showIncompatibilityExtensionPopup` | `Ctrl+L` | `Cmd+L` | `editorTextFocus && !editorTabMovesFocus && !inSnippetMode && kilocode.autocomplete.enableSmartInlineTaskKeybinding && github.copilot.completions.enabled`  |
+| `kappa-code.autocomplete.cancelSuggestions`                 | `Escape` | same    | `editorTextFocus && !editorTabMovesFocus && !inSnippetMode && kilocode.autocomplete.hasSuggestions`                                                         |
+| `kappa-code.autocomplete.generateSuggestions`               | `Ctrl+L` | `Cmd+L` | `editorTextFocus && !editorTabMovesFocus && !inSnippetMode && kilocode.autocomplete.enableSmartInlineTaskKeybinding && !github.copilot.completions.enabled` |
+| `kappa-code.autocomplete.showIncompatibilityExtensionPopup` | `Ctrl+L` | `Cmd+L` | `editorTextFocus && !editorTabMovesFocus && !inSnippetMode && kilocode.autocomplete.enableSmartInlineTaskKeybinding && github.copilot.completions.enabled`  |
 
 **Note**: The `Escape` keybinding references `kilocode.autocomplete.hasSuggestions` which is
 **never set** in code via `setContext`. This means the keybinding is currently inert
@@ -90,7 +90,7 @@ vscode.languages.registerCodeActionsProvider("*", autocompleteManager.codeAction
 ```
 
 The `AutocompleteCodeActionProvider` (`src/services/autocomplete/AutocompleteCodeActionProvider.ts`)
-provides a QuickFix action that triggers `kilo-code.autocomplete.generateSuggestions`.
+provides a QuickFix action that triggers `kappa-code.autocomplete.generateSuggestions`.
 
 ---
 
@@ -177,7 +177,7 @@ Three autocomplete-related message types are handled:
      const validatedSettings = autocompleteServiceSettingsSchema.parse(message.values)
      await updateGlobalState("ghostServiceSettings", validatedSettings)
      await provider.postStateToWebview()
-     vscode.commands.executeCommand("kilo-code.autocomplete.reload")
+     vscode.commands.executeCommand("kappa-code.autocomplete.reload")
    ```
 
    This is the primary way the webview UI writes autocomplete settings.
@@ -198,7 +198,7 @@ Three autocomplete-related message types are handled:
 
 ### 4.3 Autocomplete reload triggered from webview
 
-The `kilo-code.autocomplete.reload` command is also triggered when API profiles change:
+The `kappa-code.autocomplete.reload` command is also triggered when API profiles change:
 
 - `saveApiConfiguration` (line 2231)
 - `upsertApiConfiguration` (lines 2294, 2303)
@@ -271,7 +271,7 @@ The inline completion provider is conditionally registered/disposed based on
 - Alignment: `vscode.StatusBarAlignment.Right`, priority 100
 - Shows/hides based on `enableAutoTrigger` setting
 - Displays completion count, cost, provider info, and snoozed state
-- Uses `$(kilo-logo)` codicon (custom icon font)
+- Uses `$(kappa-logo)` codicon (custom icon font)
 
 ---
 
@@ -303,7 +303,7 @@ Namespace: `kilocode:autocomplete.*`
 {
   "autocomplete": {
     "statusBar": {
-      "enabled": "$(kilo-logo) Autocomplete",
+      "enabled": "$(kappa-logo) Autocomplete",
       "snoozed": "snoozed",
       "warning": "$(warning) Autocomplete",
       "tooltip": {
@@ -383,7 +383,7 @@ The autocomplete service depends on:
 2. **`ContextProxy`** — singleton for global state read/write
 3. **`vscode.ExtensionContext`** — for `subscriptions` (disposable management), `globalState`
 4. **Webview messaging** — bidirectional communication for settings changes
-5. **Custom icon font** — `$(kilo-logo)` codicon from `assets/icons/kilo-icon-font.woff2`
+5. **Custom icon font** — `$(kappa-logo)` codicon from `assets/icons/kappa-icon-font.woff2`
 
 ---
 

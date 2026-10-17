@@ -1,6 +1,6 @@
 import { Component, For, createMemo } from "solid-js"
-import { Select } from "@kilocode/kilo-ui/select"
-import { Card } from "@kilocode/kilo-ui/card"
+import { Select } from "@kappacode/kappa-ui/select"
+import { Card } from "@kappacode/kappa-ui/card"
 import { useConfig } from "../../context/config"
 import { useLanguage } from "../../context/language"
 import type { PermissionLevel } from "../../types/messages"

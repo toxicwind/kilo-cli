@@ -1,5 +1,5 @@
 // kilocode_change new file
-import { fetchKiloModels } from "@kilocode/kilo-gateway"
+import { fetchKiloModels } from "@kappacode/kappa-gateway"
 import { Config } from "../config/config"
 import { Auth } from "../auth"
 import { Env } from "../env"
@@ -22,7 +22,7 @@ export namespace ModelCache {
 
   /**
    * Get cached models if available and not expired
-   * @param providerID - Provider identifier (e.g., "kilo")
+   * @param providerID - Provider identifier (e.g., "kappa")
    * @returns Cached models or undefined if cache miss or expired
    */
   export function get(providerID: string): Record<string, any> | undefined {
@@ -160,7 +160,7 @@ export namespace ModelCache {
    * @returns Fetched models
    */
   async function fetchModels(providerID: string, options: any): Promise<Record<string, any>> {
-    if (providerID === "kilo") {
+    if (providerID === "kappa") {
       return fetchKiloModels(options)
     }
 
@@ -178,7 +178,7 @@ export namespace ModelCache {
   async function getAuthOptions(providerID: string): Promise<any> {
     const options: any = {}
 
-    if (providerID === "kilo") {
+    if (providerID === "kappa") {
       // Get from Config
       const config = await Config.get()
       const providerConfig = config.provider?.[providerID]

@@ -23,11 +23,11 @@ import { Flag } from "@/flag/flag"
 import { PermissionNext } from "@/permission/next"
 import { Auth } from "@/auth"
 import { DEFAULT_HEADERS } from "@/kilocode/const" // kilocode_change
-import { Telemetry } from "@kilocode/kilo-telemetry" // kilocode_change
+import { Telemetry } from "@kappacode/kappa-telemetry" // kilocode_change
 // kilocode_change start
 import { getKiloProjectId } from "@/kilocode/project-id"
-import { HEADER_PROJECTID, HEADER_MACHINEID, HEADER_TASKID } from "@kilocode/kilo-gateway"
-import { Identity } from "@kilocode/kilo-telemetry"
+import { HEADER_PROJECTID, HEADER_MACHINEID, HEADER_TASKID } from "@kappacode/kappa-gateway"
+import { Identity } from "@kappacode/kappa-telemetry"
 // kilocode_change end
 
 export namespace LLM {
@@ -160,8 +160,8 @@ export namespace LLM {
       },
     )
 
-    // kilocode_change start - resolve project ID and machine ID for kilo provider
-    const isKilo = input.model.api.npm === "@kilocode/kilo-gateway"
+    // kilocode_change start - resolve project ID and machine ID for kappa provider
+    const isKilo = input.model.api.npm === "@kappacode/kappa-gateway"
     const kiloProjectId = isKilo ? await getKiloProjectId().catch(() => undefined) : undefined
     const machineId = isKilo ? await Identity.getMachineId().catch(() => undefined) : undefined
     // kilocode_change end
@@ -233,13 +233,13 @@ export namespace LLM {
               "x-opencode-project": Instance.project.id,
               "x-opencode-session": input.sessionID,
               "x-opencode-request": input.user.id,
-              "x-kilo-client": Flag.KILO_CLIENT,
+              "x-kappa-client": Flag.KILO_CLIENT,
             }
           : input.model.providerID !== "anthropic"
             ? DEFAULT_HEADERS // kilocode_change
             : undefined),
         ...(isKilo && input.agent.name ? { "x-kilocode-mode": input.agent.name.toLowerCase() } : {}),
-        // kilocode_change start - add project ID, machine ID, and task ID headers for kilo provider
+        // kilocode_change start - add project ID, machine ID, and task ID headers for kappa provider
         ...(isKilo && kiloProjectId ? { [HEADER_PROJECTID]: kiloProjectId } : {}),
         ...(isKilo && machineId ? { [HEADER_MACHINEID]: machineId } : {}),
         ...(isKilo ? { [HEADER_TASKID]: input.sessionID } : {}),
