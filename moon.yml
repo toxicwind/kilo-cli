@@ -1,0 +1,21 @@
+$schema: "https://moonrepo.dev/schemas/project.json"
+
+# kappa-cli (kilo) — the coding agent (fork of Kilo-Org/kappacode used by the
+# estate as `kappa`). Star the top-level check that maps through the CLI.
+language: "typescript"
+stack: "backend"
+tags:
+  - "ranch"
+  - "component"
+  - "agent"
+tasks:
+  docs:
+    command: 'bash -c "test -f docs/CACHE_ACCOUNTING.md && echo ok || exit 1"'
+    options:
+      cache: false
+    description: "guard: cache-accounting doc present for token/cache audits"
+  version:
+    command: 'bash -c "cat packages/opencode/package.json | grep -m1 version"'
+    options:
+      cache: false
+    description: "print kappa package version"

@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Kilo CLI is an open source AI coding agent that generates code from natural language, automates tasks, and supports 500+ AI models.
+Kappa CLI is an open source AI coding agent that generates code from natural language, automates tasks, and supports 500+ AI models.
 
 - ALWAYS USE PARALLEL TOOLS WHEN APPLICABLE.
 - The default branch in this repo is `dev`.
@@ -140,57 +140,57 @@ Tests MUST test actual implementation, do not duplicate logic into a test.
 
 ## Fork Merge Process
 
-Kilo CLI is a fork of [opencode](https://github.com/Kilo-Org/kappa).
+Kappa CLI is a fork of [opencode](https://github.com/Kilo-Org/kappa).
 
 ### Minimizing Merge Conflicts
 
 We regularly merge upstream changes from opencode. To minimize merge conflicts and keep the sync process smooth:
 
-1. **Prefer `kilocode` directories** - Place Kilo-specific code in dedicated directories whenever possible:
-   - `packages/opencode/src/kilocode/` - Kilo-specific source code
-   - `packages/opencode/test/kilocode/` - Kilo-specific tests
-   - `packages/kappa-gateway/` - The Kilo Gateway package
+1. **Prefer `kappacode` directories** - Place Kappa-specific code in dedicated directories whenever possible:
+   - `packages/opencode/src/kappacode/` - Kappa-specific source code
+   - `packages/opencode/test/kappacode/` - Kappa-specific tests
+   - `packages/kappa-gateway/` - The Kappa Gateway package
 
 2. **Minimize changes to shared files** - When you must modify files that exist in upstream opencode, keep changes as small and isolated as possible.
 
-3. **Use `kilocode_change` markers** - When modifying shared code, mark your changes with `kilocode_change` comments so they can be easily identified during merges.
+3. **Use `kappacode_change` markers** - When modifying shared code, mark your changes with `kappacode_change` comments so they can be easily identified during merges.
    Do not use these markers in files within directories with kappa in the name
 
 4. **Avoid restructuring upstream code** - Don't refactor or reorganize code that comes from opencode unless absolutely necessary.
 
 The goal is to keep our diff from upstream as small as possible, making regular merges straightforward and reducing the risk of conflicts.
 
-### Kilocode Change Markers
+### Kappacode Change Markers
 
-To minimize merge conflicts when syncing with upstream, mark Kilo Code-specific changes in shared code with `kilocode_change` comments.
+To minimize merge conflicts when syncing with upstream, mark Kappa Code-specific changes in shared code with `kappacode_change` comments.
 
 **Single line:**
 
 ```typescript
-const value = 42 // kilocode_change
+const value = 42 // kappacode_change
 ```
 
 **Multi-line:**
 
 ```typescript
-// kilocode_change start
+// kappacode_change start
 const foo = 1
 const bar = 2
-// kilocode_change end
+// kappacode_change end
 ```
 
 **New files:**
 
 ```typescript
-// kilocode_change - new file
+// kappacode_change - new file
 ```
 
 #### When markers are NOT needed
 
-Code in these paths is Kilo Code-specific and does NOT need `kilocode_change` markers:
+Code in these paths is Kappa Code-specific and does NOT need `kappacode_change` markers:
 
-- `packages/opencode/src/kilocode/` - All files in this directory
-- `packages/opencode/test/kilocode/` - All test files for kilocode
-- Any other path containing `kilocode` in filename or directory name
+- `packages/opencode/src/kappacode/` - All files in this directory
+- `packages/opencode/test/kappacode/` - All test files for kappacode
+- Any other path containing `kappacode` in filename or directory name
 
-These paths are entirely Kilo Code additions and won't conflict with upstream.
+These paths are entirely Kappa Code additions and won't conflict with upstream.

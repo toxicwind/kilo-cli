@@ -4,7 +4,7 @@ This file provides guidance to agents when working with code in this repository.
 
 ## Package Context
 
-VSCode extension for Kilo Code. Part of a Bun/Turbo monorepo using Bun workspace dependencies.
+VSCode extension for Kappa Code. Part of a Bun/Turbo monorepo using Bun workspace dependencies.
 
 ## Commands
 
@@ -107,9 +107,9 @@ While the old extension coexists, runtime labels append `(NEW)` — controlled b
 
 Opens as an editor tab (not the sidebar) and lets users run multiple independent AI sessions in parallel. It has a left sidebar listing active sessions and a right panel showing the chat UI for the selected one. Each session is a standard `kappa serve` session. The extension side uses the same `KiloProvider` wiring as the sidebar; the webview side reuses the same provider chain and `ChatView` component.
 
-## Kilocode Change Markers
+## Kappacode Change Markers
 
-This package is entirely Kilo-specific — `kilocode_change` markers are NOT needed in any files under `packages/kappa-vscode/`. The markers are only necessary when modifying shared upstream opencode files.
+This package is entirely Kappa-specific — `kappacode_change` markers are NOT needed in any files under `packages/kappa-vscode/`. The markers are only necessary when modifying shared upstream opencode files.
 
 ## Style
 

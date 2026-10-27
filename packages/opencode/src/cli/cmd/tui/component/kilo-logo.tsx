@@ -10,7 +10,7 @@ import { useTheme, tint } from "@tui/context/theme"
 const SHADOW_MARKER = /[_^~]/
 
 const ASCII_LOGO = [
-  `██ ▄█▀ ██ ██     ▄████▄   ▄█████ ██     ██ `,
+  `KAPPA  ▄████  ▄████  ▄████  ▄█  `, // Option 3: More compact version
   `████   ██ ██     ██~~██   ██~~~~ ██     ██ `,
   `██ ▀█▄ ██ ██████ ▀████▀   ▀█████ ██████ ██ `,
   `~~  ~~ ~~ ~~~~~~  ~~~~     ~~~~~ ~~~~~~ ~~ `,
