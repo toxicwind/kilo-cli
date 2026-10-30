@@ -63,6 +63,8 @@
     }
   },
   "devDependencies": {
+    "@types/bun": "^1.4.4",
+    "bun-types": "^1.4.4",
     "@actions/artifact": "5.0.1",
     "@tsconfig/bun": "catalog:",
     "husky": "9.1.7",
